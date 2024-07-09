@@ -1,5 +1,7 @@
 { ... }:
 
 {
-  programs.java.enable = true;
+  config = lib.mkIf config.modMinecraft.enable {
+    programs.java.enable = true;
+  };
 }
