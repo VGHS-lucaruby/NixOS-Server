@@ -9,6 +9,8 @@
     imports = [
       /Firewall.nix
       /Java.nix
+      /Service.nix
+      /Users.nix
     ];
   };
 }
