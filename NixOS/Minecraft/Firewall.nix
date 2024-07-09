@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, config, ... }:
 
 {
   config = lib.mkIf config.modMinecraft.enable {
