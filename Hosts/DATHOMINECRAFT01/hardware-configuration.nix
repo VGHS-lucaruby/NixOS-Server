@@ -16,7 +16,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/NIXBOOT";
     fsType = "vfat";
-    option = [ "fmask=0022" "dmask=0022"]
+    option = [ "fmask=0022" "dmask=0022"];
   };
 
   swapDevices = [ ];
