@@ -3,7 +3,7 @@
 {
   imports = [
     ../../NixOS
-    /hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   networking.interfaces.eth0.ipv4.addresses = [ 

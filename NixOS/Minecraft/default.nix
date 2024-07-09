@@ -7,10 +7,10 @@
 
   config = lib.mkIf config.modMinecraft.enable {
     imports = [
-      /Firewall.nix
-      /Java.nix
-      /Service.nix
-      /Users.nix
+      ./Firewall.nix
+      ./Java.nix
+      ./Service.nix
+      ./Users.nix
     ];
   };
 }

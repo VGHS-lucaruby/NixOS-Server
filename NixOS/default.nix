@@ -2,7 +2,7 @@
 
 {
   imports = [
-    /Base
-    /Minecraft
+    ./Base
+    ./Minecraft
   ];
 }
