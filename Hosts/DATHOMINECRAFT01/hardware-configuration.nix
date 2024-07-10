@@ -2,12 +2,12 @@
 
 {
   fileSystems."/" = {
-    label = "NIXROOT";
+    label = "NIXOS-ROOT";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    label = "NIXBOOT";
+    label = "NIXOS-BOOT";
     fsType = "vfat";
   };
 
