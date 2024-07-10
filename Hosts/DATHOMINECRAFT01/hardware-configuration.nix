@@ -2,14 +2,13 @@
 
 {
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXROOT";
+    label = "NIXROOT";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/NIXBOOT";
+    label = "NIXBOOT";
     fsType = "vfat";
-    option = [ "fmask=0022" "dmask=0022"];
   };
 
   swapDevices = [ ];
