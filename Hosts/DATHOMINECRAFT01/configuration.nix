@@ -12,7 +12,8 @@
       prefixLength = 24;
     } 
   ];
-  
+
+  modBIOS.enable = true;
   modMinecraft.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
