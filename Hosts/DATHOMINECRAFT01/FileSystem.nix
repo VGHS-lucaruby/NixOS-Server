@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 {
   fileSystems."/" = {
@@ -9,12 +9,10 @@
   fileSystems."/boot" = {
     label = "NIXOS-BOOT";
     fsType = "vfat";
-    option = [ "umask=0077"];
+    options = [ "umask=0077"];
   };
 
   swapDevices = [ 
     { label = "NIXOS-SWAP"; } 
   ];
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

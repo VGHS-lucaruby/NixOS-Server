@@ -1,9 +1,9 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [
     ../../NixOS
-    ./hardware-configuration.nix
+    ./FileSystem.nix
   ];
 
   networking.interfaces.eth0.ipv4.addresses = [ 
@@ -15,6 +15,7 @@
 
   modMinecraft.enable = true;
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   networking.hostName = "DATHOMINECRAFT01";
   system.stateVersion = "24.05";
