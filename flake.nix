@@ -13,7 +13,7 @@
     nixosConfigurations.DATHOMINECRAFT01 = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [ 
-        ./Hosts/DATHOMINECRAFT01/configuration.nix
+        ./Hosts/DATHOMINECRAFT01/Config.nix
       ];
     };
   };
