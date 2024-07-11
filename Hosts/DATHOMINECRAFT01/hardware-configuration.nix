@@ -9,7 +9,7 @@
   fileSystems."/boot" = {
     label = "NIXOS-BOOT";
     fsType = "vfat";
-    option = [ "fmask=0022" "dmask=0022"];
+    option = [ "fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [ 
