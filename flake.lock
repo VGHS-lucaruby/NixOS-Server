@@ -40,14 +40,13 @@
       "locked": {
         "lastModified": 1718757318,
         "narHash": "sha256-VEmxdJKMFP7lQejyOX+1iTUU0q1HMwPM2shqyucW62M=",
-        "owner": "astr0n8t",
+        "owner": "VGHS-lucaruby",
         "repo": "nixos-gitops",
         "rev": "c78f4a25b7ea500f31f25f9e7cddde2749faad23",
         "type": "github"
       },
       "original": {
-        "owner": "astr0n8t",
-        "ref": "main",
+        "owner": "VGHS-lucaruby",
         "repo": "nixos-gitops",
         "type": "github"
       }

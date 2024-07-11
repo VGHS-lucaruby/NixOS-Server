@@ -31,6 +31,15 @@
   #   ];
   # };
 
+  fileSystems."/" = { 
+    label = "nixos";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    label = "ESP";
+  };
+
   # Can be left alone
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "24.05";
