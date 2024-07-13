@@ -6,6 +6,6 @@
       isNormalUser = true;
     };
 
-    users.groups.minecraft.members = [ "usrmgmt01" "svcminecraft" ];
+    users.groups.minecraft.members = [ "mgmnt" "svcminecraft" ];
   };  
 }
