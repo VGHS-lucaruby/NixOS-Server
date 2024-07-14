@@ -43,7 +43,6 @@
             system = "x86_64-linux";
             modules = [
               ./NixOS
-              ./NixOS/Generators/Proxmox.nix
               ./Nodes/${nodename}.nix
             ];
             specialArgs = {
