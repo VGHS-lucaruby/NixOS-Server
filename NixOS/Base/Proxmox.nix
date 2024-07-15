@@ -1,10 +1,11 @@
-{ ... }:
+{ nodeHostName, ... }:
 
 {
-  proxmox.qemuConf.bios = "ovmf";
-  services.cloud-init = {
-    enable = true;
-    network.enable = true;
-    ext4.enable = true;
+  proxmox = {
+    qemuConf = {
+      bios = "ovmf";
+      name = nodeHostName;
+      net0 = "virtio=00:00:00:00:00:00,bridge=vmbr1,firewall=1,tag=20";
+    };
   };
 }
