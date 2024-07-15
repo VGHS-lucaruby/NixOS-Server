@@ -2,5 +2,9 @@
 
 {
   proxmox.qemuConf.bios = "ovmf";
-  services.cloud-init.network.enable = true;
+  services.cloud-init = {
+    enable = true;
+    network.enable = true;
+    ext4.enable = true;
+  };
 }
