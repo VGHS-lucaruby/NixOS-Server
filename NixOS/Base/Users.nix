@@ -8,6 +8,9 @@
       isNormalUser = true;
       password = "change"; # todo replace with sops or equvilant 
       extraGroups = [ "networkmanager" "wheel" "mgmnt" ];
+      openssh.authorizedKeys.keys ={
+        "" # todo add later
+      };
     };
   };
 }
