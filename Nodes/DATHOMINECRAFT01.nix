@@ -1,15 +1,25 @@
 { ... }:
 
 {
+  # Set CPU and Memory
+  proxmox.qemuConf = {
+    cores = 8;
+    memory = 16384;
+  };
+
   # Set IP
   networking = {  
+    networkmanager.enable = true;
     interfaces.eth0.ipv4.addresses = [ 
       {
         address = "10.0.20.101";
         prefixLength = 24;
       } 
     ];
-    defaultGateway = "10.0.20.254";
+    defaultGateway = {
+      address = "10.0.20.254";
+      interface = "eth0";
+    };
     nameservers = [ "10.0.20.254" ];
   };
 
