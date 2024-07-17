@@ -10,7 +10,7 @@
     ./Locale.nix
     ./NixGC.nix
     ./Packages.nix
-    ./Proxmox.nix
+    ./Qemu.nix
     ./SSH.nix
     ./Users.nix
     ./Zsh.nix

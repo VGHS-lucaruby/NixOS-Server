@@ -23,7 +23,8 @@
         nodename:
           nixos-generators.nixosGenerate {
             system = "x86_64-linux";
-            format = "proxmox";
+            customFormats = { "proxmox-custom" = ./NixOS/Formats/Proxmox-Custom.nix; };
+            format = "proxmox-custom";
             modules = [
               ./NixOS
               ./Nodes/${nodename}.nix

@@ -1,12 +1,6 @@
 { ... }:
 
 {
-  # Set CPU and Memory
-  proxmox.qemuConf = {
-    cores = 8;
-    memory = 16384;
-  };
-
   # Set IP
   networking = {  
     networkmanager.enable = true;
