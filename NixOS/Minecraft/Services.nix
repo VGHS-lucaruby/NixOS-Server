@@ -8,7 +8,7 @@
         User="svcminecraft";
         WorkingDirectory="/opt/minecraft";
 
-        ExecStart="java -XX:+UseG1GC -Xmx12G -jar server.jar --nojline --noconsole";
+        ExecStart="java -XX:+UseG1GC -Xmx12G -jar server.jar nogui";
 
         Restart="always";
         RestartSec="30";
@@ -20,6 +20,6 @@
       wantedBy = [ "multi-user.target" ];
     };
 
-    systemd.services.minecraft.enable = builtins.pathExists "/opt/minecraft" ;
+    systemd.services.minecraft.enable = true ;
   };
 }
