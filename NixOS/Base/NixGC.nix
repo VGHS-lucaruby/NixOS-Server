@@ -3,7 +3,7 @@
 {
   nix.gc = {
     automatic = true;
-    dates = "daily";
+    dates = "Sun *-*-* 03:00 Europe/London";
     options = "--delete-older-than 14d";
   };
 }

@@ -3,13 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    sops-nix.url = "github:Mic92/sops-nix";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixos-generators, nixos-hardware, ... } @inputs:
+  outputs = { self, nixpkgs, nixos-generators, nixos-hardware, sops-nix, ... } @inputs:
   let
       nodes = [
       # List hostnames here for configuration
@@ -23,7 +24,7 @@
         nodename:
           nixos-generators.nixosGenerate {
             system = "x86_64-linux";
-            customFormats = { "proxmox-custom" = ./NixOS/Formats/Proxmox-Custom.nix; };
+            customFormats = { "proxmox-custom" = ./Formats/Proxmox-Custom.nix; };
             format = "proxmox-custom";
             modules = [
               ./NixOS
