@@ -14,7 +14,12 @@
   let
       nodes = [
       # List hostnames here for configuration
+        "DATHOAUTHENTIK01"
+        "DATHOGRAFANA01"
         "DATHOMINECRAFT01"
+        "DATHOPOSTGRES01"
+        "DATHOPROMETH01"
+        "DATHOUNIFI01"
       ];
       
       generator = (
