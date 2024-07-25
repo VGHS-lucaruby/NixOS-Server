@@ -8,6 +8,7 @@
     ./FileSystem.nix
     ./Firewall.nix
     ./Locale.nix
+    ./Networking.nix
     ./NixGC.nix
     ./Packages.nix
     ./Qemu.nix
