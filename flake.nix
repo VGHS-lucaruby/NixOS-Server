@@ -8,9 +8,13 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mysecrets = {
+      url = "git+ssh://git@github.com:VGHS-lucaruby/NixOS-Server-Secrets.git?shallow=1";
+      flake = false;
+    }
   };
 
-  outputs = { self, nixpkgs, nixos-generators, nixos-hardware, sops-nix, ... } @inputs:
+  outputs = { self, nixpkgs, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
   let
       nodes = [
       # List hostnames here for configuration
