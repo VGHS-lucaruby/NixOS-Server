@@ -18,6 +18,9 @@ in
       "GitHub/ServerSecrets" = {
         path = "/etc/ssh/id_ed25519_ServerSecrets"
       };
+      "${nodename}/SSHKey" = {
+        path = "/etc/ssh/id_ed25519_${nodename}"
+      };
     };
   };
 }

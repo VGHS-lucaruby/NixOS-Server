@@ -11,7 +11,7 @@
     mysecrets = {
       url = "git+ssh://git@github.com:VGHS-lucaruby/NixOS-Server-Secrets.git?shallow=1";
       flake = false;
-    }
+    };
   };
 
   outputs = { self, nixpkgs, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
