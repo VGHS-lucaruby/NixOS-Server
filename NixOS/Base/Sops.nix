@@ -15,10 +15,10 @@ in
     };
 
     secrets = {
-      "GitHub/ServerSecrets" = {
+      "SSHKeys/GitHub" = {
         path = "/etc/ssh/id_ed25519_ServerSecrets"
       };
-      "${nodename}/SSHKey" = {
+      "$SSHKeys/Host" = {
         path = "/etc/ssh/id_ed25519_${nodename}"
       };
     };
