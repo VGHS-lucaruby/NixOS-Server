@@ -16,10 +16,10 @@ in
 
     secrets = {
       "SSHKeys/GitHub" = {
-        path = "/etc/ssh/id_ed25519_ServerSecrets"
+        path = "/etc/ssh/id_ed25519_ServerSecrets";
       };
       "$SSHKeys/Host" = {
-        path = "/etc/ssh/id_ed25519_${nodename}"
+        path = "/etc/ssh/id_ed25519_${nodename}";
       };
     };
   };
