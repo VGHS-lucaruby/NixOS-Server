@@ -12,7 +12,7 @@
     ./NixGC.nix
     ./Packages.nix
     ./Qemu.nix
-    # ./Sops.nix
+    ./Sops.nix
     ./SSH.nix
     ./Users.nix
     ./Zsh.nix

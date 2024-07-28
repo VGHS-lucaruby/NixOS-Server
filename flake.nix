@@ -3,13 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix = { 
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mysecrets = {
-      url = "git+ssh://git@github.com:VGHS-lucaruby/NixOS-Server-Secrets.git?shallow=1";
+      url = "git+ssh://git@github.com/VGHS-lucaruby/NixOS-Server-Secrets.git?shallow=1";
       flake = false;
     };
   };
@@ -38,11 +41,13 @@
             modules = [
               ./NixOS
               ./Nodes/${nodename}.nix
+              sops-nix.nixosModules.sops
             ];
             specialArgs = {
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
+              nodeSecrets = "${builtins.toString mysecrets}/${nodename}";
             };
           }
       );
@@ -55,11 +60,13 @@
             modules = [
               ./NixOS
               ./Nodes/${nodename}.nix
+              sops-nix.nixosModules.sops
             ];
             specialArgs = {
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
+              nodeSecrets = "${builtins.toString mysecrets}/${nodename}";
             };
           }
       );

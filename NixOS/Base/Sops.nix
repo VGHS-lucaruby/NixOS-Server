@@ -1,25 +1,22 @@
-{ nodename, config, nodename, ... }:
+{ nodeHostName, nodeSecrets, config, ... }:
 
-let
-  secretspath = builtins.toString mysecrets;
-in
 {
-  sops = {
-    defaultSopsFile = "${secretspath}/${nodename}/secrets.yaml";
+  sops = {  
+    defaultSopsFile = "${nodeSecrets}/secrets.yaml";
     validateSopsFiles = false;
 
     age = {
-      sshKeyPaths = [ "/etc/ssh/id_ed25519_${nodename}" ];
+      sshKeyPaths = [ "/etc/ssh/id_ed25519_${nodeHostName}" ];
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey=true;
     };
 
     secrets = {
-      "GitHub/ServerSecrets" = {
-        path = "/etc/ssh/id_ed25519_ServerSecrets"
+      "SSHKeys/GitHub" = {
+        path = "/etc/ssh/id_ed25519_ServerSecrets";
       };
-      "${nodename}/SSHKey" = {
-        path = "/etc/ssh/id_ed25519_${nodename}"
+      "$SSHKeys/Host" = {
+        path = "/etc/ssh/id_ed25519_${nodeHostName}";
       };
     };
   };
