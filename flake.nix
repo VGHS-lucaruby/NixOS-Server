@@ -47,7 +47,7 @@
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
-              nodeSecrets = "${builtins.toString mysecrets}/${nodename}";
+              nodeSecrets = "${mysecrets}/${nodename}";
             };
           }
       );
@@ -66,7 +66,7 @@
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
-              nodeSecrets = "${builtins.toString mysecrets}/${nodename}";
+              nodeSecrets = "${mysecrets}/${nodename}";
             };
           }
       );
