@@ -41,11 +41,13 @@
             modules = [
               ./NixOS
               ./Nodes/${nodename}.nix
+              sops-nix.nixosModules.sops
             ];
             specialArgs = {
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
+              nodeSecrets = "${builtins.toString mysecrets}/${nodename}";
             };
           }
       );
@@ -58,11 +60,13 @@
             modules = [
               ./NixOS
               ./Nodes/${nodename}.nix
+              sops-nix.nixosModules.sops
             ];
             specialArgs = {
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
+              nodeSecrets = "${builtins.toString mysecrets}/${nodename}";
             };
           }
       );
