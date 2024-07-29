@@ -1,4 +1,4 @@
-{ nodeHostName, ... }:
+{ nodeHostName, config, ... }:
 
 {
   services.openssh = {
@@ -19,7 +19,8 @@
       IdentityFile /etc/ssh/id_ed25519_ServerSecrets
     ";
     knownHosts = {
-      githubED.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+      "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
     };
-  };  
+  };
+  environment.etc."ssh/id_ed25519_ServerSecrets".source = config.sops.secrets.SSHKeys/GitHub.path;
 }
