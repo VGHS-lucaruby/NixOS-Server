@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     git
+    ssh-to-age
     wget
     pciutils
     sl

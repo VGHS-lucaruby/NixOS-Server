@@ -47,7 +47,7 @@
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
-              nodeSecrets = "${mysecrets}/${nodename}";
+              nodeSecrets = "${mysecrets}/Nodes";
             };
           }
       );
@@ -66,7 +66,7 @@
               # additional arguments to pass to modules
               self = self;
               nodeHostName = nodename;
-              nodeSecrets = "${mysecrets}/${nodename}";
+              nodeSecrets = "${mysecrets}/Nodes";
             };
           }
       );

@@ -1,16 +1,12 @@
 { config, ... }:
 
 {
+  sops.secrets."Passwords/root".neededForUsers = true;
+  # todo LDAP
   users = {
-    mutableUsers = true;
-    users.root.password = "change"; # todo replace with sops or equvilant 
-    users.usrmgmt01 = {
-      isNormalUser = true;
-      password = "change"; # todo replace with sops or equvilant 
-      extraGroups = [ "networkmanager" "wheel" "mgmnt" ];
-      openssh.authorizedKeys.keys = [
-        "" # todo add later
-      ];
-    };
+    # mutableUsers = true;
+    # users.root.password = "temp";
+    mutableUsers = false;
+    users.root.hashedPasswordFile = config.sops.secrets."Passwords/root".path;
   };
 }
