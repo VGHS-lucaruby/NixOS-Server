@@ -4,7 +4,6 @@
   networking = {  
     networkmanager.enable = true;
     useDHCP = false;
-    enableIPv6 = false;
     defaultGateway = {
       address = "10.0.20.254";
       interface = "eth0";
