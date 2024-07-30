@@ -5,7 +5,7 @@
   networking = {  
     interfaces.eth0.ipv4.addresses = [ 
       {
-        address = "10.0.20.51";
+        address = "10.0.20.50";
         prefixLength = 24;
       } 
     ];
