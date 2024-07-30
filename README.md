@@ -12,6 +12,9 @@ Run the following build command in a location you would like the Proxmox VMA fil
 
 ***Ensure keys have been placed in the keyfile for each node.***
 
+## Manual Update
+Run the following command on the server you would like to update.<br>
+```sudo nixos-rebuild switch -L --refresh --flake github:VGHS-lucaruby/NixOS-Server#$(hostname)```
 
 ## Deploying Proxmox Images
 - Todo
