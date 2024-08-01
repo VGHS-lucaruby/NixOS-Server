@@ -13,5 +13,10 @@
       # This will generate a new key if the key specified above does not exist
       generateKey = true;
     };
+    secrets = {
+      "Passwords/rcon" = {
+        owner = "svcminecraft";
+      };
+    };
   };
 }

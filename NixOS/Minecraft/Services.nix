@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   config = lib.mkIf config.modMinecraft.enable {
@@ -8,7 +8,8 @@
         User="svcminecraft";
         WorkingDirectory="/opt/minecraft";
 
-        ExecStart="java -XX:+UseG1GC -Xmx12G -jar server.jar nogui";
+        ExecStart="sh -c java @user_jvm_args.txt -jar server.jar nogui";
+        ExecStop="sh -c stop.sh";
 
         Restart="always";
         RestartSec="30";
