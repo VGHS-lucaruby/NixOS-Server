@@ -11,6 +11,9 @@
     ];
   };
 
-  # Enable Modules
-  # Example: modMinecraft.enable = true;
+  # Import Modules
+  # Example: imports = [ ../NixOS/Minecraft ];
+
+  # Configure Modules
+  # Example: modExample.enable = true;
 }

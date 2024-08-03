@@ -1,11 +1,9 @@
 { lib, config, ... }:
 
 {
-  config = lib.mkIf config.modMinecraft.enable {
-    users.users.svcminecraft = {
-      isNormalUser = true;
-    };
+  users.users.svcminecraft = {
+    isNormalUser = true;
+  };
 
-    users.groups.minecraft.members = [ "svcminecraft" ];
-  };  
+  users.groups.minecraft.members = [ "svcminecraft" ];  
 }
