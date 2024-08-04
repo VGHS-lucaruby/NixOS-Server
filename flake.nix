@@ -46,6 +46,7 @@
             ];
             specialArgs = {
               # additional arguments to pass to modules
+              inherit inputs;
               self = self;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
@@ -65,6 +66,7 @@
             ];
             specialArgs = {
               # additional arguments to pass to modules
+              inherit inputs;
               self = self;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
