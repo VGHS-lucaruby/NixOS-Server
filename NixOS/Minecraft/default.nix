@@ -2,9 +2,7 @@
 
 {
   imports = [
-    ./Firewall.nix
-    ./Java.nix
-    ./Services.nix
-    ./Users.nix
+    ./Nix-Minecraft.nix
+    ./WorldCreation2.0.nix
   ];
 }

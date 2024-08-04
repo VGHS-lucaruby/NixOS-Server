@@ -21,4 +21,5 @@ Run the following command on the server you would like to update.<br>
 
 ## Credits
 - **NixOS <3**
+- **Minecraft Srever Tool** [Nix-Minecraft](https://github.com/Infinidoge/nix-minecraft)
 - **Server Image Creation** [astr0n8t nixos-gitops](https://github.com/astr0n8t/nixos-gitops) & [JustinLex's Comment](https://github.com/nix-community/nixos-generators/issues/193#issuecomment-1937095713)
