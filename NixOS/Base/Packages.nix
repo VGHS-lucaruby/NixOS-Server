@@ -12,5 +12,6 @@
     glances
     fastfetch
     nano
+    tmux
   ];
 }
