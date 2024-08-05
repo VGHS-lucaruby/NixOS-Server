@@ -20,7 +20,10 @@ in {
     autoStart = true;
     restart = "always";
 
-    package = pkgs.fabricServers.${serverVersion}.override { loaderVersion = fabricVersion; };
+    package = pkgs.fabricServers.${serverVersion}.override { 
+      loaderVersion = fabricVersion; 
+      jre_headless = pkgs.jdk17; 
+    };
     symlinks = {
       # "mods" = "${modpack}/mods";
       # "config" = "${modpack}/config";
