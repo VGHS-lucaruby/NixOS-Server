@@ -22,8 +22,8 @@ in {
 
     package = pkgs.fabricServers.${serverVersion}.override { loaderVersion = fabricVersion; };
     symlinks = {
-      "mods" = "${modpack}/mods";
-      "config" = "${modpack}/config";
+      # "mods" = "${modpack}/mods";
+      # "config" = "${modpack}/config";
     };
 
     jvmOpts = "-Xms10G -Xmx10G";
