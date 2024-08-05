@@ -6,9 +6,9 @@ let
     packHash = "sha256-Eom5FLZAPvOcE9zzzysFB25x9Cpkeo+ftVMDTv2BN50=";
   };
 
-  mcVersion = modpack.manifest.versions.minecraft;
-  fabricVersion = modpack.manifest.versions.fabric;
-  serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
+  # mcVersion = modpack.manifest.versions.minecraft;
+  # fabricVersion = modpack.manifest.versions.fabric;
+  # serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
 in {
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -20,8 +20,8 @@ in {
     autoStart = true;
     restart = "always";
 
-    package = pkgs.fabricServers.${serverVersion}.override { 
-      loaderVersion = fabricVersion; 
+    package = pkgs.fabricServers.fabric-1_20_1.override { 
+      loaderVersion = "0.16.0"; 
       jre_headless = pkgs.jdk17; 
     };
     symlinks = {
