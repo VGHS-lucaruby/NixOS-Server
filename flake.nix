@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft.url = "github:mechan1sm/nix-minecraft"; #temp until pr is merged upstream
     sops-nix = { 
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

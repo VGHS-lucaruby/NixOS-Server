@@ -2,7 +2,7 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/VGHS-lucaruby/Minecraft-WorldCreation/master/pack.toml";
+    url = "https://raw.githubusercontent.com/VGHS-lucaruby/Minecraft-WorldCreation/2.0.0-RC5/pack.toml";
     packHash = "sha256-Eom5FLZAPvOcE9zzzysFB25x9Cpkeo+ftVMDTv2BN50=";
   };
 
