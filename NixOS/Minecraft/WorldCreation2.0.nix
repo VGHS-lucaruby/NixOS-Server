@@ -17,8 +17,6 @@ in {
 
   services.minecraft-servers.servers."WorldCreation2.0" = {
     enable = true;
-    autoStart = true;
-    restart = "always";
 
     package = pkgs.fabricServers.fabric-1_20_1.override { 
       loaderVersion = "0.16.0"; 
