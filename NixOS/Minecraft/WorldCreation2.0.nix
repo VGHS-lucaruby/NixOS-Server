@@ -24,8 +24,11 @@ in {
     };
     symlinks = {
       "mods" = "${modpack}/mods";
-      "config" = "${modpack}/config";
     };
+    
+    files = {
+      "config" = "${modpack}/config";
+    }
 
     jvmOpts = "-Xms10G -Xmx10G";
     serverProperties = {
