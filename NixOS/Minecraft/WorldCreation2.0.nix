@@ -6,9 +6,9 @@ let
     packHash = "sha256-R9btXHpYC/gpU8rx9wQFq6uPrL5f9BcS+g4jc9VtovU=";
   };
 
-  # mcVersion = modpack.manifest.versions.minecraft;
-  # fabricVersion = modpack.manifest.versions.fabric;
-  # serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
+  mcVersion = modpack.manifest.versions.minecraft;
+  fabricVersion = modpack.manifest.versions.fabric;
+  serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
 in {
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -18,13 +18,13 @@ in {
   services.minecraft-servers.servers."WorldCreation2.0" = {
     enable = true;
 
-    package = pkgs.fabricServers.fabric-1_20_1.override { 
-      loaderVersion = "0.16.0"; 
+    package = pkgs.fabricServers.${serverVersion}.override { 
+      loaderVersion = fabricVersion; 
       # jre_headless = pkgs.jdk17; 
     };
     symlinks = {
       "mods" = "${modpack}/mods";
-      # "config" = "${modpack}/config";
+      "config" = "${modpack}/config";
     };
 
     jvmOpts = "-Xms10G -Xmx10G";
