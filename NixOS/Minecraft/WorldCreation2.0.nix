@@ -22,10 +22,10 @@ in {
 
     package = pkgs.fabricServers.fabric-1_20_1.override { 
       loaderVersion = "0.16.0"; 
-      jre_headless = pkgs.jdk17; 
+      # jre_headless = pkgs.jdk17; 
     };
     symlinks = {
-      # "mods" = "${modpack}/mods";
+      "mods" = "${modpack}/mods";
       # "config" = "${modpack}/config";
     };
 
