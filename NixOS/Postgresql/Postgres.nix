@@ -10,12 +10,13 @@
     authentication = pkgs.lib.mkOverride 10 ''
       # Generated file do not edit
       # Type   database   DBuser   origin-address   auth-method
-      local    all        all                       trust
+      local    all        all                       scram-sha-256
       host     all        all      10.0.0.0/16      scram-sha-256
     '';
     ensureUsers = [
       {
         name = "Authentik";
+        passwordFile = ; # Waiting to see what happens with PR#326306
         # Todo Rest of perms
       }
     ];

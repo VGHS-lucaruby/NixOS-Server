@@ -3,7 +3,6 @@
 {
   imports = [
     ./Base
-    ./Minecraft
   ];
 
   networking.hostName = nodeHostName;
