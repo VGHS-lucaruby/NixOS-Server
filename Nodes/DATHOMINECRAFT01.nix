@@ -12,7 +12,10 @@
   };
 
   # Import Modules
-  imports = [ ../NixOS/Minecraft ];
+  imports = [ 
+    ../NixOS/Minecraft 
+    ../NixOS/Minecraft/WorldCreation2.0.nix
+  ];
 
   # Configure Modules
   # Example: modExample.enable = true;
