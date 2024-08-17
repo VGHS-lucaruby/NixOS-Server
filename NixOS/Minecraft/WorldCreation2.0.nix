@@ -27,9 +27,9 @@ in {
       # "config" = "${modpack}/config";
     };
     
-    files = {
-      "config" = "${modpack}/config/*";
-    };
+    # files = {
+    #   "config" = "${modpack}/config/";
+    # };
 
     jvmOpts = "-Xms10G -Xmx10G";
     serverProperties = {
