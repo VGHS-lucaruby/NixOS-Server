@@ -2,7 +2,7 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/VGHS-lucaruby/Minecraft-WorldCreation/2.0.0-RC10/pack.toml";
+    url = "https://raw.githubusercontent.com/VGHS-lucaruby/Minecraft-WorldCreation/2.0.0-RC11/pack.toml";
     packHash = "sha256-sd/N6k7CuANgQ1twpA+3AV6kMVdRnRqyrEMQEkuah20=";
   };
 
@@ -29,6 +29,7 @@ in {
     
     files = {
       "config/tectonic.json" = "${modpack}/config/tectonic.json";
+      "config/textile_backup.json5" = "${modpack}/config/textile_backup.json5";
     };
 
     jvmOpts = "-Xms10G -Xmx10G";
