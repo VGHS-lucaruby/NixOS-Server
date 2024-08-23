@@ -24,12 +24,12 @@ in {
     };
     symlinks = {
       "mods" = "${modpack}/mods";
-      # "config" = "${modpack}/config";
+      "defaultconfigs" = "${modpack}/config";
     };
     
-    files = {
-      "config/tectonic.json" = "${modpack}/config/tectonic.json";
-    };
+    # files = {
+    #   "config/tectonic.json" = "${modpack}/config/tectonic.json";
+    # };
 
     jvmOpts = "-Xms10G -Xmx10G";
     serverProperties = {
