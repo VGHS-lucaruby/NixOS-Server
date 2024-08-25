@@ -38,6 +38,8 @@ in {
       allow-flight = 1;
       motd = "World Creation 2.0";
       white-list = true;
+      level-seed = 399944747049512087;
+      level-name = "WorldCreation2.0";
     };
   };
 }
