@@ -30,6 +30,8 @@ in {
     files = {
       "config/tectonic.json" = "${modpack}/config/tectonic.json";
       "config/textile_backup.json5" = "${modpack}/config/textile_backup.json5";
+      "config/gravestones.json" = "${modpack}/config/gravestones.json";
+      "config/openpartiesandclaims-server.toml" = "${modpack}/config/openpartiesandclaims-server.toml";
     };
 
     jvmOpts = "-Xms10G -Xmx10G";
