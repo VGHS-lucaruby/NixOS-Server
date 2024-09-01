@@ -23,3 +23,4 @@ Run the following command on the server you would like to update.<br>
 - **NixOS <3**
 - **Minecraft Server Tool** [Nix-Minecraft](https://github.com/Infinidoge/nix-minecraft)
 - **Server Image Creation** [astr0n8t nixos-gitops](https://github.com/astr0n8t/nixos-gitops) & [JustinLex's Comment](https://github.com/nix-community/nixos-generators/issues/193#issuecomment-1937095713)
+- **Secrets Management** [Sops-Nix](https://github.com/Mic92/sops-nix)
