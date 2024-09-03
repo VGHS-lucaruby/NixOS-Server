@@ -1,6 +1,12 @@
-{ ... }:
+{ lib, ... }:
 
 {
+  options = {
+    modRestic.enable = lib.mkEnableOption "Enables Restic Backups";
+  };
+
+  modRestic.enable = lib.mkDefault true;
+
   imports = [
     ./AutoUpgrade.nix
     ./Boot.nix
@@ -12,6 +18,7 @@
     ./NixGC.nix
     ./Packages.nix
     ./Qemu.nix
+    ./Restic.nix
     ./Sops.nix
     ./SSH.nix
     ./Users.nix
