@@ -44,4 +44,13 @@ in {
       level-name = "WorldCreation2.0";
     };
   };
+  
+  # Backup to B2 
+  services.restic.backups = {
+    daily = {
+      paths = [
+        "/srv/minecraft/WorldCreation2.0"
+      ];
+    };
+  };
 }
