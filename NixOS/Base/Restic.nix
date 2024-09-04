@@ -22,10 +22,9 @@
         ];
 
         timerConfig = {
-          OnCalendar = "01:05";
-          # OnCalendar = "22:00";
-          # Persistent = true;
-          # RandomizedDelaySec = "2h";
+          OnCalendar = "22:00";
+          Persistent = true;
+          RandomizedDelaySec = "2h";
         };
 
         pruneOpts = [
