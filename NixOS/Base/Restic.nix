@@ -10,7 +10,7 @@
     };
 
     services.restic.backups = {
-      daily = {
+      dailyBackup = {
         initialize = true;
 
         environmentFile = config.sops.secrets."Restic/env".path;
@@ -33,6 +33,26 @@
           "--keep-monthly 12"
         ];
       };
+      
+      weeklyCheck = {
+        runCheck = true;
+
+        environmentFile = config.sops.secrets."Restic/env".path;
+        repositoryFile = config.sops.secrets."Restic/repo".path;
+        passwordFile = config.sops.secrets."Restic/password".path;
+
+        checkOpts = [
+          "--read-data-subset=15%"
+        ];
+      
+        timerConfig = {
+          OnCalendar = "Sun *-*-* 03:00 Europe/London";
+          Persistent = true;
+        };
+      };
     };
+
+    # todo need to add email notifications on faliure of backup or check.
+
   };
 }

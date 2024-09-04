@@ -2,7 +2,7 @@
 
 {
   services.restic.backups = {
-    daily = {
+    dailyBackup = {
       exclude = [
         "/srv/minecraft/*/backup"
       ];
