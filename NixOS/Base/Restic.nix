@@ -17,9 +17,9 @@
         repositoryFile = config.sops.secrets."Restic/repo".path;
         passwordFile = config.sops.secrets."Restic/password".path;
 
-        paths = [
-          "/etc/ssh"
-        ];
+        # paths = [
+        #   "/etc/ssh"
+        # ];
 
         timerConfig = {
           OnCalendar = "22:00";
