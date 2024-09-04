@@ -1,11 +1,11 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 {
   options = {
     modRestic.enable = lib.mkEnableOption "Enables Restic Backups";
   };
 
-  modRestic.enable = lib.mkDefault true;
+  config.modRestic.enable = lib.mkDefault true;
 
   imports = [
     ./AutoUpgrade.nix

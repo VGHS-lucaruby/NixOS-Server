@@ -1,7 +1,14 @@
 { config, lib, ... }:
 
 {
-  config = lib.mkIf modRestic.enable {
+  config = lib.mkIf config.modRestic.enable {
+
+    sops.secrets = {
+      "Restic/env" = {};
+      "Restic/repo" = {};
+      "Restic/password" = {};
+    };
+
     services.restic.backups = {
       daily = {
         initialize = true;
@@ -15,7 +22,7 @@
         ];
 
         timerConfig = {
-          OnCalendar = "01:00";
+          OnCalendar = "01:05";
           # OnCalendar = "22:00";
           # Persistent = true;
           # RandomizedDelaySec = "2h";
