@@ -4,7 +4,7 @@
   system.autoUpgrade = {
     enable = true;
     flake = "github:VGHS-lucaruby/NixOS-Server#${nodeHostName}";  
-    dates = "Sat *-*-* 03:00 Europe/London";
+    dates = "Sat *-*-* 03:00";
     # randomizedDelaySec = "2hr";
     allowReboot = true;
     rebootWindow = {

@@ -46,7 +46,7 @@
         ];
       
         timerConfig = {
-          OnCalendar = "Sun *-*-* 03:00 Europe/London";
+          OnCalendar = "Sun *-*-* 03:00";
           Persistent = true;
         };
       };
