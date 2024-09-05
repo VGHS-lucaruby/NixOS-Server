@@ -22,7 +22,7 @@
         # ];
 
         timerConfig = {
-          OnCalendar = "22:00";
+          OnCalendar = "21:00";
           Persistent = true;
           RandomizedDelaySec = "2h";
         };
