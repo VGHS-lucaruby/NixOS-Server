@@ -18,6 +18,10 @@
         admin_user = "Admin";
         admin_password = "$__file{${config.sops.secrets."Passwords/grafanaAdmin".path}}";
       };
+      server = {
+        protocol = "http";
+        http_port = 8080;
+      };
     };
   };
 }
