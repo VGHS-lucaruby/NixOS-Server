@@ -19,9 +19,9 @@
         admin_password = "$__file{${config.sops.secrets."Passwords/grafanaAdmin".path}}";
       };
       server = {
-        protocol = "http";
+        protocol = "https";
         http_port = 8443;
-        http_addr = "10.0.20.53"; # Find a way to make this a little more dynamic
+        http_addr = "0.0.0.0";
       };
     };
   };
