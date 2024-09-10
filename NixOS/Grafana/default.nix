@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./Firewall.nix
     ./Grafana.nix
     ./Restic.nix
   ];
