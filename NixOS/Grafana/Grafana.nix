@@ -21,7 +21,7 @@
       server = {
         protocol = "http";
         http_port = 8443;
-        http_addr = "10.0.20.53";
+        http_addr = "10.0.20.53"; # Find a way to make this a little more dynamic
       };
     };
   };
