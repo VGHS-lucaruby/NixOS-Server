@@ -12,7 +12,7 @@
   };
 
   # Import Modules
-  # Example: imports = [ ../NixOS/Minecraft ];
+  imports = [ ../NixOS/Grafana ];
 
   # Configure Modules
   # Example: modExample.enable = true;
