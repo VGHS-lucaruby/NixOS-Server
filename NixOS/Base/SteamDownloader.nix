@@ -29,16 +29,8 @@
 	  	};
 	  	serviceConfig = {
 	  		Type = "oneshot";
-	  		ExecStart = "${pkgs.resholve.writeScript "steam" {
-	  			interpreter = "${pkgs.zsh}/bin/zsh";
-	  			inputs = with pkgs; [
-	  				patchelf
-	  				steamcmd
-	  			];
-	  			execer = with pkgs; [
-	  				"cannot:${steamcmd}/bin/steamcmd"
-	  			];
-	  		} ''
+	  		ExecStart = "${pkgs.writeShellScript "steam"
+				''
 	  			set -eux
 
 	  			instance=''${1:?Instance Missing}
@@ -51,7 +43,7 @@
 
 	  			cmds=(
 	  				+force_install_dir $dir
-	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$"(cat ${config.sops.secrets."SteamDownloader/password".path})"
+	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})" # Steam requires login for some apps
 	  				+app_update $app validate
 	  			)
 
@@ -64,7 +56,7 @@
 
 	  			cmds+=(+quit)
 
-	  			steamcmd $cmds
+	  			${pkgs.steamcmd} $cmds
 
 	  			for f in $dir/*; do
 	  				if ! [[ -f $f && -x $f ]]; then
@@ -72,7 +64,7 @@
 	  				fi
 
 	  				# Update the interpreter to the path on NixOS.
-	  				patchelf --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 $f || true
+	  				${pkgs.patchelf} --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 $f || true
 	  			done
 	  		''} %i";
 	  		PrivateTmp = true;
