@@ -12,7 +12,7 @@
   };
 
   # Import Modules
-  # Example: imports = [ ../NixOS/Minecraft ];
+  imports = [ ../NixOS/Arma ];
 
   # Configure Modules
   # Example: modExample.enable = true;
