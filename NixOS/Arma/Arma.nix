@@ -8,7 +8,7 @@ in {
 	
     users.users.arma = {
 		isSystemUser = true;
-		home = "/user/armaserver";
+		home = "/srv/user/armaserver";
 		createHome = true;
 		homeMode = "750";
 		group = "arma";
