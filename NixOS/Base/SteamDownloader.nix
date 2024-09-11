@@ -2,6 +2,11 @@
 
 {
   config = lib.mkIf config.modSteamDownloader.enable {
+
+		nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    	"steamcmd"
+  	];
+
     sops.secrets = {
       "SteamDownloader/user" = { owner = "steam"; };
       "SteamDownloader/password" = { owner = "steam"; };
