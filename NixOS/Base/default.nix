@@ -3,6 +3,7 @@
 {
   options = {
     modRestic.enable = lib.mkEnableOption "Enables Restic Backups";
+    modSteamDownloader.enable = lib.mkEnableOption "Enables Steam Downloader Service";
   };
 
   config.modRestic.enable = lib.mkDefault true;
@@ -21,6 +22,7 @@
     ./Restic.nix
     ./Sops.nix
     ./SSH.nix
+    ./SteamDownloader.nix
     ./Users.nix
     ./Zsh.nix
   ];
