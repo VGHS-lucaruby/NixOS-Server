@@ -10,7 +10,7 @@
 	  users.users.steam = {
 	  	isSystemUser = true;
 	  	group = "steam";
-	  	home = "/srv/steam-downloader";
+	  	home = "/srv/user/steam";
 	  	createHome = true;
 	  };
 
@@ -44,7 +44,7 @@
 
 	  			cmds=(
 	  				+force_install_dir $dir
-	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})"
+	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$"(cat ${config.sops.secrets."SteamDownloader/password".path})"
 	  				+app_update $app validate
 	  			)
 
