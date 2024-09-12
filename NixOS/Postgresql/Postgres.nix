@@ -13,7 +13,7 @@
     authentication = pkgs.lib.mkOverride 10 ''
       # Generated file do not edit
       # Type   database   DBuser   origin-address   auth-method
-      local    all        all                       scram-sha-256
+      local    all        all                       trust
       host     all        all      10.0.0.0/16      scram-sha-256
     '';
     ensureUsers = [
