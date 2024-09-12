@@ -57,7 +57,6 @@
         BEGIN
           pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
           pwdAuthentik := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/authentik".path}'), E'\n', '''));
-          EXECUTE format('ALTER USER Admin PASSWORD '''%s''';', pwdAdmin);
           EXECUTE format('ALTER USER Authentik PASSWORD '''%s''';', pwdAuthentik);
         END $$;
       EOF
