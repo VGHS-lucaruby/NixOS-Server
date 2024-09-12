@@ -3,7 +3,7 @@
 {
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "Admin" "Authentik" ];
+    ensureDatabases = [ "Authentik" ];
     enableTCPIP = true;
     package = pkgs.postgresql_15;
     dataDir = "/srv/postgresql";
@@ -20,7 +20,6 @@
       {
         name = "Admin";
         # passwordFile = ; # Waiting to see what happens with PR#326306
-        ensureDBOwnership  = true;
         ensureClauses = {
           superuser = true;
         };
@@ -54,8 +53,8 @@
         BEGIN
           pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
           pwdAuthentik := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/authentik".path}'), E'\n', '''));
-          EXECUTE format('ALTER ROLE Admin WITH PASSWORD '''%s''';', pwdAdmin);
-          EXECUTE format('ALTER ROLE Authentik WITH PASSWORD '''%s''';', pwdAuthentik);
+          EXECUTE format('ALTER USER Admin PASSWORD '''%s''';', pwdAdmin);
+          EXECUTE format('ALTER USER Authentik PASSWORD '''%s''';', pwdAuthentik);
         END $$;
       EOF
     '';
