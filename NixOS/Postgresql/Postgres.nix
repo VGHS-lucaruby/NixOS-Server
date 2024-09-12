@@ -21,6 +21,7 @@
         name = "Admin";
         # passwordFile = ; # Waiting to see what happens with PR#326306
         ensureClauses = {
+          login = true;
           superuser = true;
         };
       }
@@ -28,6 +29,9 @@
         name = "Authentik";
         # passwordFile = ; # Waiting to see what happens with PR#326306
         ensureDBOwnership  = true;
+        ensureClauses = {
+          login = true;
+        };
       }
     ];
   };
