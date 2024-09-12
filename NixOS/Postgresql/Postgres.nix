@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  # Use lower case names for DB and users lol
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "authentik" ];
