@@ -3,7 +3,7 @@
 {
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "Authentik" ];
+    ensureDatabases = [ "Admin" "Authentik" ];
     enableTCPIP = true;
     package = pkgs.postgresql_15;
     dataDir = "/srv/postgresql";
@@ -20,6 +20,7 @@
       {
         name = "Admin";
         # passwordFile = ; # Waiting to see what happens with PR#326306
+        ensureDBOwnership  = true;
         ensureClauses = {
           superuser = true;
         };
