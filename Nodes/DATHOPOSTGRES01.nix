@@ -12,7 +12,7 @@
   };
 
   # Import Modules
-  imports = [ ../NixOS/Postgres ];
+  imports = [ ../NixOS/Postgresql ];
 
   # Configure Modules
   # Example: modExample.enable = true;
