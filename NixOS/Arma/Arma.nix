@@ -1,12 +1,11 @@
-{config, pkgs, lib, nodeHostName, ...}:
+{ config, pkgs, lib, nodeHostName, ... }:
 
 let
-	steam-app = "233780";
+	steam-app = "233780";	
 in {
-    
-    modSteamDownloader.enable = true;
-	
-    users.users.arma = {
+		modSteamDownloader.enable = true;
+
+		users.users.arma = {
 		isSystemUser = true;
 		home = "/srv/user/armaserver";
 		createHome = true;
@@ -26,7 +25,7 @@ in {
 		serviceConfig = {
 			ExecStart = lib.escapeShellArgs [
 				"/srv/SteamDownloader/${steam-app}/arma3server_x64"
-        "-name=${nodeHostName}"
+				"-name=${nodeHostName}"
 			];
 			Nice = "-5";
 			PrivateTmp = true;
@@ -34,10 +33,5 @@ in {
 			User = "arma";
 			WorkingDirectory = "~";
 		};
-		# environment = {
-		# 	# linux64 directory is required by Valheim.
-		# 	LD_LIBRARY_PATH = "/var/lib/steam-app-${steam-app}/linux64:${pkgs.glibc}/lib";
-		# 	SteamAppId = "892970";
-		# };
 	};
 }
