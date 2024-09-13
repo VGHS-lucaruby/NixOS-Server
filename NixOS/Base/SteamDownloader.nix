@@ -33,8 +33,6 @@
 	  		Type = "oneshot";
 	  		ExecStart = "${pkgs.writeScript "SteamDownloader"
 				''
-	  			set -eux
-
 	  			app=''${1:?App ID missing}
 
 	  			cmds=(
