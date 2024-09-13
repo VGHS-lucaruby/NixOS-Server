@@ -25,7 +25,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = lib.escapeShellArgs [
-				"/srv/steam-app-${steam-app}/arma3server_x64"
+				"/srv/SteamDownloader/${steam-app}/arma3server_x64"
         "-name=${nodeHostName}"
 			];
 			Nice = "-5";
