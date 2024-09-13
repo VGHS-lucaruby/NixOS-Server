@@ -23,49 +23,28 @@
 
 	  users.groups.steam = {};
 
+		systemd.tmpfiles.rules = [ "d /srv/SteamDownloader 0770 ${User} ${Group} - -" ];
+
 	  systemd.services."SteamDownloader@" = {
 	  	unitConfig = {
 	  		StopWhenUnneeded = true;
 	  	};
 	  	serviceConfig = {
 	  		Type = "oneshot";
-	  		ExecStart = "${pkgs.writeShellScript "steam"
+	  		ExecStart = "${pkgs.writeScript "SteamDownloader"
 				''
 	  			set -eux
 
-	  			instance=''${1:?Instance Missing}
-	  			eval 'args=(''${(@s:_:)instance})'
-	  			app=''${args[1]:?App ID missing}
-	  			beta=''${args[2]:-}
-	  			betapass=''${args[3]:-}
-
-	  			dir=/srv/steam-app-$instance
+	  			app=''${1:?App ID missing}
 
 	  			cmds=(
-	  				+force_install_dir $dir
-	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})" # Steam requires login for some apps
+	  				+force_install_dir /srv/SteamDownloader/$app
+	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})"
 	  				+app_update $app validate
+						+quit
 	  			)
 
-	  			if [[ $beta ]]; then
-	  				cmds+=(-beta $beta)
-	  				if [[ $betapass ]]; then
-	  					cmds+=(-betapassword $betapass)
-	  				fi
-	  			fi
-
-	  			cmds+=(+quit)
-
-	  			${pkgs.steamcmd} $cmds
-
-	  			for f in $dir/*; do
-	  				if ! [[ -f $f && -x $f ]]; then
-	  					continue
-	  				fi
-
-	  				# Update the interpreter to the path on NixOS.
-	  				${pkgs.patchelf} --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 $f || true
-	  			done
+	  			${pkgs.steamcmd}/bin/steamcmd $cmds
 	  		''} %i";
 	  		PrivateTmp = true;
 	  		Restart = "on-failure";
