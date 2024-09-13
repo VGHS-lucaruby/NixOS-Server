@@ -23,7 +23,7 @@
 
 	  users.groups.steam = {};
 
-		systemd.tmpfiles.rules = [ "d /srv/SteamDownloader 0770 ${User} ${Group} - -" ];
+		systemd.tmpfiles.rules = [ "d /srv/SteamDownloader 0770 steam steam - -" ];
 
 	  systemd.services."SteamDownloader@" = {
 	  	unitConfig = {
