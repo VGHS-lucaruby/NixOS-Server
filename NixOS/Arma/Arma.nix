@@ -25,7 +25,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-				${pkgs.steam-run} "/var/lib/SteamDownloader/${steam-app}/arma3server_x64" "-name=${nodeHostName}"
+				${pkgs.steam-run}/bin/steam-run "/var/lib/SteamDownloader/${steam-app}/arma3server_x64" "-name=${nodeHostName}"
 			'';
 			Restart = "no";
 			User = "arma";
