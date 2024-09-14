@@ -31,8 +31,10 @@
 	  	};
 	  	serviceConfig = {
 	  		Type = "oneshot";
-	  		ExecStart = "${pkgs.writeScript "SteamDownloader"
+	  		ExecStart = pkgs.writeScript "SteamDownloader"
 				''
+					set -eux
+
 	  			app=''${1:?App ID missing}
 
 	  			cmds="
@@ -43,7 +45,7 @@
 	  			"
 
 	  			${pkgs.steamcmd}/bin/steamcmd $cmds
-	  		''} %i";
+	  		'';
 	  		PrivateTmp = true;
 	  		Restart = "on-failure";
 	  		StateDirectory = "steam-app-%i";
