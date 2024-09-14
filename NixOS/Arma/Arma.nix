@@ -7,10 +7,11 @@ in {
 
 		users.users.arma = {
 		isSystemUser = true;
-		home = "/srv/user/armaserver";
+		home = "/home/arma";
 		createHome = true;
 		homeMode = "750";
 		group = "arma";
+		extraGroups = "steam";
 	};
 
 	users.groups.arma = {};
@@ -24,14 +25,14 @@ in {
 
 		serviceConfig = {
 			ExecStart = lib.escapeShellArgs [
-				"/srv/SteamDownloader/${steam-app}/arma3server_x64"
+				"/var/lib/SteamDownloader/${steam-app}/arma3server_x64"
 				"-name=${nodeHostName}"
 			];
 			Nice = "-5";
 			PrivateTmp = true;
 			Restart = "always";
 			User = "arma";
-			WorkingDirectory = "~";
+			WorkingDirectory = "/home/arma";
 		};
 	};
 }
