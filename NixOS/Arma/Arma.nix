@@ -25,11 +25,10 @@ in {
 
 		serviceConfig = {
 			ExecStart = lib.escapeShellArgs [
+				${steam-run}
 				"/var/lib/SteamDownloader/${steam-app}/arma3server_x64"
 				"-name=${nodeHostName}"
 			];
-			Nice = "-5";
-			PrivateTmp = true;
 			Restart = "no";
 			User = "arma";
 			WorkingDirectory = "/home/arma";
