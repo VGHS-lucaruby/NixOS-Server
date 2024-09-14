@@ -43,6 +43,16 @@
 	  			"
 
 	  			${pkgs.steamcmd}/bin/steamcmd $cmds
+					
+					for f in $dir/*; do
+						if ! [[ -f $f && -x $f ]]; then
+							continue
+						fi
+
+						# Update the interpreter to the path on NixOS.
+						${pkgs.patchelf}/bin/patchelf --set-interpreter ${pkgs.glibc}/lib/ld-linux-x86-64.so.2 $f || true
+					done
+
 	  		''} %i";
 	  		PrivateTmp = true;
 	  		Restart = "no";
