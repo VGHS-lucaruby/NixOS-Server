@@ -31,7 +31,7 @@
 	  	};
 	  	serviceConfig = {
 	  		Type = "oneshot";
-	  		ExecStart = pkgs.writeScript "SteamDownloader"
+	  		ExecStart = "sh -c ${pkgs.writeScript "SteamDownloader"
 				''
 					set -eux
 
@@ -45,7 +45,7 @@
 	  			"
 
 	  			${pkgs.steamcmd}/bin/steamcmd $cmds
-	  		'';
+	  		''};
 	  		PrivateTmp = true;
 	  		Restart = "on-failure";
 	  		TimeoutStartSec = 3600; # Allow time for updates.
