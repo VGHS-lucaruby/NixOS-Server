@@ -7,7 +7,7 @@
     ensureDatabases = [ "authentik" ];
     enableTCPIP = true;
     package = pkgs.postgresql_15;
-    dataDir = "/srv/postgresql";
+    dataDir = "/var/lib/postgresql";
     settings = {
       port = 5432;
     };

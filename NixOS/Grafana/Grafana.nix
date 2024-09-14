@@ -9,7 +9,7 @@
 
   services.grafana = {
     enable = true;
-    dataDir = "/srv/grafana";
+    dataDir = "/var/lib/grafana";
     settings = {
       analytics = {
         check_for_plugin_updates = true;
