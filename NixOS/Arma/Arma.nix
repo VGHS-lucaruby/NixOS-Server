@@ -11,7 +11,7 @@ in {
 		createHome = true;
 		homeMode = "750";
 		group = "arma";
-		extraGroups = "steam";
+		extraGroups = [ "steam" ];
 	};
 
 	users.groups.arma = {};
