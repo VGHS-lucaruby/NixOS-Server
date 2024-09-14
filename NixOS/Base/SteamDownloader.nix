@@ -31,7 +31,7 @@
 	  	};
 	  	serviceConfig = {
 	  		Type = "oneshot";
-	  		ExecStart = "sh -c ${pkgs.writeScript "SteamDownloader"
+	  		ExecStart = "${pkgs.writeScript "SteamDownloader"
 				''
 					set -eux
 
