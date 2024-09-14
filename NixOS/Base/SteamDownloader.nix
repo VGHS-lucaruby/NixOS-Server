@@ -51,7 +51,7 @@
 	  		StateDirectory = "steam-app-%i";
 	  		TimeoutStartSec = 3600; # Allow time for updates.
 	  		User = "steam";
-	  		WorkingDirectory = "~";
+	  		WorkingDirectory = "/srv/user/steam";
 	  	};
 	  };
   };
