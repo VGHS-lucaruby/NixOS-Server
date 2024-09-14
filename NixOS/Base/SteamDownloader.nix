@@ -34,8 +34,6 @@
 	  		ExecStart = "${pkgs.writeShellScript "SteamDownloader"
 				''
 	  			app=''${1:?App ID missing}
-					
-					echo $app
 
 	  			cmds="
 	  				+force_install_dir /var/lib/SteamDownloader/$app
