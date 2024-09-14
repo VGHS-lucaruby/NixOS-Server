@@ -25,7 +25,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = lib.escapeShellArgs [
-				${steam-run}
+				${pkgs.steam-run}
 				"/var/lib/SteamDownloader/${steam-app}/arma3server_x64"
 				"-name=${nodeHostName}"
 			];
