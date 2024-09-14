@@ -31,7 +31,7 @@
 	  	};
 	  	serviceConfig = {
 	  		Type = "oneshot";
-	  		ExecStart = "${pkgs.writeScript "SteamDownloader"
+	  		ExecStart = "${pkgs.writeShellScript "SteamDownloader"
 				''
 	  			app=''${1:?App ID missing}
 					
