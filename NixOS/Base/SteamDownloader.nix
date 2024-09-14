@@ -17,13 +17,13 @@
 	  users.users.steam = {
 	  	isSystemUser = true;
 	  	group = "steam";
-	  	home = "/srv/user/steam";
+	  	home = "/home/steam";
 	  	createHome = true;
 	  };
 
 	  users.groups.steam = {};
 
-		systemd.tmpfiles.rules = [ "d /srv/SteamDownloader 0770 steam steam - -" ];
+		systemd.tmpfiles.rules = [ "d /var/lib/SteamDownloader 0770 steam steam - -" ];
 
 	  systemd.services."SteamDownloader@" = {
 	  	unitConfig = {
@@ -38,7 +38,7 @@
 	  			app=''${1:?App ID missing}
 
 	  			cmds="
-	  				+force_install_dir /srv/SteamDownloader/$app
+	  				+force_install_dir /var/lib/SteamDownloader/$app
 	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})"
 	  				+app_update $app validate
 						+quit
@@ -51,7 +51,7 @@
 	  		StateDirectory = "steam-app-%i";
 	  		TimeoutStartSec = 3600; # Allow time for updates.
 	  		User = "steam";
-	  		WorkingDirectory = "/srv/user/steam";
+	  		WorkingDirectory = "/home/steamcmd";
 	  	};
 	  };
   };
