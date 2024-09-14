@@ -45,7 +45,7 @@
 	  			${pkgs.steamcmd}/bin/steamcmd $cmds
 	  		''} %i";
 	  		PrivateTmp = true;
-	  		Restart = "on-failure";
+	  		Restart = "no";
 	  		TimeoutStartSec = 3600; # Allow time for updates.
 	  		User = "steam";
 	  		WorkingDirectory = "/var/lib/SteamDownloader";

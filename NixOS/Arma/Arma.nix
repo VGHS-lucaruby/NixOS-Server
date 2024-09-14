@@ -30,7 +30,7 @@ in {
 			];
 			Nice = "-5";
 			PrivateTmp = true;
-			Restart = "always";
+			Restart = "no";
 			User = "arma";
 			WorkingDirectory = "/home/arma";
 		};
