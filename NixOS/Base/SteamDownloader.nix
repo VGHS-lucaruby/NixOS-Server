@@ -35,12 +35,12 @@
 				''
 	  			app=''${1:?App ID missing}
 
-	  			cmds=(
+	  			cmds="
 	  				+force_install_dir /srv/SteamDownloader/$app
 	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})"
 	  				+app_update $app validate
 						+quit
-	  			)
+	  			"
 
 	  			${pkgs.steamcmd}/bin/steamcmd $cmds
 	  		''} %i";
