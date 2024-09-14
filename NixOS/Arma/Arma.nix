@@ -24,11 +24,11 @@ in {
 		after = [ "SteamDownloader@${steam-app}.service" ];
 
 		serviceConfig = {
-			ExecStart = lib.escapeShellArgs [
+			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
 				${pkgs.steam-run}
 				"/var/lib/SteamDownloader/${steam-app}/arma3server_x64"
 				"-name=${nodeHostName}"
-			];
+			'';
 			Restart = "no";
 			User = "arma";
 			WorkingDirectory = "/home/arma";
