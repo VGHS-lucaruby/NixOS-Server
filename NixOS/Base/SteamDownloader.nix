@@ -48,10 +48,9 @@
 	  		'';
 	  		PrivateTmp = true;
 	  		Restart = "on-failure";
-	  		StateDirectory = "steam-app-%i";
 	  		TimeoutStartSec = 3600; # Allow time for updates.
 	  		User = "steam";
-	  		WorkingDirectory = "/home/steamcmd";
+	  		WorkingDirectory = "/var/lib/SteamDownloader";
 	  	};
 	  };
   };
