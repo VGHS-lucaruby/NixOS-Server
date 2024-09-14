@@ -32,6 +32,7 @@ in {
       "config/textile_backup.json5" = "${modpack}/config/textile_backup.json5";
       "config/gravestones.json" = "${modpack}/config/gravestones.json";
       "config/openpartiesandclaims-server.toml" = "${modpack}/config/openpartiesandclaims-server.toml";
+      "config/logcleaner.json" = "${modpack}/config/logcleaner.json"; # uncomment for 2.0.2 release
     };
 
     jvmOpts = "-Xms10G -Xmx10G";
