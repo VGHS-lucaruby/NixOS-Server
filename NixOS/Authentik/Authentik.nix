@@ -2,9 +2,9 @@
 
 {
   sops.secrets = {
-    "Authentik/env" = { owner = "authentik"; };
-    "Authentik/envLDAP" = { owner = "authentik"; };
-    "Authentik/envRADIUS" = { owner = "authentik"; };
+    "Authentik/env" = {};
+    "Authentik/envLDAP" = {};
+    "Authentik/envRADIUS" = {};
   };
 
   services.authentik = {

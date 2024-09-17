@@ -12,7 +12,7 @@
   };
 
   # Import Modules
-  # Example: imports = [ ../NixOS/Minecraft ];
+  imports = [ ../NixOS/Authentik ];
 
   # Configure Modules
   # Example: modExample.enable = true;
