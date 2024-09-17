@@ -1,4 +1,4 @@
-{ modulesPath, specialArgs, nodeHostName, ... }: 
+{ config, modulesPath, specialArgs, nodeHostName, ... }: 
 
 {
   imports = [
@@ -22,4 +22,6 @@
 
   formatAttr = "VMA";
   fileExtension = ".vma.zst";
+
+  modGenerator.enable = true;
 }
