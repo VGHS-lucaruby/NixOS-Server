@@ -15,5 +15,5 @@
   imports = [ ../NixOS/Authentik ];
 
   # Configure Modules
-  # Example: modExample.enable = true;
+  modRestic.enable = false;
 }
