@@ -2,6 +2,6 @@
 
 {
   networking.firewall = {
-    allowedTCPPorts = [5432];
+    allowedTCPPorts = [9443 6636 9300];
   };
 }
