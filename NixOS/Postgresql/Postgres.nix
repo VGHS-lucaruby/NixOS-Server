@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  systemd.tmpfiles.rules = [ "d /var/lib/postgresql 0770 postgres postgres - -" ];
+  systemd.tmpfiles.rules = [ "d /var/lib/postgresql 0700 postgres postgres - -" ];
 
   # Use lower case names for DB and users lol
   services.postgresql = {
