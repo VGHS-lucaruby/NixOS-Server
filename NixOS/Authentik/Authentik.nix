@@ -34,5 +34,9 @@
       enable = true;
       environmentFile = config.sops.secrets."Authentik/envLDAP".path;
     };
+    authentik-radius = { 
+      enable = true;
+      environmentFile = config.sops.secrets."Authentik/envRADIUS".path;
+    };
   };
 }
