@@ -52,7 +52,7 @@
 				  for i in ''${arr[@]:1}; do
 				    opt=""
 				    opt=$cmds"
-				      +workkshop_download_item ''${arr[0]} $i
+				      +workshop_download_item ''${arr[0]} $i
 				      +quit
 				    "
 				    ${pkgs.steamcmd}/bin/steamcmd $opt
