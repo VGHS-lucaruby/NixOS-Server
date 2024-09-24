@@ -3,8 +3,7 @@
 let
 	steam-app = "233780"; # arma server tool
 	steam-basegame = "107410"; # arma 3
-	mods="450814997-3020755032-1779063631-894678801-463939057"; # CBA_A3 // Antistasi Ultimate // Zeus Enhanced // Task Force Arrowhead // Ace
-
+	mods = "450814997-3020755032-1779063631-894678801-463939057"; # CBA_A3 // Antistasi Ultimate // Zeus Enhanced // Task Force Arrowhead // Ace
 in {
 		modSteamDownloader.enable = true;
 
