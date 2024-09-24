@@ -5,8 +5,8 @@
 
 		nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     	"steamcmd"
-			"steam-run"
-			"steam-original"
+		"steam-run"
+		"steam-original"
   	];
 
     sops.secrets = {
@@ -33,16 +33,32 @@
 	  		Type = "oneshot";
 	  		ExecStart = "${pkgs.writeShellScript "SteamDownloader"
 				''
-	  			app=''${1:?App ID missing}
+	  			inputs=''${1}
 
-	  			cmds="
-	  				+force_install_dir /var/lib/SteamDownloader/$app
-	  				+login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})"
-	  				+app_update $app validate
-						+quit
-	  			"
+				arr=(''${input//-/ })
+				
+				cmds="
+				    +force_install_dir /var/lib/SteamDownloader/''${arr[0]}
+				    +login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})"
+				  "
+				
+				if [ ''${#arr[@]} = 1 ]; then
+				  cmds+="
+				    +app_update ''${arr[0]} validate
+				    +quit
+				    "
+				    ${pkgs.steamcmd}/bin/steamcmd $cmds
+				else
+				  for i in ''${arr[@]:1}; do
+				    opt=""
+				    opt=$cmds"
+				      +workkshop_download_item ''${arr[0]} $i
+				      +quit
+				    "
+				    ${pkgs.steamcmd}/bin/steamcmd $opt
+				  done
+				fi
 
-	  			${pkgs.steamcmd}/bin/steamcmd $cmds
 	  		''} %i";
 	  		PrivateTmp = true;
 	  		Restart = "no";
