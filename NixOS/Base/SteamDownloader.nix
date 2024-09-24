@@ -33,7 +33,7 @@
 	  		Type = "oneshot";
 	  		ExecStart = "${pkgs.writeShellScript "SteamDownloader"
 				''
-	  			inputs=''${1}
+	  		input=''${1}
 
 				arr=(''${input//-/ })
 				
