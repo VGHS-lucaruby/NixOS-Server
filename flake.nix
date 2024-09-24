@@ -17,6 +17,10 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    simple-nixos-mailserver= {
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
@@ -25,6 +29,7 @@
       # List hostnames here for configuration
         "DATHOAUTHENTIK01"
         "DATHOGRAFANA01"
+        "DATHOMAIL01"
         "DATHOMINECRAFT01"
         "DATHOPOSTGRES01"
         "DATHOPROMETH01"
@@ -51,6 +56,7 @@
               self = self;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
+              primaryDomain = "datumine.co.uk";
             };
           }
       );
@@ -71,6 +77,7 @@
               self = self;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
+              primaryDomain = "datumine.co.uk";
             };
           }
       );
