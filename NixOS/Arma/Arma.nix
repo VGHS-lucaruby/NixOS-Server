@@ -6,7 +6,7 @@ let
 	#mods = "450814997-3020755032-1779063631-894678801-463939057"; # CBA_A3 // Antistasi Ultimate // Zeus Enhanced // Task Force Arrowhead // Ace
 	ACE3 = builtins.fetchGit {
   	url = "https://github.com/acemod/ACE3.git";
-  	ref = "refs/tags/1.9";
+  	ref = "refs/tag/v3.17.1";
 	};
 
 in {
