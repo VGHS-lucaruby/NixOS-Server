@@ -57,7 +57,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-				${pkgs.steam-run}/bin/steam-run "/var/lib/SteamDownloader/${steam-app}/arma3server_x64" "-conifg=${Armaconfig}" "-password=''${cat ${config.sops.secrets."Arma/password".path}}" "-passwordAdmin=''${cat ${config.sops.secrets."Arma/passwordAdmin".path}}" "-serverCommandPassword=''${cat ${config.sops.secrets."Arma/serverCommandPassword".path}}"
+				${pkgs.steam-run}/bin/steam-run "/var/lib/SteamDownloader/${steam-app}/arma3server_x64" "-conifg=${Armaconfig}" "-password=$(cat ${config.sops.secrets."Arma/password".path})" "-passwordAdmin=$(cat ${config.sops.secrets."Arma/passwordAdmin".path})" "-serverCommandPassword=$(cat ${config.sops.secrets."Arma/serverCommandPassword".path})"
 			'';
 			Restart = "no";
 			User = "arma";
