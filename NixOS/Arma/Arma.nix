@@ -4,15 +4,39 @@ let
 	steam-app = "233780"; # arma server tool
 	steam-basegame = "107410"; # arma 3
 	#mods = "450814997-3020755032-1779063631-894678801-463939057"; # CBA_A3 // Antistasi Ultimate // Zeus Enhanced // Task Force Arrowhead // Ace
-	ACE3 = builtins.fetchGit {
-  	url = "https://github.com/acemod/ACE3.git";
-  	ref = "refs/tag/v3.17.1";
+
+	Armaconfig = import ./Arma.cfg;
+
+	ACE = builtins.fetchGit {
+  		url = "https://github.com/acemod/ACE3.git";
+  		ref = "refs/tag/v3.17.1";
+	};
+	Antistasi = builtins.fetchGit {
+  		url = "https://github.com/SilenceIsFatto/A3-Antistasi-Ultimate";
+  		ref = "refs/tag/v11.1.0";
+	};
+	Zeus = builtins.fetchGit {
+  		url = "https://github.com/zen-mod/ZEN";
+  		ref = "refs/tag/v1.15.1";
+	};
+	Arrowhead = builtins.fetchGit {
+  		url = "https://github.com/michail-nikolaev/task-force-arma-3-radio";
+  		ref = "refs/tag/0.9.12";
+	};
+	CBA = builtins.fetchGit {
+  		url = "https://github.com/CBATeam/CBA_A3";
+  		ref = "refs/tag/v3.17.1.240424";
+	};
+in {
+	sops.secrets = {
+		"Arma/password" = { owner = "Arma"; };
+		"Arma/passwordAdmin" = { owner = "Arma"; };
+    	"Arma/serverCommandPassword" = { owner = "Arma"; };
 	};
 
-in {
-		modSteamDownloader.enable = true;
+	modSteamDownloader.enable = true;
 
-		users.users.arma = {
+	users.users.arma = {
 		isSystemUser = true;
 		home = "/home/arma";
 		createHome = true;
@@ -32,7 +56,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-				${pkgs.steam-run}/bin/steam-run "/var/lib/SteamDownloader/${steam-app}/arma3server_x64" "-name=${nodeHostName}"
+				${pkgs.steam-run}/bin/steam-run "/var/lib/SteamDownloader/${steam-app}/arma3server_x64" "-conifg=${Armaconfig}" "-password=''${cat ${conifg.sops.secrets."Arma/password".path}}" "-passwordAdmin=''${cat ${conifg.sops.secrets."Arma/passwordAdmin".path}}" "-serverCommandPassword=''${cat ${conifg.sops.secrets."Arma/serverCommandPassword".path}}"
 			'';
 			Restart = "no";
 			User = "arma";
