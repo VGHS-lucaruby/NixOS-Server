@@ -33,6 +33,7 @@
         "DATHOMINECRAFT01"
         "DATHOPOSTGRES01"
         "DATHOPROMETH01"
+        "DATHOTANDOOR01"
         "DATHOUNIFI01"
       ];
       
