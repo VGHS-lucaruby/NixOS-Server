@@ -3,7 +3,7 @@
 let
   modpack = pkgs.fetchPackwizModpack {
     url = "https://raw.githubusercontent.com/VGHS-lucaruby/Minecraft-WorldCreation/2.0.3/pack.toml";
-    packHash = "sha256-utDwlsVK36nzhkva4LY9ANuCxfh01nsNB26NpgSZ1og=";
+    packHash = "sha256-fYbgrcDrENVRtUB2dTR5VAxUj865VOfXD4Td1bxGU9M=";
   };
 
   mcVersion = modpack.manifest.versions.minecraft;
