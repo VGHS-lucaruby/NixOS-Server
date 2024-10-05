@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/VGHS-lucaruby/Minecraft-WorldCreation/2.0.2/pack.toml";
-    packHash = "sha256-I43gNSWx+r50fVxIRQ+d/pGgWndHfKigwoYkaIYuupA=";
+    url = "https://raw.githubusercontent.com/VGHS-lucaruby/Minecraft-WorldCreation/2.0.3/pack.toml";
+    packHash = "sha256-utDwlsVK36nzhkva4LY9ANuCxfh01nsNB26NpgSZ1og=";
   };
 
   mcVersion = modpack.manifest.versions.minecraft;
@@ -32,7 +32,8 @@ in {
       "config/textile_backup.json5" = "${modpack}/config/textile_backup.json5";
       "config/gravestones.json" = "${modpack}/config/gravestones.json";
       "config/openpartiesandclaims-server.toml" = "${modpack}/config/openpartiesandclaims-server.toml";
-      "config/logcleaner.json" = "${modpack}/config/logcleaner.json"; # uncomment for 2.0.2 release
+      "config/logcleaner.json" = "${modpack}/config/logcleaner.json";
+      "config/mcde.json5" = "${modpack}/config/mcde.json5";
     };
 
     jvmOpts = "-Xms10G -Xmx10G";
