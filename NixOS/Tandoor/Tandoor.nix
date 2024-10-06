@@ -15,7 +15,6 @@
     groups.tandoor_recipes = {};
   };
 
-  # test
   systemd.services.tandoor-recipes ={
     serviceConfig = {
       EnvironmentFile = config.sops.secrets."Tandoor/env".path;
@@ -26,6 +25,8 @@
     enable = true;
     address = "0.0.0.0";
     extraConfig = {
+      DEBUG=1;
+      DEBUG_TOOLBAR=1;
       ALLOWED_HOSTS="recipes.${primaryDomain}";
       DB_ENGINE="django.db.backends.postgresql";
       POSTGRES_HOST="10.0.20.50";
@@ -35,7 +36,7 @@
       AUTH_LDAP_ALWAYS_UPDATE_USER=1;
       AUTH_LDAP_CACHE_TIMEOUT=3600;
       AUTH_LDAP_SERVER_URI="ldaps://ldaps.${primaryDomain}:636";
-      AUTH_LDAP_USER_SEARCH_FILTER_STR="(&(objectclass=user)(memberOf=cn=tandoor))";
+      AUTH_LDAP_USER_SEARCH_FILTER_STR="(cn=%(user)s)";
       AUTH_LDAP_USER_ATTR_MAP="{'username': 'cn', 'email': 'mail'}";
     };
   };
