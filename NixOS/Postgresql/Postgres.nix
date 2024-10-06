@@ -54,6 +54,7 @@
       DO $$
       DECLARE pwdAdmin TEXT;
       DECLARE pwdAuthentik TEXT;
+      DECLARE pwdTandoor TEXT;
       BEGIN
         pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
         pwdAuthentik := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/authentik".path}'), E'\n', '''));
