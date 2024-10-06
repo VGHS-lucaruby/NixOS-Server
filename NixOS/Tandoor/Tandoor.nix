@@ -8,9 +8,9 @@
 
   users = {
     users.tandoor_recipes = {
-    isSystemUser = true;
-    homeMode = "750";
-    group = "tandoor_recipes";
+      isSystemUser = true;
+      homeMode = "750";
+      group = "tandoor_recipes";
     };
     groups.tandoor_recipes = {};
   };
