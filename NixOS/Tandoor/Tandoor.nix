@@ -26,7 +26,6 @@
     address = "0.0.0.0";
     extraConfig = {
       DEBUG=1;
-      DEBUG_TOOLBAR=1;
       ALLOWED_HOSTS="recipes.${primaryDomain}";
       DB_ENGINE="django.db.backends.postgresql";
       POSTGRES_HOST="10.0.20.50";
