@@ -32,6 +32,11 @@
         # passwordFile = ; # Waiting to see what happens with PR#326306
         ensureDBOwnership  = true;
       }
+      {
+        name = "tandoor";
+        # passwordFile = ; # Waiting to see what happens with PR#326306
+        ensureDBOwnership  = true;
+      }
     ];
   };
 
