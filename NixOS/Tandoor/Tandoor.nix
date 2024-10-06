@@ -32,6 +32,7 @@
       POSTGRES_DB="tandoor";
       POSTGRES_PORT=5432;
       LDAP_AUTH=1;
+      AUTH_LDAP_START_TLS=1;
       AUTH_LDAP_SERVER_URI="ldaps://ldaps.${primaryDomain}:636";
       AUTH_LDAP_USER_SEARCH_FILTER_STR="(&(objectclass=user)(memberOf=cn=tandoor))";
       AUTH_LDAP_USER_ATTR_MAP="{'username': 'cn', 'email': 'mail'}";
