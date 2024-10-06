@@ -30,12 +30,12 @@
       {
         name = "authentik";
         # passwordFile = ; # Waiting to see what happens with PR#326306
-        ensureDBOwnership  = true;
+        ensureDBOwnership = true;
       }
       {
         name = "tandoor";
         # passwordFile = ; # Waiting to see what happens with PR#326306
-        ensureDBOwnership  = true;
+        ensureDBOwnership = true;
       }
     ];
   };
@@ -49,25 +49,19 @@
     "Postgres/tandoor" = { owner = "postgres"; };
   };
 
-  systemd.services.postgresql.postStart =
-    let
-      Admin = config.sops.secrets."Postgres/admin".path;
-      Authentik = config.sops.secrets."Postgres/authentik".path;
-      Tandoor = config.sops.secrets."Postgres/authentik".path;
-    in
-    ''
-      $PSQL -tA <<'EOF'
-        DO $$
-        DECLARE pwdAdmin TEXT;
-        DECLARE pwdAuthentik TEXT;
-        BEGIN
-          pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
-          pwdAuthentik := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/authentik".path}'), E'\n', '''));
-          pwdTandoor := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/tandoor".path}'), E'\n', '''));
-          EXECUTE format('ALTER USER admin PASSWORD '''%s''';', pwdAdmin);
-          EXECUTE format('ALTER USER authentik PASSWORD '''%s''';', pwdAuthentik);
-          EXECUTE format('ALTER USER tandoor PASSWORD '''%s''';', pwdTandoor);
-        END $$;
-      EOF
-    '';
+  systemd.services.postgresql.postStart = ''
+    $PSQL -tA <<'EOF'
+      DO $$
+      DECLARE pwdAdmin TEXT;
+      DECLARE pwdAuthentik TEXT;
+      BEGIN
+        pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
+        pwdAuthentik := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/authentik".path}'), E'\n', '''));
+        pwdTandoor := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/tandoor".path}'), E'\n', '''));
+        EXECUTE format('ALTER USER admin PASSWORD '''%s''';', pwdAdmin);
+        EXECUTE format('ALTER USER authentik PASSWORD '''%s''';', pwdAuthentik);
+        EXECUTE format('ALTER USER tandoor PASSWORD '''%s''';', pwdTandoor);
+      END $$;
+    EOF
+  '';
 }
