@@ -27,7 +27,7 @@
     address = "0.0.0.0";
     extraConfig = {
       ALLOWED_HOSTS="recipes.${primaryDomain}";
-      POSTGRES_HOST="postgres.${primaryDomain}";
+      POSTGRES_HOST="10.0.20.50";
       POSTGRES_DB="tandoor";
       POSTGRES_PORT=5432;
       LDAP_AUTH=1;
