@@ -25,6 +25,7 @@
     address = "0.0.0.0";
     extraConfig = {
       ALLOWED_HOSTS="recipes.${primaryDomain}";
+      GUNICORN_MEDIA=1;
       DB_ENGINE="django.db.backends.postgresql";
       POSTGRES_HOST="10.0.20.50";
       POSTGRES_DB="tandoor";
