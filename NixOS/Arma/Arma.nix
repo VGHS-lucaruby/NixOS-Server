@@ -45,18 +45,22 @@ in {
 		after = [ "SteamDownloader@${steam-app}.service" ];
 
 		preStart = ''
+			mkdir @ace && ln -sf ${ACE}/* @ace
+			mkdir @A3U && ln -sf ${Antistasi}/* @A3U
+			mkdir @zen && ln -sf ${Zeus}/* @zen
+			mkdir @task_force_radio && ln -sf ${Arrowhead}/* @task_force_radio
+			mkdir @CBA_A3 && ln -sf ${CBA}/* @CBA_A3
 			ln -sf ${ACE}/keys/* keys
 			ln -sf ${Antistasi}/keys/* keys
 			ln -sf ${Zeus}/keys/* keys
 			ln -sf ${Arrowhead}/keys/* keys
-			ln -sf ${CBA}/keys/* keys
+			ln -sf ${CBA}/keys/* keys	
+			ln -sf ${Armaconfig} arma.cfg
 		'';
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -conifg=${Armaconfig} \
-				-password="$(cat ${config.sops.secrets."Arma/password".path})" -passwordAdmin="$(cat ${config.sops.secrets."Arma/passwordAdmin".path})" -serverCommandPassword="$(cat ${config.sops.secrets."Arma/serverCommandPassword".path})" \
-				-mod="${ACE};${Antistasi};${Zeus};${Arrowhead};${CBA}"
+				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=arma.cfg -mod="@ace;@A3U;@zen;@task_force_radio;@CBA_A3"
 			'';
 			Restart = "no";
 			User = "steam";
