@@ -6,6 +6,7 @@
       paths = [
         "/var/mail"
         "/var/dkim"
+        "/var/sieve"
       ];
     };
   };

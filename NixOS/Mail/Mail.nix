@@ -1,32 +1,56 @@
-{ primaryDomain, ... }:
+{ sops, config, primaryDomain, ... }:
 
 {
+  sops.secrets = {
+    "Passwords/ldap" = {
+      owner = "virtualMail";
+    };
+  };
+
   mailserver = {
     enable = true;
+    enableImap = false;
+    enableManageSieve = true;
+    enableSubmissionSsl = false;
+
     fqdn = "mail.${primaryDomain}";
     domains = [ "${primaryDomain}" ];
-
+    
+    rebootAfterKernelUpgrade.enable = true;
     useUTF8FolderNames = true;
-
+    useFsLayout = true;
+    virusScanning = true;
+    dkimKeyBits = 2048;
+    hierarchySeparator = "/";
+    
+    
     dmarcReporting = {
       enable = true;
       domain = "${primaryDomain}";
+      localpart = "dmarc-reports";
+      fromName = "${primaryDomain}";
+      organizationName = "Datumine";
     };
 
-    # A list of all login accounts. To create the password hashes, use
-    # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
-    # loginAccounts = {
-    #   "user1@example.com" = {
-    #     hashedPasswordFile = "/a/file/containing/a/hashed/password";
-    #     aliases = ["postmaster@example.com"];
-    #   };
-    #   "user2@example.com" = { ... };
-    # };
-
-    # Use Let's Encrypt certificates. Note that this needs to set up a stripped
-    # down nginx and opens port 80.
-    certificateScheme = "acme-nginx";
+    ldap = {
+      enable = true;
+      uris = [ "ldaps.${primaryDomain}" ];
+      searchBase = "DC=ldap,DC=datumine,DC=co.uk";
+      
+      bind = {
+        dn = "cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
+        passwordFile = config.sops.secrets."Passwords/ldap".path;
+      };
+      
+      postfix = {
+        filter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk))";
+        mailAttribute = "mail";
+        uidAttribute = "uid";
+      };
+      
+      dovecot = {
+        userFilter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk))";
+      };
+    };
   };
-  security.acme.acceptTerms = true;
-  security.acme.defaults.email = "services@${primaryDomain}";
 }
