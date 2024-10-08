@@ -37,11 +37,6 @@ in {
 
 	modSteamDownloader.enable = true;
 
-	environment.systemPackages = with pkgs; [
-		autoPatchelfHook
-		stdenv.cc.cc.lib
-	];
-
 	users.users.arma = {
 		isSystemUser = true;
 		home = "/home/arma";
@@ -60,14 +55,13 @@ in {
 		wants = [ "SteamDownloader@${steam-app}.service" ];
 		after = [ "SteamDownloader@${steam-app}.service" ];
 		
-		preStart="autoPatchelf /var/lib/SteamDownloader/${steam-app}";
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-				"/var/lib/SteamDownloader/${steam-app}/arma3server_x64" "-conifg=${Armaconfig}" "-password=$(cat ${config.sops.secrets."Arma/password".path})" "-passwordAdmin=$(cat ${config.sops.secrets."Arma/passwordAdmin".path})" "-serverCommandPassword=$(cat ${config.sops.secrets."Arma/serverCommandPassword".path})"
+				${pkgs.steam-run}/bin/steam-run "arma3server_x64" "-conifg=${Armaconfig}" "-password=$(cat ${config.sops.secrets."Arma/password".path})" "-passwordAdmin=$(cat ${config.sops.secrets."Arma/passwordAdmin".path})" "-serverCommandPassword=$(cat ${config.sops.secrets."Arma/serverCommandPassword".path})"
 			'';
 			Restart = "no";
 			User = "arma";
-			WorkingDirectory = "/home/arma";
+			WorkingDirectory = "/var/lib/SteamDownloader/${steam-app}";
 		};
 	};
 }
