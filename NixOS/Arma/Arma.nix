@@ -7,25 +7,25 @@ let
 
 	Armaconfig = ./Arma.cfg;
 
-	ACE = builtins.fetchGit {
-  		url = "https://github.com/acemod/ACE3.git";
-  		ref = "refs/tag/v3.17.1";
+	ACE = pkgs.fetchzip {
+		url = "https://github.com/acemod/ACE3/releases/download/v3.17.1/ace3_3.17.1.zip";
+  	hash = "sha256-CsCYDYuBEaEXYzM8fmK2Oy91KUdyCK6VZ8aNOyKAu0A=";
 	};
-	Antistasi = builtins.fetchGit {
-  		url = "https://github.com/SilenceIsFatto/A3-Antistasi-Ultimate";
-  		ref = "refs/tag/v11.1.0";
+	Antistasi = pkgs.fetchzip {
+  	url = "https://github.com/SilenceIsFatto/A3-Antistasi-Ultimate/releases/download/v11.2.0/@A3U.zip";
+  	hash = "sha256-MeGiDbn5rtj2XCRu2PVp5BEHVzsqKoYPoBKOWcFacIo=";
 	};
-	Zeus = builtins.fetchGit {
-  		url = "https://github.com/zen-mod/ZEN";
-  		ref = "refs/tag/v1.15.1";
+	Zeus = pkgs.fetchzip {
+  	url = "https://github.com/zen-mod/ZEN/releases/download/v1.15.1/zen_1.15.1.zip";
+  	hash = "sha256-/jxtxuSq8MgFY7V12hEKL6nzA1MqfiWdtXy09OymrEI=";
 	};
-	Arrowhead = builtins.fetchGit {
-  		url = "https://github.com/michail-nikolaev/task-force-arma-3-radio";
-  		ref = "refs/tag/0.9.12";
+	Arrowhead = pkgs.fetchzip {
+  	url = "https://github.com/michail-nikolaev/task-force-arma-3-radio/releases/download/0.9.12/0.9.12.zip";
+  	hash = "sha256-QG0p6Wc1sAcS7ZWD1cF2R++6W8br1LVFvMahaFJJN/0=";
 	};
-	CBA = builtins.fetchGit {
-  		url = "https://github.com/CBATeam/CBA_A3";
-  		ref = "refs/tag/v3.17.1.240424";
+	CBA = pkgs.fetchzip {
+  	url = "https://github.com/CBATeam/CBA_A3/releases/download/v3.17.1.240424/CBA_A3_v3.17.1.zip";
+  	hash = "sha256-KFgRc26Ohbti2dkBBPqtVvT/Tbx2woeaLypxbUhmAWk=";
 	};
 in {
 	
@@ -58,7 +58,8 @@ in {
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
 				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -conifg=${Armaconfig} \
-				-password=$(cat ${config.sops.secrets."Arma/password".path}) -passwordAdmin=$(cat ${config.sops.secrets."Arma/passwordAdmin".path}) -serverCommandPassword=$(cat ${config.sops.secrets."Arma/serverCommandPassword".path})
+				-password="$(cat ${config.sops.secrets."Arma/password".path})" -passwordAdmin="$(cat ${config.sops.secrets."Arma/passwordAdmin".path})" -serverCommandPassword="$(cat ${config.sops.secrets."Arma/serverCommandPassword".path})" \
+				-mod="${ACE}/@ACE;${Antistasi}/@A3U;${Zeus}/@zen;${Arrowhead}/@task_force_radio;${CBA}/@CBA_A3"
 			'';
 			Restart = "no";
 			User = "arma";
