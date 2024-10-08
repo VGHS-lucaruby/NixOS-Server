@@ -30,23 +30,12 @@ let
 in {
 	
 	sops.secrets = {
-		"Arma/password" = { owner = "arma"; };
-		"Arma/passwordAdmin" = { owner = "arma"; };
-		"Arma/serverCommandPassword" = { owner = "arma"; };
+		"Arma/password" = { owner = "steam"; };
+		"Arma/passwordAdmin" = { owner = "steam"; };
+		"Arma/serverCommandPassword" = { owner = "steam"; };
 	};
 
 	modSteamDownloader.enable = true;
-
-	users.users.arma = {
-		isSystemUser = true;
-		home = "/home/arma";
-		createHome = true;
-		homeMode = "750";
-		group = "arma";
-		extraGroups = [ "steam" ];
-	};
-
-	users.groups.arma = {};
 
 	systemd.services.ArmaServer = {
 		wantedBy = [ "multi-user.target" ];
@@ -62,7 +51,7 @@ in {
 				-mod="${ACE}/@ACE;${Antistasi}/@A3U;${Zeus}/@zen;${Arrowhead}/@task_force_radio;${CBA}/@CBA_A3"
 			'';
 			Restart = "no";
-			User = "arma";
+			User = "steam";
 			WorkingDirectory = "/var/lib/SteamDownloader/${steam-app}";
 		};
 	};
