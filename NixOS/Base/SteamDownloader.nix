@@ -5,8 +5,8 @@
 
 		nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     	"steamcmd"
-		"steam-run"
-		"steam-original"
+			"steam-run"
+			"steam-original"
   	];
 
     sops.secrets = {
