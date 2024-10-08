@@ -44,6 +44,14 @@ in {
 		wants = [ "SteamDownloader@${steam-app}.service" ];
 		after = [ "SteamDownloader@${steam-app}.service" ];
 
+		preStart = ''
+			ln -sf ${ACE}/@ACE/keys/* keys
+			ln -sf ${Antistasi}/@A3U/keys/* keys
+			ln -sf ${Zeus}/@zen/keys/* keys
+			ln -sf ${Arrowhead}/@task_force_radio/keys/* keys
+			ln -sf ${CBA}/@CBA_A3/keys/* keys
+		'';
+
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
 				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -conifg=${Armaconfig} \
