@@ -45,18 +45,18 @@ in {
 		after = [ "SteamDownloader@${steam-app}.service" ];
 
 		preStart = ''
-			ln -sf ${ACE}/@ACE/keys/* keys
-			ln -sf ${Antistasi}/@A3U/keys/* keys
-			ln -sf ${Zeus}/@zen/keys/* keys
-			ln -sf ${Arrowhead}/@task_force_radio/keys/* keys
-			ln -sf ${CBA}/@CBA_A3/keys/* keys
+			ln -sf ${ACE}/keys/* keys
+			ln -sf ${Antistasi}/keys/* keys
+			ln -sf ${Zeus}/keys/* keys
+			ln -sf ${Arrowhead}/keys/* keys
+			ln -sf ${CBA}/keys/* keys
 		'';
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
 				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -conifg=${Armaconfig} \
 				-password="$(cat ${config.sops.secrets."Arma/password".path})" -passwordAdmin="$(cat ${config.sops.secrets."Arma/passwordAdmin".path})" -serverCommandPassword="$(cat ${config.sops.secrets."Arma/serverCommandPassword".path})" \
-				-mod="${ACE}/@ACE;${Antistasi}/@A3U;${Zeus}/@zen;${Arrowhead}/@task_force_radio;${CBA}/@CBA_A3"
+				-mod="${ACE};${Antistasi};${Zeus};${Arrowhead};${CBA}"
 			'';
 			Restart = "no";
 			User = "steam";
