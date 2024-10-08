@@ -20,6 +20,7 @@
     useUTF8FolderNames = true;
     useFsLayout = true;
     virusScanning = true;
+    localDnsResolver = false;
     dkimKeyBits = 2048;
     hierarchySeparator = "/";
     
