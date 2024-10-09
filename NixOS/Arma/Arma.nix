@@ -60,7 +60,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=arma.cfg -mod="@ace;@A3U;@zen;@task_force_radio;@CBA_A3"
+				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=arma.cfg -mod="@ace:@A3U:@zen:@task_force_radio:@CBA_A3"
 			'';
 			Restart = "no";
 			User = "steam";
