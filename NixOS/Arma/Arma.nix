@@ -6,6 +6,7 @@ let
 	#mods = "450814997-3020755032-1779063631-894678801-463939057"; # CBA_A3 // Antistasi Ultimate // Zeus Enhanced // Task Force Arrowhead // Ace
 
 	Armaconfig = ./Arma.cfg;
+	ConfigFilename = "arma.cfg";
 
 	ACE = pkgs.fetchzip {
 		url = "https://github.com/acemod/ACE3/releases/download/v3.18.0/ace3_3.18.0.zip";
@@ -30,9 +31,7 @@ let
 in {
 	
 	sops.secrets = {
-		"Arma/password" = { owner = "steam"; };
-		"Arma/passwordAdmin" = { owner = "steam"; };
-		"Arma/serverCommandPassword" = { owner = "steam"; };
+		"Arma/passwordEnv" = { owner = "steam"; };
 	};
 
 	modSteamDownloader.enable = true;
@@ -55,7 +54,7 @@ in {
 			ln -sf ${Zeus}/keys/* keys
 			ln -sf ${Arrowhead}/keys/* keys
 			ln -sf ${CBA}/keys/* keys	
-			ln -sf ${Armaconfig} arma.cfg
+			cat ${config.sops.secrets."Arma/passwordEnv".path} > ${ConfigFilename} && cat ${Armaconfig} >> ${ConfigFilename}
 		'';
 
 		serviceConfig = {
