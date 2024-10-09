@@ -4,7 +4,7 @@
   services.restic.backups = {
     dailyBackup = {
       paths = [
-        "/srv/steam-app*"
+        "/home/steam/.local/share/Arma 3 - Other Profiles"
       ];
     };
   };
