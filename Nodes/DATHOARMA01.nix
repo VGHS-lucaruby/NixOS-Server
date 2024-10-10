@@ -12,7 +12,10 @@
   };
 
   # Import Modules
-  imports = [ ../NixOS/Arma ];
+  imports = [ 
+    ../NixOS/Arma
+    ../NixOs/Teamspeak 
+  ];
 
   # Configure Modules
   # Example: modExample.enable = true;
