@@ -9,7 +9,7 @@ let
 	ConfigFilename = "arma.cfg";
 
 	ACE = pkgs.fetchzip {
-		url = "https://github.com/acemod/ACE3/releases/download/v3.18.0/ace3_3.18.0.zip";
+	url = "https://github.com/acemod/ACE3/releases/download/v3.18.0/ace3_3.18.0.zip";
   	hash = "sha256-PFf0P0MISqhR+JlY/J/c6X0BRf05DrMpom0SqJt5Mr0=";
 	};
 	Antistasi = pkgs.fetchzip {
