@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  services.teamspeak3-server = {
+  services.teamspeak3 = {
     enable = true;
 
     openFirewall = true;
