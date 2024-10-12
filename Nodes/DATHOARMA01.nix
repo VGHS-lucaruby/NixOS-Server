@@ -14,7 +14,7 @@
   # Import Modules
   imports = [ 
     ../NixOS/Arma
-    ../NixOs/Teamspeak 
+    ../NixOS/Teamspeak 
   ];
 
   # Configure Modules
