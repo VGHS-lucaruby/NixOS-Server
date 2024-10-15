@@ -5,5 +5,4 @@
     ./Restic.nix
     ./Teamspeak.nix
   ];
-
 }
