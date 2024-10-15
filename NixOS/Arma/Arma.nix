@@ -59,11 +59,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-<<<<<<< HEAD
-				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=arma.cfg -mod="@ace:@A3U:@zen:@task_force_radio:@CBA_A3"
-=======
-				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=${ConfigFilename} -mod="@ace;@A3U;@zen;@task_force_radio;@CBA_A3" -cfg=password.cfg
->>>>>>> f06e03341eb34a60489f0196d4665bd47d6fd0e9
+				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=${ConfigFilename} -mod="@ace;@A3U;@zen;@task_force_radio;@CBA_A3"
 			'';
 			Restart = "no";
 			User = "steam";
