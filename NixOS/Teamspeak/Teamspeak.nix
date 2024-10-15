@@ -1,9 +1,7 @@
 { config, lib, ... }:
 
 {
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "teamspeak-server"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   services.teamspeak3 = {
     enable = true;
