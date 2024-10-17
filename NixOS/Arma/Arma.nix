@@ -9,12 +9,12 @@ let
 	ConfigFilename = "arma.cfg";
 
 	ACE = pkgs.fetchzip {
-	url = "https://github.com/acemod/ACE3/releases/download/v3.18.0/ace3_3.18.0.zip";
-  	hash = "sha256-PFf0P0MISqhR+JlY/J/c6X0BRf05DrMpom0SqJt5Mr0=";
+	url = "https://github.com/acemod/ACE3/releases/download/v3.18.1/ace3_3.18.1.zip";
+  	hash = "sha256-9ISBp4EWscbiJPtAfth6tiHtIFQ53rqTmDa4W5LwmIc=";
 	};
 	Antistasi = pkgs.fetchzip {
-  	url = "https://github.com/SilenceIsFatto/A3-Antistasi-Ultimate/releases/download/v11.2.0/@A3U.zip";
-  	hash = "sha256-MeGiDbn5rtj2XCRu2PVp5BEHVzsqKoYPoBKOWcFacIo=";
+  	url = "https://github.com/SilenceIsFatto/A3-Antistasi-Ultimate/releases/download/v11.2.1/@A3U.zip";
+  	hash = "sha256-9ISBp4EWscbiJPtAfth6tiHtIFQ53rqTmDa4W5LwmIc=";
 	};
 	Zeus = pkgs.fetchzip {
   	url = "https://github.com/zen-mod/ZEN/releases/download/v1.15.1/zen_1.15.1.zip";
@@ -25,8 +25,8 @@ let
   	hash = "sha256-QG0p6Wc1sAcS7ZWD1cF2R++6W8br1LVFvMahaFJJN/0=";
 	};
 	CBA = pkgs.fetchzip {
-  	url = "https://github.com/CBATeam/CBA_A3/releases/download/v3.18.0.241008/CBA_A3_v3.18.0.zip";
-  	hash = "sha256-ofSeDkOUkQT/3iz6NZAZ46z9UQS0psYiL1c5yimCZEk=";
+  	url = "https://github.com/CBATeam/CBA_A3/releases/download/v3.18.1/CBA_A3_v3.18.1.zip";
+  	hash = "sha256-9ISBp4EWscbiJPtAfth6tiHtIFQ53rqTmDa4W5LwmIc=";
 	};
 in {
 	
