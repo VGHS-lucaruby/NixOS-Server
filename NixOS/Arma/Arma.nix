@@ -10,11 +10,11 @@ let
 
 	ACE = pkgs.fetchzip {
 	url = "https://github.com/acemod/ACE3/releases/download/v3.18.1/ace3_3.18.1.zip";
-  	hash = "sha256-9ISBp4EWscbiJPtAfth6tiHtIFQ53rqTmDa4W5LwmIc=";
+  	hash = "sha256-4ZJWswnKokuepuQQJSxQvnfCw5KRBiaWRjcanSvNBwo=";
 	};
 	Antistasi = pkgs.fetchzip {
   	url = "https://github.com/SilenceIsFatto/A3-Antistasi-Ultimate/releases/download/v11.2.1/@A3U.zip";
-  	hash = "sha256-9ISBp4EWscbiJPtAfth6tiHtIFQ53rqTmDa4W5LwmIc=";
+  	hash = "sha256-kqyn+u4T90zubBaiYMeLp2lfa6DN35ykZuQ8v95+tac=";
 	};
 	Zeus = pkgs.fetchzip {
   	url = "https://github.com/zen-mod/ZEN/releases/download/v1.15.1/zen_1.15.1.zip";
