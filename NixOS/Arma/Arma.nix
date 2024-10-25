@@ -47,8 +47,6 @@ in {
 			if ls -l | grep @ | grep -c ^d > /dev/null; then
 				rm -rf @*
 			fi
-			
-			rm keys/*
 
 			mkdir @ace && ln -s ${ACE}/* @ace
 			mkdir @A3U && ln -s ${Antistasi}/* @A3U
@@ -56,12 +54,12 @@ in {
 			mkdir @TFAR && ln -s ${TFAR}/* @TFAR
 			mkdir @CBA_A3 && ln -s ${CBA}/* @CBA_A3
 
-			ln -s ${ACE}/keys/* keys
-			ln -s ${Antistasi}/keys/* keys
-			ln -s ${Zeus}/keys/* keys
-			ln -s ${TFAR}/keys/* keys
-			ln -s ${CBA}/keys/* keys	
-			
+			ln -sf ${ACE}/keys/* keys
+			ln -sf ${Antistasi}/keys/* keys
+			ln -sf ${Zeus}/keys/* keys
+			ln -sf ${TFAR}/keys/* keys
+			ln -sf ${CBA}/keys/* keys	
+
 			cat ${config.sops.secrets."Arma/passwordEnv".path} > ${ConfigFilename} && cat ${Armaconfig} >> ${ConfigFilename}
 		'';
 
