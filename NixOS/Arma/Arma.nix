@@ -20,9 +20,9 @@ let
   	url = "https://github.com/zen-mod/ZEN/releases/download/v1.15.1/zen_1.15.1.zip";
   	hash = "sha256-/jxtxuSq8MgFY7V12hEKL6nzA1MqfiWdtXy09OymrEI=";
 	};
-	Arrowhead = pkgs.fetchzip {
-  	url = "https://github.com/michail-nikolaev/task-force-arma-3-radio/releases/download/0.9.12/0.9.12.zip";
-  	hash = "sha256-QG0p6Wc1sAcS7ZWD1cF2R++6W8br1LVFvMahaFJJN/0=";
+	TFAR = pkgs.fetchzip {
+  	url = "https://github.com/michail-nikolaev/task-force-arma-3-radio/releases/download/1.0-PreRelease/1.-1.0.335.zip";
+  	hash = "sha256-2Mh7okzVuJSurcsPBvByiRrOMxoUF+4ymj2+wwksRLU=";
 	};
 	CBA = pkgs.fetchzip {
   	url = "https://github.com/CBATeam/CBA_A3/releases/download/v3.18.1/CBA_A3_v3.18.1.zip";
@@ -47,19 +47,19 @@ in {
 			mkdir @ace && ln -sf ${ACE}/* @ace
 			mkdir @A3U && ln -sf ${Antistasi}/* @A3U
 			mkdir @zen && ln -sf ${Zeus}/* @zen
-			mkdir @task_force_radio && ln -sf ${Arrowhead}/* @task_force_radio
+			mkdir @TFAR && ln -sf ${TFAR}/* @TFAR
 			mkdir @CBA_A3 && ln -sf ${CBA}/* @CBA_A3
 			ln -sf ${ACE}/keys/* keys
 			ln -sf ${Antistasi}/keys/* keys
 			ln -sf ${Zeus}/keys/* keys
-			ln -sf ${Arrowhead}/keys/* keys
+			ln -sf ${TFAR}/keys/* keys
 			ln -sf ${CBA}/keys/* keys	
 			cat ${config.sops.secrets."Arma/passwordEnv".path} > ${ConfigFilename} && cat ${Armaconfig} >> ${ConfigFilename}
 		'';
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
-				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=${ConfigFilename} -mod="@ace;@A3U;@zen;@task_force_radio;@CBA_A3"
+				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=${ConfigFilename} -mod="@ace;@A3U;@zen;@TFAR;@CBA_A3"
 			'';
 			Restart = "no";
 			User = "steam";
