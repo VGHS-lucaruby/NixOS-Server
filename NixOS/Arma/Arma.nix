@@ -9,7 +9,7 @@ let
 	ConfigFilename = "arma.cfg";
 
 	ACE = pkgs.fetchzip {
-	url = "https://github.com/acemod/ACE3/releases/download/v3.18.1/ace3_3.18.1.zip";
+		url = "https://github.com/acemod/ACE3/releases/download/v3.18.1/ace3_3.18.1.zip";
   	hash = "sha256-4ZJWswnKokuepuQQJSxQvnfCw5KRBiaWRjcanSvNBwo=";
 	};
 	Antistasi = pkgs.fetchzip {
@@ -21,8 +21,8 @@ let
   	hash = "sha256-/jxtxuSq8MgFY7V12hEKL6nzA1MqfiWdtXy09OymrEI=";
 	};
 	TFAR = pkgs.fetchzip {
-  	url = "https://github.com/michail-nikolaev/task-force-arma-3-radio/releases/download/1.0-PreRelease/1.-1.0.335.zip";
-  	hash = "sha256-2Mh7okzVuJSurcsPBvByiRrOMxoUF+4ymj2+wwksRLU=";
+  	url = "https://github.com/michail-nikolaev/task-force-arma-3-radio/releases/download/1.0-PreRelease/1.-1.0.334.zip";
+  	hash = "sha256-QrZrZ7sBlqejVua8GPX0N7oq/4aoXvGlPeSxFrItf+Q=";
 	};
 	CBA = pkgs.fetchzip {
   	url = "https://github.com/CBATeam/CBA_A3/releases/download/v3.18.1/CBA_A3_v3.18.1.zip";
