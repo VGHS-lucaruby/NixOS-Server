@@ -43,17 +43,21 @@ in {
 		wants = [ "SteamDownloader@${steam-app}.service" ];
 		after = [ "SteamDownloader@${steam-app}.service" ];
 
-		preStart = ''
-			mkdir @ace && ln -sf ${ACE}/* @ace
-			mkdir @A3U && ln -sf ${Antistasi}/* @A3U
-			mkdir @zen && ln -sf ${Zeus}/* @zen
-			mkdir @TFAR && ln -sf ${TFAR}/* @TFAR
-			mkdir @CBA_A3 && ln -sf ${CBA}/* @CBA_A3
-			ln -sf ${ACE}/keys/* keys
-			ln -sf ${Antistasi}/keys/* keys
-			ln -sf ${Zeus}/keys/* keys
-			ln -sf ${TFAR}/keys/* keys
-			ln -sf ${CBA}/keys/* keys	
+		preStart = ''	
+			if (ls -l | grep @ | grep -c ^d) > 0; then
+				rm -rf @*
+			fi
+
+			ln -s ${ACE} @ace
+			ln -s ${Antistasi} @A3U
+			ln -s ${Zeus} @zen
+			ln -s ${TFAR} @TFAR
+			ln -s ${CBA} @CBA_A3
+			ln -s ${ACE}/keys/* keys
+			ln -s ${Antistasi}/keys/* keys
+			ln -s ${Zeus}/keys/* keys
+			ln -s ${TFAR}/keys/* keys
+			ln -s ${CBA}/keys/* keys	
 			cat ${config.sops.secrets."Arma/passwordEnv".path} > ${ConfigFilename} && cat ${Armaconfig} >> ${ConfigFilename}
 		'';
 
