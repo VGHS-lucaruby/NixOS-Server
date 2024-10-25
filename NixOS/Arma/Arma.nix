@@ -50,16 +50,18 @@ in {
 			
 			rm keys/*
 
-			ln -sf ${ACE} @ace
-			ln -sf ${Antistasi} @A3U
-			ln -sf ${Zeus} @zen
-			ln -sf ${TFAR} @TFAR
-			ln -sf ${CBA} @CBA_A3
+			mkdir @ace && ln -s ${ACE}/* @ace
+			mkdir @A3U && ln -s ${Antistasi}/* @A3U
+			mkdir @zen && ln -s ${Zeus}/* @zen
+			mkdir @TFAR && ln -s ${TFAR}/* @TFAR
+			mkdir @CBA_A3 && ln -s ${CBA}/* @CBA_A3
+
 			ln -s ${ACE}/keys/* keys
 			ln -s ${Antistasi}/keys/* keys
 			ln -s ${Zeus}/keys/* keys
 			ln -s ${TFAR}/keys/* keys
 			ln -s ${CBA}/keys/* keys	
+			
 			cat ${config.sops.secrets."Arma/passwordEnv".path} > ${ConfigFilename} && cat ${Armaconfig} >> ${ConfigFilename}
 		'';
 
