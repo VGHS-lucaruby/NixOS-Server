@@ -47,6 +47,8 @@ in {
 			if (ls -l | grep @ | grep -c ^d) > 0; then
 				rm -rf @*
 			fi
+			
+			rm keys/*
 
 			ln -s ${ACE} @ace
 			ln -s ${Antistasi} @A3U
