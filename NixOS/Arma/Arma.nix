@@ -67,7 +67,7 @@ in {
 			ExecStart = pkgs.writeShellScript "StartArmaServer" ''
 				${pkgs.steam-run}/bin/steam-run ./arma3server_x64 -config=${ConfigFilename} -mod="@ace;@A3U;@zen;@TFAR;@CBA_A3"
 			'';
-			Restart = "no";
+			Restart = "always";
 			User = "steam";
 			WorkingDirectory = "/var/lib/SteamDownloader/${steam-app}";
 		};
