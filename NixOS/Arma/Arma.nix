@@ -44,17 +44,17 @@ in {
 		after = [ "SteamDownloader@${steam-app}.service" ];
 
 		preStart = ''	
-			if (ls -l | grep @ | grep -c ^d) > 0; then
+			if ls -l | grep @ | grep -c ^d > /dev/null; then
 				rm -rf @*
 			fi
 			
 			rm keys/*
 
-			ln -s ${ACE} @ace
-			ln -s ${Antistasi} @A3U
-			ln -s ${Zeus} @zen
-			ln -s ${TFAR} @TFAR
-			ln -s ${CBA} @CBA_A3
+			ln -sf ${ACE} @ace
+			ln -sf ${Antistasi} @A3U
+			ln -sf ${Zeus} @zen
+			ln -sf ${TFAR} @TFAR
+			ln -sf ${CBA} @CBA_A3
 			ln -s ${ACE}/keys/* keys
 			ln -s ${Antistasi}/keys/* keys
 			ln -s ${Zeus}/keys/* keys
