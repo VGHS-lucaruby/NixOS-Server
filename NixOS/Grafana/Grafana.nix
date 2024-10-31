@@ -16,7 +16,7 @@
       database = {
         host = "10.0.20.50:5432";
         type = "postgres";
-        name = "grafana";
+        user = "grafana";
         password = "$__file{${config.sops.secrets."Passwords/postgres".path}}";
       };
       security = {
