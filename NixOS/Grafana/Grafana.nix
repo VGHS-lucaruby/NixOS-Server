@@ -2,9 +2,8 @@
 
 {
   sops.secrets = {
-    "Passwords/grafanaAdmin" = {
-      owner = "grafana";
-    };
+    "Passwords/grafanaAdmin" = { owner = "grafana"; };
+    "Passwords/postgres" = { owner = "grafana"; };
   };
 
   services.grafana = {
@@ -13,6 +12,12 @@
     settings = {
       analytics = {
         check_for_plugin_updates = true;
+      };
+      database = {
+        host = "10.0.20.50";
+        type = "postgres";
+        name = "grafana";
+        password = "$__file{${config.sops.secrets."Passwords/postgres".path}}";
       };
       security = {
         admin_user = "Admin";

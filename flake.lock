@@ -166,10 +166,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1730367527,
-        "narHash": "sha256-Os8Wio21ySE7F0YBtqhmXvireG/WgqHGi8Lftio0aR0=",
+        "lastModified": 1730375115,
+        "narHash": "sha256-Af7oAnx4GzyIRSeRygCtFKMgA+FCALsFav2IXoI1Z94=",
         "ref": "refs/heads/main",
-        "rev": "423bef54b940c962e9ff259323ef6093ed14e8db",
+        "rev": "7e412311d92f9d01dc950e3e0848e045f3391560",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/VGHS-lucaruby/NixOS-Server-Secrets.git"
@@ -286,11 +286,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1730366568,
-        "narHash": "sha256-/fKbewYJlo1kacBb+PotoleqzU2uO7wsHzg+BcxVjOM=",
+        "lastModified": 1730368399,
+        "narHash": "sha256-F8vJtG389i9fp3k2/UDYHMed3PLCJYfxCqwiVP7b9ig=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "4048e9ce2d8b054a7325e573371ede8995d397a1",
+        "rev": "da14839ac5f38ee6adbdb4e6db09b5eef6d6ccdc",
         "type": "github"
       },
       "original": {
