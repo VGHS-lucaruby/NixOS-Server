@@ -2,9 +2,7 @@
 
 {
   sops.secrets = {
-    "Passwords/ldap" = {
-      owner = "virtualMail";
-    };
+    "Passwords/ldap" = { owner = "virtualMail"; };
   };
 
   mailserver = {
