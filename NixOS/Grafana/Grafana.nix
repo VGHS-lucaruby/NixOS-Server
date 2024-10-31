@@ -14,7 +14,7 @@
         check_for_plugin_updates = true;
       };
       database = {
-        host = "10.0.20.50";
+        host = "10.0.20.50:5432";
         type = "postgres";
         name = "grafana";
         password = "$__file{${config.sops.secrets."Passwords/postgres".path}}";
