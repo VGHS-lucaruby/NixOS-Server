@@ -4,7 +4,7 @@
   services.restic.backups = {
     dailyBackup = {
       paths = [
-        "/var/lib/postgresql"
+        "/var/lib/postgresqlBackups"
       ];
     };
   };

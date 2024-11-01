@@ -4,47 +4,56 @@
   systemd.tmpfiles.rules = [ "d /var/lib/postgresql 0700 postgres postgres - -" ];
 
   # Use lower case names for DB and users lol
-  services.postgresql = {
-    enable = true;
-    ensureDatabases = [ "authentik" "tandoor" "grafana" ];
-    enableTCPIP = true;
-    package = pkgs.postgresql_15;
-    dataDir = "/var/lib/postgresql";
-    settings = {
-      port = 5432;
+  services = {
+    postgresql = {
+      enable = true;
+      ensureDatabases = [ "authentik" "tandoor" "grafana" ];
+      enableTCPIP = true;
+      package = pkgs.postgresql_15;
+      dataDir = "/var/lib/postgresql";
+      settings = {
+        port = 5432;
+      };
+      authentication = pkgs.lib.mkOverride 10 ''
+        # Generated file do not edit
+        # Type   database   DBuser   origin-address   auth-method
+        local    all        all                       trust
+        host     all        all      10.0.0.0/16      scram-sha-256
+      '';
+      ensureUsers = [
+        {
+          name = "admin";
+          # passwordFile = ; # Waiting to see what happens with PR#326306
+          ensureClauses = {
+            superuser = true;
+          };
+        }
+        {
+          name = "authentik";
+          # passwordFile = ; # Waiting to see what happens with PR#326306
+          ensureDBOwnership = true;
+        }
+        {
+          name = "tandoor";
+          # passwordFile = ; # Waiting to see what happens with PR#326306
+          ensureDBOwnership = true;
+        }
+        {
+          name = "grafana";
+          # passwordFile = ; # Waiting to see what happens with PR#326306
+          ensureDBOwnership = true;
+        }
+      ];
     };
-    authentication = pkgs.lib.mkOverride 10 ''
-      # Generated file do not edit
-      # Type   database   DBuser   origin-address   auth-method
-      local    all        all                       trust
-      host     all        all      10.0.0.0/16      scram-sha-256
-    '';
-    ensureUsers = [
-      {
-        name = "admin";
-        # passwordFile = ; # Waiting to see what happens with PR#326306
-        ensureClauses = {
-          superuser = true;
-        };
-      }
-      {
-        name = "authentik";
-        # passwordFile = ; # Waiting to see what happens with PR#326306
-        ensureDBOwnership = true;
-      }
-      {
-        name = "tandoor";
-        # passwordFile = ; # Waiting to see what happens with PR#326306
-        ensureDBOwnership = true;
-      }
-      {
-        name = "grafana";
-        # passwordFile = ; # Waiting to see what happens with PR#326306
-        ensureDBOwnership = true;
-      }
-    ];
-  };
 
+    postgresqlBackup ={
+      enable = true;
+      compression = "zstd";
+      compressionLevel = 11;
+      location = "/var/lib/postgresqlBackups";
+      startAt = "18:00";
+    };
+  };
 
   # Set Passwords
   # Replace once PR#326306 is upstreamed
