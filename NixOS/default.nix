@@ -10,6 +10,14 @@
   };
 
   config = {
+    # Increase ulimit -n to resolve build issues.
+    security.pam.loginLimits = [{
+      domain = "*";
+      type = "soft";
+      item = "nofile";
+      value = "8192";
+    }];
+
     networking.hostName = nodeHostName;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     system.stateVersion = "24.05";
