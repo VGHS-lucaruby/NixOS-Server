@@ -2,7 +2,7 @@
 
 {
 	sops.secrets = {
-    "Passwords/ldap" = { owner = "nscd"; };
+    "Passwords/ldapUsers" = { owner = "nscd"; key = "Passwords/ldap"; };
   };
 	
 	users.ldap = {
@@ -11,7 +11,7 @@
     server = "ldaps://ldaps.${primaryDomain}:636";
 		bind = {
 			distinguishedName = "cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
-			passwordFile = config.sops.secrets."Passwords/ldap".path;
+			passwordFile = config.sops.secrets."Passwords/ldapUsers".path;
 		};
   };
 }
