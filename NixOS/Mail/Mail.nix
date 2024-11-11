@@ -9,7 +9,7 @@
     enable = true;
     enableImap = false;
     enableManageSieve = true;
-    enableSubmissionSsl = false;
+    enableSubmission = false;
 
     fqdn = "mail.${primaryDomain}";
     domains = [ "${primaryDomain}" ];
