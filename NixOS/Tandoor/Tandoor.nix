@@ -33,8 +33,7 @@
       LDAP_AUTH=1;
       AUTH_LDAP_ALWAYS_UPDATE_USER=1;
       AUTH_LDAP_CACHE_TIMEOUT=300;
-      AUTH_LDAP_SERVER_URI="ldap://ldap.${primaryDomain}";
-      AUTH_LDAP_START_TLS="True";
+      AUTH_LDAP_SERVER_URI="ldaps://ldaps.${primaryDomain}:636";
       AUTH_LDAP_BIND_DN="cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
       AUTH_LDAP_USER_SEARCH_BASE_DN="ou=users,DC=ldap,DC=datumine,DC=co.uk";
       AUTH_LDAP_USER_SEARCH_FILTER_STR="(cn=%(user)s)";

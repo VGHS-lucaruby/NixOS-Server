@@ -33,8 +33,7 @@
 
     ldap = {
       enable = true;
-      uris = [ "ldap.${primaryDomain}" ];
-      startTls = true;
+      uris = [ "ldaps.${primaryDomain}" ];
       searchBase = "DC=ldap,DC=datumine,DC=co.uk";
       
       bind = {

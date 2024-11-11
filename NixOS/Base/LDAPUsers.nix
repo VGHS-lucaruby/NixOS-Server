@@ -8,8 +8,7 @@
 	users.ldap = {
     enable = true;
     base = "DC=ldap,DC=datumine,DC=co.uk";
-    server = "ldap://ldad.${primaryDomain}";
-    useTLS = true;
+    server = "ldaps://ldaps.${primaryDomain}:636";
 		bind = {
 			distinguishedName = "cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
 			passwordFile = config.sops.secrets."Passwords/ldap".path;
