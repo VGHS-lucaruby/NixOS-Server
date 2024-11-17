@@ -1,4 +1,4 @@
-{ config, sops, primaryDomain, ... }:
+{ config, lib, sops, primaryDomain, ... }:
 
 {
   sops.secrets = {
@@ -27,5 +27,15 @@
 		  	passwordFile = config.sops.secrets."Passwords/ldapUsers".path;
 		  };
     };
+  };
+
+  security.pam.services.sshd = {
+    makeHomeDir = true;
+    text = lib.mkDefault (
+      lib.mkBefore ''
+        auth required pam_listfile.so \
+          item=group sense=allow onerr=fail file=/etc/allowed_groups
+      ''
+    );
   };
 }
