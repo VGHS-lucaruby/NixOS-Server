@@ -18,9 +18,9 @@
       enable = true;
       base = "DC=ldap,DC=datumine,DC=co.uk";
       server = "ldaps://ldaps.${primaryDomain}";
-		  extraConfig = ''
-        ldap_version 3
-      '';
+      daemon = {
+        enable = true;
+      };
       bind = {
         policy = "soft";
 		  	distinguishedName = "cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
