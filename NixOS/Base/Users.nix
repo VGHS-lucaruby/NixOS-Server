@@ -5,6 +5,7 @@
     "Passwords/root".neededForUsers = true;
     "Passwords/ldapUsers" = { owner = "nscd"; key = "Passwords/ldap"; };
   };
+  
   users = {
     # Set root user password to value assigned in Sops secret file and disable mutability
     # Unless generating a system image using Nix-Generator, in which case set password to "temp" and allow mutabilily.
@@ -16,7 +17,7 @@
     ldap = {
       enable = true;
       base = "DC=ldap,DC=datumine,DC=co.uk";
-      server = "ldaps://ldaps.${primaryDomain}:636";
+      server = "ldaps://ldaps.${primaryDomain}";
 		  extraConfig = ''
         ldap_version 3
       '';
