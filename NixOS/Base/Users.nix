@@ -31,11 +31,16 @@
 
   security.pam.services.sshd = {
     makeHomeDir = true;
-    text = lib.mkDefault (
-      lib.mkBefore ''
-        auth required pam_listfile.so \
-          item=group sense=allow onerr=fail file=/etc/allowed_groups
-      ''
-    );
+    # text = lib.mkDefault (
+    #   lib.mkBefore ''
+    #     auth required pam_listfile.so \
+    #       item=group sense=allow onerr=fail file=/etc/allowed_groups
+    #   ''
+    # );
   };
+
+  # environment.etc.allowed_groups = {
+  #   text = "admins";
+  #   mode = "0444";
+  # };
 }
