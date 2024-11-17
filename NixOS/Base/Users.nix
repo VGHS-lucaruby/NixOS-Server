@@ -17,26 +17,30 @@
     ldap = {
       enable = true;
       base = "DC=ldap,DC=datumine,DC=co.uk";
-      server = "ldaps://ldaps.${primaryDomain}";
-      daemon = {
-        enable = true;
-      };
+      server = "ldaps://ldaps.${primaryDomain}:636";
+		  extraConfig = ''
+        ldap_version 3
+        nss_override_attribute_value loginShell/run/current-system/sw/bin/zsh
+      '';
       bind = {
-        policy = "soft";
+        policy = "hard_init";
 		  	distinguishedName = "cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
 		  	passwordFile = config.sops.secrets."Passwords/ldapUsers".path;
 		  };
     };
   };
 
-  security.pam.services.sshd = {
-    makeHomeDir = true;
-    # text = lib.mkDefault (
-    #   lib.mkBefore ''
-    #     auth required pam_listfile.so \
-    #       item=group sense=allow onerr=fail file=/etc/allowed_groups
-    #   ''
-    # );
+  security.pam.services= {
+    login.makeHomeDir = true;
+    sshd = {
+      makeHomeDir = true;
+      # text = lib.mkDefault (
+      #   lib.mkBefore ''
+      #     auth required pam_listfile.so \
+      #       item=group sense=allow onerr=fail file=/etc/allowed_groups
+      #   ''
+      # );
+    };
   };
 
   # environment.etc.allowed_groups = {
