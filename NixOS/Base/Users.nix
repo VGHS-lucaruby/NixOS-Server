@@ -3,7 +3,7 @@
 {
   sops.secrets = {
     "Passwords/root".neededForUsers = true;
-    "Passwords/ldapUsers" = { owner = "nscd"; key = "Passwords/ldap"; };
+    "Passwords/ldapUsers" = { owner = "nslcd"; key = "Passwords/ldap"; };
   };
   
   users = {
@@ -17,11 +17,13 @@
     ldap = {
       enable = true;
       base = "DC=ldap,DC=datumine,DC=co.uk";
-      server = "ldaps://ldaps.${primaryDomain}:636";
-		  extraConfig = ''
-        ldap_version 3
-        nss_override_attribute_value loginShell/run/current-system/sw/bin/zsh
-      '';
+      server = "ldaps://ldaps.${primaryDomain}";
+      daemon = {
+        enable = true;
+        extraConfig = ''
+          map passwd loginShell "/run/current-system/sw/bin/zsh"
+        '';
+      };
       bind = {
         policy = "hard_init";
 		  	distinguishedName = "cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
