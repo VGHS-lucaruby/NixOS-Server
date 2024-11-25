@@ -3,12 +3,10 @@
 {
   options = {
     modRestic.enable = lib.mkEnableOption "Enables Restic Backups";
-    modPrometheus.enable = lib.mkEnableOption "Enables Restic Backups";
     modSteamDownloader.enable = lib.mkEnableOption "Enables Steam Downloader Service";
   };
 
   config.modRestic.enable = lib.mkDefault true;
-  config.modPrometheus.enable = lib.mkDefault true;
 
   imports = [
     ./AutoUpgrade.nix
