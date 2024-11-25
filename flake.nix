@@ -56,6 +56,7 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
+              allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
               primaryDomain = "datumine.co.uk";
@@ -77,6 +78,7 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
+              allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
               primaryDomain = "datumine.co.uk";

@@ -1,4 +1,4 @@
-{ ... }:
+{ config, allNodes, ... }:
 
 {
   systemd.tmpfiles.rules = [ "d /var/lib/prometheus 0700 prometheus prometheus - -" ];
@@ -8,11 +8,19 @@
     enable = true;
     stateDir = "prometheus";
     scrapeConfigs = [
+      # {
+      #   # Initial Node For Testing. Will Attempt To Make Config Dynamic In Future.
+      #   job_name = "DATHOMINECRAFT01";
+      #   static_configs = [{
+      #     targets = [ "10.0.20.101:9100" ];
+      #   }];
+      # }
       {
-        # Initial Node For Testing. Will Attempt To Make Config Dynamic In Future.
-        job_name = "DATHOMINECRAFT01";
-        static_configs = [{
-          targets = [ "10.0.20.101:9100" ];
+        job_name = "node-dns";
+        dns_sd_configs = [{
+          names = map (node: "${node}.server.arpa") allNodes;
+          type = "A";
+          port = 9100;
         }];
       }
     ];
