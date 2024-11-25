@@ -22,6 +22,11 @@
           type = "A";
           port = 9100;
         }];
+        relabel_configs = [{
+          source_labels = [ "__meta_dns_name" ];
+          regex = "^(.+?)\.";
+          target_label = "instance";
+        }];
       }
     ];
   };
