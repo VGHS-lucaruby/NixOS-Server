@@ -16,7 +16,7 @@
       #   }];
       # }
       {
-        job_name = "node-dns";
+        job_name = "node";
         dns_sd_configs = [{
           names = map (node: "${node}.server.arpa") allNodes;
           type = "A";
