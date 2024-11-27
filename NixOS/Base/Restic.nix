@@ -52,8 +52,5 @@
         };
       };
     };
-
-    # todo need to add email notifications on faliure of backup or check.
-
   };
 }
