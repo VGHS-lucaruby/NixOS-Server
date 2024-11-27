@@ -35,6 +35,7 @@
         name = "Authentik";
         enabled = true;
         allow_sign_up = true;
+        scopes = "openid profile email";
         client_id = "$__file{${config.sops.secrets."Grafana/oauthClientID".path}}";
         client_secret = "$__file{${config.sops.secrets."Grafana/oauthSecret".path}}";
         role_attribute_path = "contains(groups, 'grafana-admin') && 'Admin' || contains(groups, 'grafana-editor') && 'Editor' || 'Viewer'";
