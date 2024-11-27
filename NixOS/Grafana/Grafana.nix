@@ -28,7 +28,7 @@
       server = {
         domain = "grafana.${primaryDomain}";
         protocol = "https";
-        http_port = 8443;
+        http_port = 443;
         http_addr = "0.0.0.0";
       };
       "auth.generic_oauth" = {
