@@ -3,8 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    authentik-nix.url = "github:nix-community/authentik-nix";
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    authentik-nix = {
+      url = "github:nix-community/authentik-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = { 
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
