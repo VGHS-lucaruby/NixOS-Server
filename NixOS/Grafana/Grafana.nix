@@ -26,6 +26,7 @@
         admin_password = "$__file{${config.sops.secrets."Grafana/userAdmin".path}}";
       };
       server = {
+        domain = "grafana.${primaryDomain}";
         protocol = "https";
         http_port = 8443;
         http_addr = "0.0.0.0";
