@@ -12,7 +12,6 @@
     enable = true;
     dataDir = "/var/lib/grafana";
     declarativePlugins = with pkgs.grafanaPlugins; [ 
-      grafana-oncall-app
     ];
     settings = {
       database = {
