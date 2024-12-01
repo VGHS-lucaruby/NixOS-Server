@@ -9,14 +9,14 @@
     stateDir = "prometheus";
     scrapeConfigs = [
       {
-        job_name = "node-opnsense";
+        job_name = "node-static";
         static_configs = [{
           targets = [ "10.0.20.254:9100" ];
           labels = { instance = "DATHOOPNS01"; };
         }];
       }
       {
-        job_name = "node";
+        job_name = "node-dns";
         dns_sd_configs = [{
           names = (map (node: "${node}.server.arpa") allNodes);
           type = "A";
