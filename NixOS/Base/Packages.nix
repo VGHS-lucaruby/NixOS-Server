@@ -13,5 +13,6 @@
     fastfetch
     nano
     tmux
+    iperf
   ];
 }
