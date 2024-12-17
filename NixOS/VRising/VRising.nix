@@ -2,6 +2,15 @@
 
 let
 	steam-app = "1829350"; # VRising server tool
+	serverargs = ''
+		-persistentDataPath ".\save-data" 
+		-serverName "${nodeHostName}" 
+		-saveName "world" 
+		-logFile ".\logs\VRisingServer.log"
+		-gamePort 27015 
+		-queryPort 27016
+		-password $(cat ${config.sops.secrets."VRising/password".path})
+	'';
 in {
 	
 	sops.secrets = {
@@ -19,11 +28,7 @@ in {
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "StartVRisingServer" ''
-				${pkgs.xvfb-run}/bin/xvfb-run
-				${pkgs.wineWow64Packages.staging}/bin/wine ./VRisingServer.exe 
-				-persistentDataPath ".\save-data" -serverName "${nodeHostName}" -saveName "world" -logFile ".\logs\VRisingServer.log"
-				-gamePort 27015 -queryPort 27016
-				-password $(cat ${config.sops.secrets."VRising/password".path})
+				${pkgs.xvfb-run}/bin/xvfb-run -a --server-args="-screen 0 640x480x24:32 -nolisten tcp -nolisten unix" bash -c ${pkgs.wineWow64Packages.staging}/bin/wine ./VRisingServer.exe ${serverargs}
 			'';
 			Restart = "always";
 			User = "steam";
