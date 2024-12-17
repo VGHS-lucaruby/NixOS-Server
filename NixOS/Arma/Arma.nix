@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nodeHostName, ... }:
+{ config, pkgs, lib, ... }:
 
 let
 	steam-app = "233780"; # arma server tool
