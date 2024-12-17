@@ -17,6 +17,10 @@ let
     	-ListOnSteam "true"
 		-disableLanMode
 	'';
+	startServer = pkgs.writeShellScript "StartVRisingServer" '' 
+		set SteamAppId=1604030
+		WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64 ${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs}))
+	'';
 in {
 	
 	sops.secrets = {
@@ -33,10 +37,8 @@ in {
 		after = [ "SteamDownloader@${steam-app}.service" ];
 
 		serviceConfig = {
-			ExecStart = pkgs.writeShellScript "StartVRisingServer" ''
-				${pkgs.xvfb-run}/bin/xvfb-run -a --server-args="-screen 0 640x480x24:32 -nolisten tcp -nolisten unix"\
-				SteamAppId=1604030 WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64\
-				${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs}))
+			ExecStart = pkgs.writeShellScript "InitVRisingServer" ''
+				${pkgs.xvfb-run}/bin/xvfb-run ${startServer}
 			'';
 			Restart = "always";
 			User = "steam";
