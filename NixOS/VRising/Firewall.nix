@@ -3,8 +3,8 @@
 {
   networking.firewall = {
     allowedUDPPorts = [
-      27015
-      27016
+      9876
+      9877
     ];
   };
 }
