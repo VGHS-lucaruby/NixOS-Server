@@ -11,7 +11,6 @@ let
 		-maxAdmins "4"
 		-saveCount "10"
 		-preset "StandardPvP",
-    	-listOnEOS "true"
     	-ListOnSteam "true"
 		-disableLanMode
 	'';
