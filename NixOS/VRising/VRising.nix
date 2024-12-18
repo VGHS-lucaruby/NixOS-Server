@@ -3,10 +3,10 @@
 let
 	steam-app = "1829350"; # VRising server tool
 	serverargs = pkgs.writeText "ServerArgs" ''
-		-persistentDataPath ".\save-data" 
+		-persistentDataPath "/var/lib/SteamDownloader/${steam-app}/save-data" 
 		-serverName "${nodeHostName}" 
 		-saveName "world" 
-		-logFile ".\logs\VRisingServer.log"
+		-logFile "/var/lib/SteamDownloader/${steam-app}/logs/VRisingServer.log"
 		-password $(cat ${config.sops.secrets."VRising/password".path})
 		-description "Ah, A Server, Yes"
 		-maxUsers "10"
