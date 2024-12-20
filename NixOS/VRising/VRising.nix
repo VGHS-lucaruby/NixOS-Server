@@ -7,14 +7,13 @@ let
 		-persistentDataPath /var/lib/SteamDownloader/${steam-app}/saves
 		-logFile /var/lib/SteamDownloader/${steam-app}/logs
 		-saveName world
-		-password $(cat ${config.sops.secrets."VRising/password".path})
 		-maxUsers 10
 		-maxAdmins 4
 		-saveCount 10
 		-preset StandardPvP
 	'';
 	startServer = pkgs.writeShellScript "StartVRisingServer" '' 
-		WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64 ${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs}))
+		WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64 ${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs})) -password $(cat ${config.sops.secrets."VRising/password".path})
 	'';
 in {
 	
