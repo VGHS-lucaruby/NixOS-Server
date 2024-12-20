@@ -11,6 +11,8 @@ let
 		-maxAdmins 4
 		-saveCount 10
 		-preset StandardPvP
+		-ListOnSteam true
+		-ListOnEOS true
 	'';
 	startServer = pkgs.writeShellScript "StartVRisingServer" '' 
 		WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64 ${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs})) -password $(cat ${config.sops.secrets."VRising/password".path})
