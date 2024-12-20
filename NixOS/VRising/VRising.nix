@@ -28,8 +28,8 @@ in {
 		wantedBy = [ "multi-user.target" ];
 
 		# Install the game before launching.
-		wants = [ "SteamDownloader@${steam-app}.service" ];
-		after = [ "SteamDownloader@${steam-app}.service" ];
+		wants = [ "SteamDownloader@${steam-app}-windows.service" ];
+		after = [ "SteamDownloader@${steam-app}-windows.service" ];
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "InitVRisingServer" ''

@@ -38,18 +38,19 @@
 				arr=(''${input//-/ })
 				
 				cmds="
+					+@sSteamCmdForcePlatformType ''${arr[1]}
 				    +force_install_dir /var/lib/SteamDownloader/''${arr[0]}
 				    +login "$(cat ${config.sops.secrets."SteamDownloader/user".path})" "$(cat ${config.sops.secrets."SteamDownloader/password".path})"
 				  "
 				
-				if [ ''${#arr[@]} = 1 ]; then
+				if [ ''${#arr[@]} = 2 ]; then
 				  cmds+="
 				    +app_update ''${arr[0]} validate
 				    +quit
 				    "
 				    ${pkgs.steamcmd}/bin/steamcmd $cmds
 				else
-				  for i in ''${arr[@]:1}; do
+				  for i in ''${arr[@]:2}; do
 				    opt=""
 				    opt=$cmds"
 				      +workshop_download_item ''${arr[0]} $i
