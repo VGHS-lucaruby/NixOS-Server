@@ -3,16 +3,15 @@
 let
 	steam-app = "1829350"; # VRising server tool
 	serverargs = pkgs.writeText "ServerArgs" ''
-		-serverName "${nodeHostName}" 
-		-saveName "world" 
+		-serverName ${nodeHostName}
+		-persistentDataPath /var/lib/SteamDownloader/${steam-app}/saves
+		-logFile /var/lib/SteamDownloader/${steam-app}/logs
+		-saveName world
 		-password $(cat ${config.sops.secrets."VRising/password".path})
-		-description "Ah, A Server, Yes"
-		-maxUsers "10"
-		-maxAdmins "4"
-		-saveCount "10"
-		-preset "StandardPvP",
-    	-ListOnSteam "true"
-		-disableLanMode
+		-maxUsers 10
+		-maxAdmins 4
+		-saveCount 10
+		-preset StandardPvP
 	'';
 	startServer = pkgs.writeShellScript "StartVRisingServer" '' 
 		WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64 ${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs}))
