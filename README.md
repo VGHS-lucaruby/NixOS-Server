@@ -1,5 +1,23 @@
 # NixOS-Server Dots
 
+## Hosted Modules
+### Management
+- **Authentik**
+- **Grafana**
+- **[Simple NixOS Mailserver (WIP)](https://gitlab.com/simple-nixos-mailserver/nixos-mailserver)** WIP need to sort LDAP login and reverse dns
+- **[PostgresSQL](https://www.postgresql.org)**
+- **Prometheus** WIP slowly rolling out more exporters
+- **Unfi Controller** WIP need to sort VLANs
+
+### Services
+- **[Tandoor Recipes](https://tandoor.dev)**
+
+### Games
+- **Arma 3**
+- **[Minecraft](https://github.com/Infinidoge/nix-minecraft)**
+- **Teamspeak** For Arma 3 Server TFAR
+- **VRising** WIP Sorting mods
+
 ## Creating Nodes
 Copy `NodeTemplate.nix` inside the `Nodes` folder, renaming it the the name of the new Node.
 Enter in the static IP address that the server will be using.
@@ -73,10 +91,6 @@ Run the following command on the server you would like to update.<br>
 
 ## Credits
 - **NixOS <3**
-- **Minecraft Server Tool** [Nix-Minecraft](https://github.com/Infinidoge/nix-minecraft)
-- **Recipe Management** [Tandoor Recipes](https://tandoor.dev)
-- **Mail Server** [Simple NixOS Mailserver](https://gitlab.com/simple-nixos-mailserver/nixos-mailserver)
-- **Database** [Postgresql](https://www.postgresql.org)
 - **Server Image Creation** [astr0n8t nixos-gitops](https://github.com/astr0n8t/nixos-gitops) & [JustinLex's Comment](https://github.com/nix-community/nixos-generators/issues/193#issuecomment-1937095713)
 - **Secrets Management** [Sops-Nix](https://github.com/Mic92/sops-nix)
 - **Backups** [Restic](https://restic.net) & [Backblaze B2](https://www.backblaze.com/cloud-storage)
