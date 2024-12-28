@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  systemd.tmpfiles.rules = [ "d /var/lib/postgresql 0700 postgres postgres - -" ];
+  systemd.tmpfiles.rules = [ "d /var/lib/postgresql/data 0700 postgres postgres - -" ];
 
   # Use lower case names for DB and users lol
   services = {
@@ -10,7 +10,7 @@
       ensureDatabases = [ "authentik" "tandoor" "grafana" ];
       enableTCPIP = true;
       package = pkgs.postgresql_15;
-      dataDir = "/var/lib/postgresql";
+      dataDir = "/var/lib/postgresql/data";
       settings = {
         port = 5432;
       };
