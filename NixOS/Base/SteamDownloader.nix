@@ -7,6 +7,7 @@
     	"steamcmd"
 		"steam-run"
 		"steam-original"
+		"steam-unwrapped"
   	];
 
     sops.secrets = {
