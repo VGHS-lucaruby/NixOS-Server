@@ -40,11 +40,11 @@
           type = "A";
           port = 9300;
         }];
-        # relabel_configs = [{
-        #   source_labels = [ "__meta_dns_name" ];
-        #   regex = "([^\.]+)\..+";
-        #   target_label = "instance";
-        # }];
+        relabel_configs = [{
+          source_labels = [ "__meta_dns_name" ];
+          regex = "([^\.]+)\..+";
+          target_label = "instance";
+        }];
       }
       {
         job_name = "hass";
