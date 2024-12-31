@@ -9,6 +9,7 @@
   services = {  
     firefly-iii = {
       enable = true;
+      enableNginx = true;
       settings = {
         APP_ENV = "production";
         APP_URL = "FireFly.${primaryDomain}";
@@ -21,7 +22,7 @@
         DB_PASSWORD_FILE = config.sops.secrets."FireFly/postgresPassword".path;
         DEFAULT_LANGUAGE = "en_GB";
         TZ = "Europe/London";
-        TRUSTED_PROXIES = "**";
+        TRUSTED_PROXIES = "*";
       };
     };
   };
