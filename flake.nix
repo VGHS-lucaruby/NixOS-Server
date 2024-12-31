@@ -35,6 +35,7 @@
       # List hostnames here for configuration
         "DATHOARMA01"
         "DATHOAUTHENTIK01"
+        "DATHOFIREFLY01"
         "DATHOGRAFANA01"
         "DATHOMAIL01"
         "DATHOMINECRAFT01"

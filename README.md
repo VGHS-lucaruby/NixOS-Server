@@ -4,6 +4,7 @@
 ### Management
 - **Authentik**
 - **Grafana**
+- **[FireFlyIII (WIP)](https://www.firefly-iii.org)** Need to add data importer and remote auth.
 - **[Simple NixOS Mailserver (WIP)](https://gitlab.com/simple-nixos-mailserver/nixos-mailserver)** WIP need to sort LDAP login and reverse dns
 - **[PostgresSQL](https://www.postgresql.org)**
 - **Prometheus** WIP slowly rolling out more exporters
