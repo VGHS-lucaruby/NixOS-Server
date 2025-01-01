@@ -34,6 +34,7 @@
         APP_ENV = "production";
         FIREFLY_III_URL = "https://FireFly.${primaryDomain}";
         VANITY_URL = "https://FireFlyDI.${primaryDomain}";
+        TRUSTED_PROXIES = "*";
       };
     };
   };
