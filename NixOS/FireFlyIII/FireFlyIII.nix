@@ -10,6 +10,7 @@
     firefly-iii = {
       enable = true;
       enableNginx = true;
+      virtualHost = "FireFly.${primaryDomain}";
       settings = {
         APP_ENV = "production";
         APP_URL = "FireFly.${primaryDomain}";
@@ -23,6 +24,16 @@
         DEFAULT_LANGUAGE = "en_GB";
         TZ = "Europe/London";
         TRUSTED_PROXIES = "*";
+      };
+    };
+    firefly-iii-data-importer = {
+      enable = true;
+      enableNginx = true;
+      virtualHost = "FireFlyDI.${primaryDomain}";
+      settings = {
+        APP_ENV = "production";
+        FIREFLY_III_URL = "https://FireFly.${primaryDomain}";
+        VANITY_URL = "https://FireFlyDI.${primaryDomain}";
       };
     };
   };
