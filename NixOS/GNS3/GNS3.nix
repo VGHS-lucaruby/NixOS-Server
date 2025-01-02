@@ -9,6 +9,7 @@
     enable = true;
     vpcs.enable = true;
     ubridge.enable = true;
+    dynamips.enable = true;
     auth = {
       enable = true;
       user = "gns3";
