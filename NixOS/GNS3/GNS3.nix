@@ -21,5 +21,8 @@
         port = 80;
       };
     };
+    log = {
+      debug = true;
+    };
   };
 }
