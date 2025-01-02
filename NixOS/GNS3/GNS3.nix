@@ -21,8 +21,5 @@
         port = 8080;
       };
     };
-    log = {
-      debug = true;
-    };
   };
 }
