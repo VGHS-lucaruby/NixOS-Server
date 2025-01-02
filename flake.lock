@@ -168,10 +168,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1735684957,
-        "narHash": "sha256-9EeZRdMTdCCrqFar8uoc64r06AH/RAEs+ax0QPfC7KI=",
+        "lastModified": 1735783311,
+        "narHash": "sha256-NK0eLkoiLq3nZb3KT8ll0Nt81vCrSQ9mWeNtggJSdcU=",
         "ref": "refs/heads/main",
-        "rev": "837a42be5604629c19461d108243981f03de1558",
+        "rev": "5c07d8937b637f3c1920541455972de815f77f59",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/VGHS-lucaruby/NixOS-Server-Secrets.git"
@@ -239,11 +239,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735609543,
-        "narHash": "sha256-2+sJqwaileD2izqMv/k6Z7iLlHOF8T4kRWflCGURzN4=",
+        "lastModified": 1735782326,
+        "narHash": "sha256-RzQkdY8JCSJcL9Gyv+E+aNyG3B6he12PXfiTagwXGCI=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "2faa9fdd8d29df54d6cec075055cf1dcf50de280",
+        "rev": "1d4068477493f761aa7d0ba4e47dcba7dc92f33e",
         "type": "github"
       },
       "original": {
@@ -304,11 +304,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1735531152,
-        "narHash": "sha256-As8I+ebItDKtboWgDXYZSIjGlKeqiLBvjxsQHUmAf1Q=",
+        "lastModified": 1735669367,
+        "narHash": "sha256-tfYRbFhMOnYaM4ippqqid3BaLOXoFNdImrfBfCp4zn0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3ffbbdbac0566a0977da3d2657b89cbcfe9a173b",
+        "rev": "edf04b75c13c2ac0e54df5ec5c543e300f76f1c9",
         "type": "github"
       },
       "original": {

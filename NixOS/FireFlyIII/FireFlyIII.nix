@@ -4,16 +4,19 @@
   sops.secrets = {
     "FireFly/appKey" = { owner = "firefly-iii"; };
     "FireFly/postgresPassword" = { owner = "firefly-iii"; };
+    "FireFly/accessToken" = { owner = "firefly-iii"; };
+    "FireFly/nordigenID" = { owner = "firefly-iii"; };
+    "FireFly/nordigenKey" = { owner = "firefly-iii"; };
   };
 
   services = {  
     firefly-iii = {
       enable = true;
       enableNginx = true;
-      virtualHost = "FireFly.${primaryDomain}";
+      virtualHost = "firefly.${primaryDomain}";
       settings = {
         APP_ENV = "production";
-        APP_URL = "FireFly.${primaryDomain}";
+        APP_URL = "firefly.${primaryDomain}";
         APP_KEY_FILE = config.sops.secrets."FireFly/appKey".path;
         DB_CONNECTION = "pgsql";
         DB_HOST = "10.0.20.50";
@@ -23,18 +26,19 @@
         DB_PASSWORD_FILE = config.sops.secrets."FireFly/postgresPassword".path;
         DEFAULT_LANGUAGE = "en_GB";
         TZ = "Europe/London";
-        TRUSTED_PROXIES = "*";
+        TRUSTED_PROXIES = "**";
       };
     };
     firefly-iii-data-importer = {
       enable = true;
       enableNginx = true;
-      virtualHost = "FireFlyDI.${primaryDomain}";
+      virtualHost = "fireflydi.${primaryDomain}";
       settings = {
         APP_ENV = "production";
-        FIREFLY_III_URL = "https://FireFly.${primaryDomain}";
-        VANITY_URL = "https://FireFlyDI.${primaryDomain}";
-        TRUSTED_PROXIES = "*";
+        APP_URL = "fireflydi.${primaryDomain}";
+        FIREFLY_III_URL = "https://firefly.${primaryDomain}";
+        VANITY_URL = "https://firefly.${primaryDomain}";
+        TRUSTED_PROXIES = "**";
       };
     };
   };
