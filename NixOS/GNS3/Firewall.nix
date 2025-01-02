@@ -3,7 +3,7 @@
 {
   networking.firewall = {
     allowedTCPPorts = [ 
-      80 # HTTP
+      8080 # HTTP
     ];
   };
 }
