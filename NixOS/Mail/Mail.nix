@@ -22,7 +22,6 @@
     dkimKeyBits = 2048;
     hierarchySeparator = "/";
     
-    
     dmarcReporting = {
       enable = true;
       domain = "${primaryDomain}";
@@ -44,7 +43,6 @@
       postfix = {
         filter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(mail=%s))";
         mailAttribute = "mail";
-        uidAttribute = "uid";
       };
       
       dovecot = {
