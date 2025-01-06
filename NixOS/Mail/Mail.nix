@@ -33,7 +33,7 @@
 
     ldap = {
       enable = true;
-      uris = [ "ldaps.${primaryDomain}" ];
+      uris = [ "ldaps://ldaps.${primaryDomain}" ];
       searchBase = "DC=ldap,DC=datumine,DC=co.uk";
       
       bind = {
@@ -42,13 +42,14 @@
       };
       
       postfix = {
-        filter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk))";
+        filter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(mail=%s))";
         mailAttribute = "mail";
         uidAttribute = "uid";
       };
       
       dovecot = {
-        userFilter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk))";
+        userFilter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(mail=%u))";
+        passFilter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(mail=%u))";
       };
     };
   };
