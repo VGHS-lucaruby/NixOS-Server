@@ -47,6 +47,19 @@
         }];
       }
       {
+        job_name = "dmarc";
+        dns_sd_configs = [{
+          names = [ "DATHOMAIL01.server.arpa" ];
+          type = "A";
+          port = 9797;
+        }];
+        relabel_configs = [{
+          source_labels = [ "__meta_dns_name" ];
+          regex = "([^\.]+)\..+";
+          target_label = "instance";
+        }];
+      }
+      {
         job_name = "hass";
         metrics_path = "/api/prometheus";
         authorization = { credentials_file = config.sops.secrets."Prometheus/hassLongLived".path; };

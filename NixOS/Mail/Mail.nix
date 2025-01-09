@@ -41,7 +41,7 @@
       };
       
       postfix = {
-        filter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(mail=%s))";
+        filter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(|(mail=%s)(mail-alias=%s)))"; # Will require MR!351 for aliases to work properly
         mailAttribute = "mail";
       };
       
