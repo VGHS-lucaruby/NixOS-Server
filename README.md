@@ -4,11 +4,11 @@
 ### Management
 - **Authentik**
 - **Grafana**
-- **[FireFlyIII (WIP)](https://www.firefly-iii.org)** Need to add data importer and remote auth.
-- **[Simple NixOS Mailserver (WIP)](https://gitlab.com/simple-nixos-mailserver/nixos-mailserver)** WIP need to sort LDAP login and reverse dns
+- **[FireFlyIII](https://www.firefly-iii.org)**
+- **[Simple NixOS Mailserver](https://gitlab.com/simple-nixos-mailserver/nixos-mailserver)**
 - **[PostgresSQL](https://www.postgresql.org)**
-- **Prometheus** WIP slowly rolling out more exporters
-- **Unfi Controller** WIP need to sort VLANs
+- **Prometheus(WIP)** Slowly rolling out more exporters
+- **Unfi Controller(WIP)** Need to sort VLANs
 
 ### Services
 - **[Tandoor Recipes](https://tandoor.dev)**
@@ -17,7 +17,7 @@
 - **Arma 3**
 - **[Minecraft](https://github.com/Infinidoge/nix-minecraft)**
 - **Teamspeak** For Arma 3 Server TFAR
-- **VRising** WIP Sorting mods
+- **VRising(WIP)** Sorting mods
 
 ## Creating Nodes
 Copy `NodeTemplate.nix` inside the `Nodes` folder, renaming it the the name of the new Node.
