@@ -4,7 +4,7 @@
   services.restic.backups = {
     dailyBackup = {
       paths = [
-        "/var/mail"
+        "/var/vmail"
         "/var/dkim"
         "/var/sieve"
       ];
