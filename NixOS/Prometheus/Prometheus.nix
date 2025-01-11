@@ -12,6 +12,7 @@
     enable = true;
     stateDir = "prometheus";
     checkConfig = "syntax-only";
+    extraFlags = [ "--storage.tsdb.retention.time 2y" ];
     scrapeConfigs = [
       {
         job_name = "node-static";
