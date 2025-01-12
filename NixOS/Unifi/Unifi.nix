@@ -5,7 +5,7 @@
 
   services.unifi = {
     enable = true;
-    unifiPackage = pkgs.unifi8;
+    unifiPackage = pkgs.unifi;
     mongodbPackage = pkgs.mongodb;
   };
 }
