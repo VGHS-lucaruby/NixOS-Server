@@ -4,9 +4,6 @@
   sops.secrets = {
     "FireFly/appKey" = { owner = "firefly-iii"; };
     "FireFly/postgresPassword" = { owner = "firefly-iii"; };
-    "FireFly/accessToken" = { owner = "firefly-iii"; };
-    "FireFly/nordigenID" = { owner = "firefly-iii"; };
-    "FireFly/nordigenKey" = { owner = "firefly-iii"; };
   };
 
   services = {  
