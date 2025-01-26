@@ -17,7 +17,8 @@
       item = "nofile";
       value = "8192";
     }];
-
+    systemd.extraConfig = "DefaultLimitNOFILE=8192";
+    
     networking.hostName = nodeHostName;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     system.stateVersion = "24.05";
