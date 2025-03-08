@@ -24,8 +24,8 @@ let
 	# };
 
 	serverMods = fetchTarball {
-		url = "https://drive.google.com/uc?export=download&id=1h3gVGW1qHbiYWQNO-iwHscwGLitdXRhT";
-  		sha256 = "sha256:0xs1y3z8z7hj097j6mi8kjdc0nqgbymqdij7a23bac6bd6pd0hna";
+		url = "https://drive.google.com/uc?export=download&id=18yw2jfF2g3UDz0dZ9Q1e0opJ48W44JW4";
+  		sha256 = "sha256:17p8k8ji7vgkcqxqrix78mb1pr2l2810xsb90cg8knmv0nzblq0v";
 	};
 
 in {
