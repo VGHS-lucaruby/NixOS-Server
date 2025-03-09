@@ -5,5 +5,6 @@
     ./Firewall.nix
     ./Restic.nix
     ./VRising.nix
+    ./VRisingDiscordBot.nix
   ];
 }

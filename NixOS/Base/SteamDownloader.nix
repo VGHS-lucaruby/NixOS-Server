@@ -15,18 +15,19 @@
       "SteamDownloader/password" = { owner = "steam"; };
     };
 
-	  users.users.steam = {
-	  	isSystemUser = true;
-	  	group = "steam";
-	  	home = "/home/steam";
-	  	createHome = true;
-	  };
+	users = { 
+		users.steam = {
+	  		isSystemUser = true;
+	  		group = "steam";
+	  		home = "/home/steam";
+	  		createHome = true;
+	  	};
+		groups.steam = {};
+	};
 
-	  users.groups.steam = {};
+	systemd.tmpfiles.rules = [ "d /var/lib/SteamDownloader 0770 steam steam - -" ];
 
-		systemd.tmpfiles.rules = [ "d /var/lib/SteamDownloader 0770 steam steam - -" ];
-
-	  systemd.services."SteamDownloader@" = {
+	systemd.services."SteamDownloader@" = {
 	  	unitConfig = {
 	  		StopWhenUnneeded = true;
 	  	};
