@@ -13,6 +13,8 @@ let
 		-preset StandardPvP
 		-ListOnSteam true
 		-ListOnEOS true
+		-gamePort 9876
+		-queryPort 9877
 	'';
 	startServer = pkgs.writeShellScript "StartVRisingServer" '' 
 		WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64 ${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs})) -password $(cat ${config.sops.secrets."VRising/password".path})
