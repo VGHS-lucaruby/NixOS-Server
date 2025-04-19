@@ -6,7 +6,7 @@
   services.unifi = {
     enable = true;
     unifiPackage = pkgs.unifi;
-    mongodbPackage = pkgs.mongodb;
+    mongodbPackage = pkgs.mongodb-ce;
   };
 }
 
