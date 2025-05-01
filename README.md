@@ -89,7 +89,7 @@ Run the following build command in a location you would like the Proxmox VMA fil
 
 ## Manual Update
 Run the following command on the server you would like to update.<br>
-`#` `nixos-rebuild switch -L --refresh --flake github:VGHS-lucaruby/NixOS-Server#$(hostname)`
+`#` `nixos-rebuild switch -L --refresh --flake github:VGHS-lucaruby/NixOS-Server`
 
 ## Credits
 - **NixOS <3**
