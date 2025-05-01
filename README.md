@@ -8,10 +8,11 @@
 - **[Simple NixOS Mailserver](https://gitlab.com/simple-nixos-mailserver/nixos-mailserver)**
 - **[PostgresSQL](https://www.postgresql.org)**
 - **Prometheus(WIP)** Slowly rolling out more exporters
-- **Unfi Controller(WIP)** Need to sort VLANs
+- **Unfi Controller(Decomed)**
 
 ### Services
 - **[Tandoor Recipes](https://tandoor.dev)**
+- **[Jellyfin](https://jellyfin.org)**
 
 ### Games
 - **Arma 3**
@@ -48,7 +49,7 @@ Start the VM in Proxmox and connect via console. Login using `root` with the pas
 Run `cat /etc/ssh/ssh_host_ed25519_key.pub`, this will return the value of the puplic key, copy this value. <br>
 Login to the github repo where your sops secrets are stored and navigate to `Deploy keys` under settings. Click `Add deploy key` set the name to be the Hostname of the Node and paste the value from the cat command into it.<br>
 After saving return to the console and run `cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age` this will return the age key for use in the sops.yaml file. <br>
-Update your secrets to contain this key and then run a rebuild on the Node `nixos-rebuild switch -L --refresh --flake github:VGHS-lucaruby/NixOS-Server#$(hostname)` <br>
+Update your secrets to contain this key and then run a rebuild on the Node `nixos-rebuild switch -L --refresh --flake github:VGHS-lucaruby/NixOS-Server` <br>
 After this you can log out and login with the password you defined in the sops file. <br>
 
 ## Secrets
