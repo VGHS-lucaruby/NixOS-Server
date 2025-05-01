@@ -36,7 +36,7 @@
         "DATHOARMA01"
         "DATHOAUTHENTIK01"
         "DATHOFIREFLY01"
-        "DATHOGNS01"
+        # "DATHOGNS01" - Decomed
         "DATHOGRAFANA01"
         "DATHOJELLY01"
         "DATHOMAIL01"
@@ -44,7 +44,7 @@
         "DATHOPOSTGRES01"
         "DATHOPROMETH01"
         "DATHOTANDOOR01"
-        # "DATHOUNIFI01"
+        # "DATHOUNIFI01" - Decomed (MangoDB is a pain)
         "DATHOVRISING01"
       ];
       
