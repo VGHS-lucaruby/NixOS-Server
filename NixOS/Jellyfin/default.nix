@@ -3,6 +3,7 @@
 {
   imports = [
     ./Jellyfin.nix
-    #./Restic.nix
+    ./Jellyseerr.nix
+    ./Restic.nix
   ];
 }
