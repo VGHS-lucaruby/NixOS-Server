@@ -12,7 +12,7 @@
         openFirewall = true;
         pollIntervalSeconds = 600;
         imap = {
-          host = "mail.${primaryDomain}";
+          #host = "mail.${primaryDomain}";
           username = "dmarc-reports@${primaryDomain}";
           passwordFile = "/run/credentials/prometheus-dmarc-exporter.service/password";
         };
