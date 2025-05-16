@@ -11,6 +11,12 @@
     ];
   };
 
+  fileSystems."/mnt/media" = {
+      device = "/dev/disk/by-uuid/2a5bad0a-ab80-425b-b317-6974c936e390";
+      fsType = "ext4";
+      options = [ "nofail" ];
+  };
+
   # Import Modules
   imports = [ ../NixOS/Jellyfin ];
 
