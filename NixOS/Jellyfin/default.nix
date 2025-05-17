@@ -6,5 +6,6 @@
     ./Jellyseerr.nix
     ./Restic.nix
     ./Users.nix
+    ./xarr.nix
   ];
 }

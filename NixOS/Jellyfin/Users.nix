@@ -5,7 +5,7 @@
     groups = {
       media = {
         name = "media";
-        members = [ "jellyfin" ];
+        members = [ "jellyfin" "radarr" "sonarr" ];
       };
     };
   };
