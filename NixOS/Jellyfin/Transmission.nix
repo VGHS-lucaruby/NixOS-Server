@@ -4,9 +4,9 @@
   services.transmission = {
     enable = true;
     openFirewall = true;
-    webHome = pkgs.flood-for-transmission;
-    settings = {
-      download-dir = "/mnt/media";
-    };
+    # webHome = pkgs.flood-for-transmission;
+    home = "/mnt/media/transmission";
+    downloadDirPermissions = "770";
+    group = "media"; 
   };
 }
