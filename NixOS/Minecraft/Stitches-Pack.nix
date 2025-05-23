@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.1/pack.toml";
-    packHash = "sha256-ioACohyJNhrgFEDokxyKWHNQ9zs/ieumh9nUW0WNdxE=";
+    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.3/pack.toml";
+    packHash = "sha256-ND+6d+VXYksVCrT89POXUqc7UUUx+FGR6tqdvQIbedU=";
   };
 
   customPkgs = import ../../CustomPackages { inherit pkgs; };
