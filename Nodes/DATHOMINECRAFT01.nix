@@ -14,7 +14,7 @@
   # Import Modules
   imports = [ 
     ../NixOS/Minecraft 
-    ../NixOS/Minecraft/WorldCreation2.0.nix
+    ../NixOS/Minecraft/Stitches-Pack.nix
   ];
 
   # Configure Modules
