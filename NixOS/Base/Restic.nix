@@ -31,7 +31,7 @@
           "--keep-daily 3"
           "--keep-weekly 4"
           "--keep-monthly 3"
-          "--keep-yearly 2"
+          "--keep-yearly 10"
         ];
       };
       
