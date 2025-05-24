@@ -45,9 +45,9 @@ in {
     serverProperties = {
       difficulty = 3;
       allow-flight = 1;
-      motd = "Stitces Pack";
+      motd = "Stitches Pack";
       white-list = true;
-      level-seed = -4858371721717382064;
+      level-seed = -2674564933958639869;
       level-name = "Stitches-Pack";
     };
   };
