@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.4/pack.toml";
-    packHash = "sha256-h+yMhykx74hyMY7Q5qGbhfxGIC31bWychl3jreqPSIA=";
+    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.10/pack.toml";
+    packHash = "sha256-+WV8O36alBJxeBw1vIcDdoATWuzpSkY4OgW2ojdBv3c=";
   };
 
   customPkgs = import ../../CustomPackages { inherit pkgs; };
@@ -41,7 +41,7 @@ in {
       "config/waystones-common.toml" = "${modpack}/config/waystones-common.toml";
     };
 
-    jvmOpts = "-Xms10G -Xmx10G";
+    jvmOpts = "-Xms12G -Xmx12G";
     serverProperties = {
       difficulty = 3;
       allow-flight = 1;
