@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.12/pack.toml";
-    packHash = "sha256-si/gRguHPv6t+xf13uATOxJmEbA/WafLZo+49p2APDE=";
+    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.13/pack.toml";
+    packHash = "";
   };
 
   customPkgs = import ../../CustomPackages { inherit pkgs; };
@@ -52,5 +52,9 @@ in {
       view-distance = 12;
       simulation-distance = 12;
     };
+  };
+
+  systemd.services.minecraft-server-Stitches-Pack = {
+    preStart = "find logs -mindepth 1 -mtime +3 -delete -type f";
   };
 }
