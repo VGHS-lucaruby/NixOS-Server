@@ -15,7 +15,7 @@
         upd = "nixos-rebuild switch -L --refresh --flake github:VGHS-lucaruby/NixOS-Server";
         updb = "nixos-rebuild boot -L --refresh --flake github:VGHS-lucaruby/NixOS-Server";
       };
-      oh-my-zsh = {
+      ohMyZsh = {
         enable = true;
         theme = "gallois";
         plugins = [
