@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.16/pack.toml";
-    packHash = "sha256-NXaFlZAaDTYqBknou89K/37GgLpsMVVMfBYo2W3G6/Q=";
+    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.0.0-alpha.17/pack.toml";
+    packHash = "sha256-LcQ+UvrFewR3CWQxzaGuMpjFNwk0o+7VTQVW5qgdwKI=";
   };
 
   customPkgs = import ../../CustomPackages { inherit pkgs; };
@@ -39,6 +39,7 @@ in {
       "config/quark-common.toml" = "${modpack}/config/quark-common.toml";
       "config/sparsestructures.json5" = "${modpack}/config/sparsestructures.json5";
       "config/waystones-common.toml" = "${modpack}/config/waystones-common.toml";
+      "config/openpartiesandclaims-server.toml" = "${modpack}/config/openpartiesandclaims-server.toml";
     };
 
     jvmOpts = "-Xms12G -Xmx12G";
