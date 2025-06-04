@@ -73,8 +73,8 @@ in {
       white-list = true;
       level-seed = -2674564933958639869;
       level-name = "Stitches-Pack";
-      view-distance = 12;
-      simulation-distance = 12;
+      view-distance = 8;
+      simulation-distance = 6;
     };
   };
 
