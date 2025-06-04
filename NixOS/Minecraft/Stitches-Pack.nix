@@ -32,9 +32,7 @@ let
     -XX:+PerfDisableSharedMem \
     -XX:+UseFastUnorderedTimeStamps \
     -XX:+UseCriticalJavaThreadPriority \
-    -XX:+EagerJVMCI \
-    -Dgraal.TuneInlinerExploration=1 \
-    -Dgraal.CompilerConfiguration=enterprise
+    -XX:+EagerJVMCI
   '';
 
   mcVersion = modpack.manifest.versions.minecraft;
