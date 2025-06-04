@@ -13,6 +13,30 @@ let
     })
   ];
 
+  jvmArgs = ''
+    -Xms12G \
+    -Xmx12G \
+    -XX:+UnlockExperimentalVMOptions \
+    -XX:+UnlockDiagnosticVMOptions \
+    -XX:+AlwaysActAsServerClassMachine \
+    -XX:+AlwaysPreTouch \
+    -XX:+DisableExplicitGC \
+    -XX:+UseNUMA \
+    -XX:AllocatePrefetchStyle=3 \
+    -XX:NmethodSweepActivity=1 \
+    -XX:ReservedCodeCacheSize=400M \
+    -XX:NonNMethodCodeHeapSize=12M \
+    -XX:ProfiledCodeHeapSize=194M \
+    -XX:NonProfiledCodeHeapSize=194M \
+    -XX:-DontCompileHugeMethods \
+    -XX:+PerfDisableSharedMem \
+    -XX:+UseFastUnorderedTimeStamps \
+    -XX:+UseCriticalJavaThreadPriority \
+    -XX:+EagerJVMCI \
+    -Dgraal.TuneInlinerExploration=1 \
+    -Dgraal.CompilerConfiguration=enterprise
+  '';
+
   mcVersion = modpack.manifest.versions.minecraft;
   forgeVersion = modpack.manifest.versions.forge;
   serverVersion = lib.replaceStrings [ "." ] [ "_" ] "forge-${mcVersion}";
@@ -27,7 +51,8 @@ in {
     enable = true;
 
     package = pkgs.forgeServers.${serverVersion}.override { 
-      loaderVersion = forgeVersion; 
+      loaderVersion = forgeVersion;
+      jre_headless = pkgs.graalvm-ce;
     };
     symlinks = {
       "mods" = "${modpack}/mods";
@@ -42,7 +67,7 @@ in {
       "config/openpartiesandclaims-server.toml" = "${modpack}/config/openpartiesandclaims-server.toml";
     };
 
-    jvmOpts = "-Xms12G -Xmx12G";
+    jvmOpts = jvmArgs;
     serverProperties = {
       difficulty = 3;
       allow-flight = 1;
