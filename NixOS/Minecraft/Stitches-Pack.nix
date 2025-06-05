@@ -2,8 +2,8 @@
 
 let
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.1.0/pack.toml";
-    packHash = "sha256-oWmjv7NA9gN88zvxDw6BYskNEG1oN50h9bk5LC/3FR0=";
+    url = "https://raw.githubusercontent.com/Boxingflame/Stitches-Pack/1.1.1/pack.toml";
+    packHash = "sha256-69ZUVgjEaRViKn74+BmLptX7S5w+v/cSmUf3ybPTi2U=";
   };
 
   customPkgs = import ../../CustomPackages { inherit pkgs; };
@@ -55,6 +55,7 @@ in {
       loaderVersion = forgeVersion;
       jre_headless = pkgs.jdk17_headless;
     };
+
     symlinks = {
       "mods" = "${modpack}/mods";
     };
