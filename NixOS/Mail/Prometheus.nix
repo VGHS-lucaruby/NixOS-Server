@@ -15,10 +15,10 @@
         imap = {
           host = "mail.${primaryDomain}";
           username = "dmarc-reports@${primaryDomain}";
-          passwordFile = "/run/credentials/prometheus-dmarc-exporter.service/password";
+          passwordFile = "/run/credentials/prometheus-dmarc-exporter.service/dmarcPassword";
         };
       };
     };
   };
-  systemd.services.prometheus-dmarc-exporter.serviceConfig.LoadCredential = "password:${config.sops.secrets."Mail/dmarc-reports".path}";
+  systemd.services.prometheus-dmarc-exporter.serviceConfig.LoadCredential = "dmarcPassword:${config.sops.secrets."Mail/dmarc-reports".path}";
 }
