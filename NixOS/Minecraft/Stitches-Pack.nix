@@ -41,6 +41,7 @@ let
   mcVersion = modpack.manifest.versions.minecraft;
   forgeVersion = modpack.manifest.versions.forge;
   serverVersion = lib.replaceStrings [ "." ] [ "_" ] "forge-${mcVersion}";
+  saveName = "Stitches-Pack";
 in {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "forge-loader"
@@ -66,7 +67,7 @@ in {
       "config/quark-common.toml" = "${modpack}/config/quark-common.toml";
       "config/sparsestructures.json5" = "${modpack}/config/sparsestructures.json5";
       "config/waystones-common.toml" = "${modpack}/config/waystones-common.toml";
-      "config/openpartiesandclaims-server.toml" = "${modpack}/config/openpartiesandclaims-server.toml";
+      "${saveName}/serverconfig/openpartiesandclaims-server.toml" = "${modpack}/config/openpartiesandclaims-server.toml";
     };
 
     jvmOpts = jvmArgs;
@@ -76,7 +77,7 @@ in {
       motd = "Stitches Pack";
       white-list = true;
       level-seed = -2674564933958639869;
-      level-name = "Stitches-Pack";
+      level-name = saveName;
       view-distance = 8;
       simulation-distance = 6;
     };
