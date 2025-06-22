@@ -14,6 +14,7 @@
     ./Fail2Ban.nix
     ./FileSystem.nix
     ./Firewall.nix
+    ./LDAP.nix
     ./Locale.nix
     ./Networking.nix
     ./NixGC.nix
