@@ -9,6 +9,14 @@
       X11Forwarding = false;
       PermitRootLogin = "no";
     };
+    # Only generate Ed2559 key
+    # Todo: Split key for git and sops into seperate keys. 
+    hostKeys = [
+      {
+        path = "/etc/ssh/ssh_host_ed25519_key";
+        type = "ed25519";
+      }
+    ]
   };
   programs.ssh = {
     extraConfig = "
