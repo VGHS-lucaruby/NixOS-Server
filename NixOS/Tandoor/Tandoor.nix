@@ -34,7 +34,7 @@
       AUTH_LDAP_ALWAYS_UPDATE_USER=1;
       AUTH_LDAP_CACHE_TIMEOUT=300;
       AUTH_LDAP_SERVER_URI="ldaps://ldaps.${primaryDomain}:636";
-      AUTH_LDAP_BIND_DN="cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
+      AUTH_LDAP_BIND_DN="cn=srv-LDAP-Tandoor,ou=services,DC=ldap,DC=datumine,DC=co.uk";
       AUTH_LDAP_USER_SEARCH_BASE_DN="ou=users,DC=ldap,DC=datumine,DC=co.uk";
       AUTH_LDAP_USER_SEARCH_FILTER_STR="(cn=%(user)s)";
       AUTH_LDAP_USER_ATTR_MAP="{'username': 'cn', 'email': 'mail'}";
