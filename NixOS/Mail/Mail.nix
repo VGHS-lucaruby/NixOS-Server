@@ -36,7 +36,7 @@
       searchBase = "DC=ldap,DC=datumine,DC=co.uk";
       
       bind = {
-        dn = "cn=srv-LDAP-Mail,ou=services,DC=ldap,DC=datumine,DC=co.uk";
+        dn = "cn=srv-LDAP-Mailserver,ou=services,DC=ldap,DC=datumine,DC=co.uk";
         passwordFile = config.sops.secrets."LDAP/mail".path;
       };
       
