@@ -2,7 +2,7 @@
 
 {
   sops.secrets = {
-    "Passwords/ldap" = { owner = "virtualMail"; };
+    "LDAP/mail" = { owner = "virtualMail"; };
   };
 
   mailserver = {
@@ -36,8 +36,8 @@
       searchBase = "DC=ldap,DC=datumine,DC=co.uk";
       
       bind = {
-        dn = "cn=ldapservice,ou=users,DC=ldap,DC=datumine,DC=co.uk";
-        passwordFile = config.sops.secrets."Passwords/ldap".path;
+        dn = "cn=srv-LDAP-Mail,ou=services,DC=ldap,DC=datumine,DC=co.uk";
+        passwordFile = config.sops.secrets."LDAP/mail".path;
       };
       
       postfix = {
