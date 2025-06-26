@@ -42,9 +42,9 @@ in {
 		wants = [ "SteamDownloader@${steam-app}-windows.service" ];
 		after = [ "SteamDownloader@${steam-app}-windows.service" ];
 
-		preStart = ''	
-			ln -sf ${serverMods}/* ./
-		'';
+		# preStart = ''	
+		# 	ln -sf ${serverMods}/* ./
+		# '';
 
 		serviceConfig = {
 			ExecStart = pkgs.writeShellScript "InitVRisingServer" ''
