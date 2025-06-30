@@ -11,8 +11,8 @@ let
 		-maxAdmins 4
 		-saveCount 10
 		-preset StandardPvP
-		-ListOnSteam true
-		-ListOnEOS true
+		-listOnSteam true
+		-listOnEOS true
 		-gamePort 27015
 		-queryPort 27016
 	'';
