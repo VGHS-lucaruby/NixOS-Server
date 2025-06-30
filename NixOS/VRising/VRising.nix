@@ -7,7 +7,7 @@ let
 		-persistentDataPath /var/lib/SteamDownloader/${steam-app}/saves
 		-logFile /var/lib/SteamDownloader/${steam-app}/logs
 		-saveName world
-		-maxUsers 10
+		-maxUsers 25
 		-maxAdmins 4
 		-saveCount 10
 		-preset StandardPvP
