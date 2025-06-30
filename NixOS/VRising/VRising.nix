@@ -10,7 +10,6 @@ let
 		-maxUsers 25
 		-maxAdmins 4
 		-saveCount 10
-		-preset StandardPvP
 		-listOnSteam true
 		-listOnEOS true
 		-gamePort 27015
