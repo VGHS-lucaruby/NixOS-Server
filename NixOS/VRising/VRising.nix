@@ -18,7 +18,7 @@ let
 	'';
 
 	startServer = pkgs.writeShellScript "StartVRisingServer" '' 
-		export SteamAppId=${steam-app}
+		export SteamAppId=1604030
 		WINEPREFIX=/var/lib/SteamDownloader/${steam-app} WINEARCH=win64 ${pkgs.wineWow64Packages.staging}/bin/wine /var/lib/SteamDownloader/${steam-app}/VRisingServer.exe $(echo $(cat ${serverargs})) -password $(cat ${config.sops.secrets."VRising/password".path})
 	'';
 
