@@ -13,8 +13,8 @@ let
 		-preset StandardPvP
 		-ListOnSteam true
 		-ListOnEOS true
-		-gamePort 9876
-		-queryPort 9877
+		-gamePort 27015
+		-queryPort 27016
 	'';
 
 	startServer = pkgs.writeShellScript "StartVRisingServer" '' 
