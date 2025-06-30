@@ -263,6 +263,8 @@ in {
 		after = [ "SteamDownloader@${steam-app}-windows.service" ];
 
 		preStart = ''	
+			mkdir -p Settings
+			mkdir -p Saves
 			ln -sf ${serverGameSetings} ./Settings/ServerGameSettings.json
 		'';
 
