@@ -4,7 +4,7 @@ let
 	steam-app = "1829350"; # VRising server tool
 	serverargs = pkgs.writeText "ServerArgs" ''
 		-serverName ${nodeHostName}
-		-persistentDataPath /var/lib/SteamDownloader/${steam-app}/saves
+		-persistentDataPath /var/lib/SteamDownloader/${steam-app}
 		-logFile /var/lib/SteamDownloader/${steam-app}/logs
 		-saveName world
 		-maxUsers 25
@@ -263,7 +263,7 @@ in {
 		after = [ "SteamDownloader@${steam-app}-windows.service" ];
 
 		preStart = ''	
-			ln -sf ${serverGameSetings} ./VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json
+			ln -sf ${serverGameSetings} ./Settings/ServerGameSettings.json
 		'';
 
 		serviceConfig = {
