@@ -261,11 +261,9 @@ in {
 		after = [ "SteamDownloader@${steam-app}-windows.service" ];
 
 		preStart = ''	
-			mkdir -p Settings/v4/world
-			mkdir -p Saves/v4/world
-			ln -sf ${serverGameSetings} ./VRisingServer_Data/StreamingAssets/Settings//ServerGameSettings.json
+			mkdir -p Settings
+			mkdir -p Saves
 			ln -sf ${serverGameSetings} ./Settings/ServerGameSettings.json
-			ln -sf ${serverGameSetings} ./Settings/v4/world/ServerGameSettings.json
 		'';
 
 		serviceConfig = {
