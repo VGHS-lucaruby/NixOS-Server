@@ -13,5 +13,10 @@
       openFirewall = true;
       group = "media"; 
     };
+    
+    prowlarr = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 }

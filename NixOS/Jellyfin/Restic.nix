@@ -5,8 +5,11 @@
     dailyBackup = {
       paths = [
         "/var/lib/jellyfin"
-        "/var/lib/radarr/.config/Radarr"
-        "/var/lib/sonarr/.config/NzbDrone"
+        "/var/lib/jellyseerr"
+        "/var/lib/radarr"
+        "/var/lib/sonarr"
+        "/var/lib/prowlarr"
+        "/var/lib/transmission"
       ];
     };
   };
