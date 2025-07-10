@@ -105,6 +105,39 @@
           }
         ];
       }
+            {
+        job_name = "snmp-unifi";
+        metrics_path = "/snmp";
+        static_configs = [{
+          targets = [ 
+            "10.0.0.252"
+            "10.0.0.251"
+            "10.0.0.240"
+            "10.0.0.239"
+          ];
+        }];
+        params = {
+          auth = [ "public_v2" ];
+          module = [
+            "if_mib"
+            "ubiquiti_unifi"
+          ];
+        };
+        relabel_configs = [
+          {
+            source_labels = [ "__address__" ];
+            target_label = "__param_target";
+          }
+          {
+            source_labels = [ "__param_target" ];
+            target_label = "instance";
+          }
+          {
+            target_label = "__address__";
+            replacement = "127.0.0.1:9116";
+          }
+        ];
+      }
       {
         job_name = "snmp_exporter";
         static_configs = [{
