@@ -13,6 +13,13 @@
     stateDir = "prometheus";
     checkConfig = "syntax-only";
     extraFlags = [ "--storage.tsdb.retention.time 2y" ];
+    exporters = {
+      snmp = {
+        enable = true;
+        openFirewall = true;
+        configurationPath = ./snmp.yml;
+      };
+    };
     scrapeConfigs = [
       {
         job_name = "node-static";
@@ -68,6 +75,40 @@
         static_configs = [{
           targets = [ "10.0.20.100:8123" ];
           labels = { instance = "DATHOHOMEASST01"; };
+        }];
+      }
+      {
+        job_name = "snmp-ilo";
+        metrics_path = "/snmp";
+        static_configs = [{
+          targets = [ "10.0.20.11" ];
+        }];
+        params = {
+          auth = [ "public_v2" ];
+          module = [
+            "if_mib"
+            "hpe"
+          ];
+        };
+        relabel_configs = [
+          {
+            source_labels = [ "__address__" ];
+            target_label = "__param_target";
+          }
+          {
+            source_labels = [ "__param_target" ];
+            target_label = "instance";
+          }
+          {
+            target_label = "__address__";
+            replacement = "127.0.0.1:9116";
+          }
+        ];
+      }
+      {
+        job_name = "snmp_exporter";
+        static_configs = [{
+          targets = [ "localhost:9116" ];
         }];
       }
     ];
