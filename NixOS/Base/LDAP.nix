@@ -1,11 +1,9 @@
 { config, lib, sops, primaryDomain, ... }:
 
 {
-
   sops.secrets = {
     "LDAP/sssdEnv" = {};
   };
-
 
   services.sssd = {
     enable = true;
@@ -63,5 +61,4 @@
       { groups = [ "server-admin-sudo" ]; commands = [ "ALL" ]; }
     ];
   };
-
 }
