@@ -9,6 +9,13 @@
         enabledCollectors = [ "systemd" ];
         openFirewall = true;
       };
+      restic = {
+        enable = true;
+        openFirewall = true;
+        environmentFile = config.sops.secrets."Restic/env".path;
+        repositoryFile = config.sops.secrets."Restic/repo".path;
+        passwordFile = config.sops.secrets."Restic/password".path;
+      };
     };
   };
 }
