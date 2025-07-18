@@ -42,6 +42,19 @@
         }];
       }
       {
+        job_name = "restic";
+        dns_sd_configs = [{
+          names = (map (node: "${node}.server.arpa") allNodes);
+          type = "A";
+          port = 9753;
+        }];
+        relabel_configs = [{
+          source_labels = [ "__meta_dns_name" ];
+          regex = "([^\.]+)\..+";
+          target_label = "instance";
+        }];
+      }
+      {
         job_name = "authentik";
         dns_sd_configs = [{
           names = [ "DATHOAUTHENTIK01.server.arpa" ];
