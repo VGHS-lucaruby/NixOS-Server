@@ -12,6 +12,7 @@
       restic = {
         enable = true;
         openFirewall = true;
+        refreshInterval = 21600;
         environmentFile = config.sops.secrets."Restic/env".path;
         repositoryFile = config.sops.secrets."Restic/repo".path;
         passwordFile = config.sops.secrets."Restic/password".path;
