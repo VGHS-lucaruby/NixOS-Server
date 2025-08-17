@@ -4,7 +4,6 @@
   networking.firewall = {
     allowedTCPPorts = [ 
       9443 # HTTPS
-      3389 # LDAP
       6636 # LDAPS
       9300 # Prometheus Metrics
     ];
