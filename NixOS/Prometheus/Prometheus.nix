@@ -157,6 +157,19 @@
           targets = [ "localhost:9116" ];
         }];
       }
+      {
+        job_name = "postgres";
+        dns_sd_configs = [{
+          names = [ "DATHOPOSTGRES01.server.arpa" ];
+          type = "A";
+          port = 9187;
+        }];
+        relabel_configs = [{
+          source_labels = [ "__meta_dns_name" ];
+          regex = "([^\.]+)\..+";
+          target_label = "instance";
+        }];
+      }
     ];
   };
 }
