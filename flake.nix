@@ -39,7 +39,7 @@
         "DATHOMAIL01"
         "DATHOMINECRAFT01"
         "DATHOPOSTGRES01"
-        "DATHOPROMETH01"
+        "DATHOLOG01"
         "DATHOTANDOOR01"
       ];
       
