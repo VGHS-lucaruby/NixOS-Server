@@ -41,6 +41,7 @@
         "DATHOPOSTGRES01"
         "DATHOLOG01"
         "DATHOTANDOOR01"
+        "DATHOUNIFI01"
       ];
       
       generator = (
