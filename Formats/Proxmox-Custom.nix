@@ -13,12 +13,13 @@
       bios = "ovmf";
       name = nodeHostName;
       net0 = "virtio=00:00:00:00:00:00,bridge=vmbr1,firewall=1,tag=20";
-      diskSize = 32768; # Saneish default, maybe a little big for most things though saves me having to resize each new VM.
       # Set Cores and RAM to a default that allows rebuilding and is good enough for most of my uses as I keep forgetting... lol
       cores = 2;
       memory = 4096;
     };
   };
+  
+  virtualisation.diskSize = 32768; # Saneish default, maybe a little big for most things though saves me having to resize each new VM.
 
   formatAttr = "VMA";
   fileExtension = ".vma.zst";
