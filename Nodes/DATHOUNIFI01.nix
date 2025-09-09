@@ -11,7 +11,7 @@
     ];
     interfaces.eth1.ipv4.addresses = [ 
       {
-        address = "10.0.50.1";
+        address = "10.0.254.1";
         prefixLength = 24;
       } 
     ];
