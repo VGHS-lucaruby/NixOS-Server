@@ -21,6 +21,7 @@
     localDnsResolver = false;
     dkimKeyBits = 2048;
     hierarchySeparator = "/";
+    messageSizeLimit = 37750000;
     
     dmarcReporting = {
       enable = true;
