@@ -14,7 +14,6 @@
     fqdn = "mail.${primaryDomain}";
     domains = [ "${primaryDomain}" ];
     
-    rebootAfterKernelUpgrade.enable = true;
     useUTF8FolderNames = true;
     useFsLayout = true;
     virusScanning = true;
