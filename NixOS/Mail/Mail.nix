@@ -18,7 +18,7 @@
     useFsLayout = true;
     virusScanning = true;
     localDnsResolver = false;
-    dkimKeyType = "ed25519";
+    dkimKeyType = "rsa";
     dkimKeyBits = 4096;
     dkimSelector = "selector0";
     hierarchySeparator = "/";
