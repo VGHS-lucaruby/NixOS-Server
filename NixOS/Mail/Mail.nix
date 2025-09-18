@@ -19,7 +19,9 @@
     useFsLayout = true;
     virusScanning = true;
     localDnsResolver = false;
-    dkimKeyBits = 2048;
+    dkimKeyType = "ed25519";
+    dkimKeyBits = 4096;
+    dkimSelector = "selector0";
     hierarchySeparator = "/";
     messageSizeLimit = 37750000;
     
