@@ -21,5 +21,5 @@
   imports = [ ../NixOS/Jellyfin ];
 
   # Configure Modules
-  modGraphics.enable = lib.mkDefault true;
+  modGraphics.enable = true;
 }
