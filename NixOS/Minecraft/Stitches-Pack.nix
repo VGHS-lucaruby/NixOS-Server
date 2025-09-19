@@ -14,8 +14,8 @@ let
   ];
 
   jvmArgs = ''
-    -Xms12G \
-    -Xmx12G \
+    -Xms8G \
+    -Xmx8G \
     -XX:+UseG1GC \
     -XX:+ParallelRefProcEnabled \
     -XX:MaxGCPauseMillis=200 \
