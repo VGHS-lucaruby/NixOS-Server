@@ -90,35 +90,35 @@
           labels = { instance = "DATHOHOMEASST01"; };
         }];
       }
+      # {
+      #   job_name = "snmp-ilo";
+      #   metrics_path = "/snmp";
+      #   static_configs = [{
+      #     targets = [ "10.0.20.11" ];
+      #   }];
+      #   params = {
+      #     auth = [ "public_v2" ];
+      #     module = [
+      #       "if_mib"
+      #       "hpe"
+      #     ];
+      #   };
+      #   relabel_configs = [
+      #     {
+      #       source_labels = [ "__address__" ];
+      #       target_label = "__param_target";
+      #     }
+      #     {
+      #       source_labels = [ "__param_target" ];
+      #       target_label = "instance";
+      #     }
+      #     {
+      #       target_label = "__address__";
+      #       replacement = "127.0.0.1:9116";
+      #     }
+      #   ];
+      # }
       {
-        job_name = "snmp-ilo";
-        metrics_path = "/snmp";
-        static_configs = [{
-          targets = [ "10.0.20.11" ];
-        }];
-        params = {
-          auth = [ "public_v2" ];
-          module = [
-            "if_mib"
-            "hpe"
-          ];
-        };
-        relabel_configs = [
-          {
-            source_labels = [ "__address__" ];
-            target_label = "__param_target";
-          }
-          {
-            source_labels = [ "__param_target" ];
-            target_label = "instance";
-          }
-          {
-            target_label = "__address__";
-            replacement = "127.0.0.1:9116";
-          }
-        ];
-      }
-            {
         job_name = "snmp-unifi";
         metrics_path = "/snmp";
         static_configs = [{
