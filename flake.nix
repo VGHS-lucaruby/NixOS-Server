@@ -33,6 +33,7 @@
   let
       nodes = [
       # List hostnames here for configuration
+        "DATHOAI01"
         "DATHOAUTHENTIK01"
         "DATHOGRAFANA01"
         "DATHOJELLY01"

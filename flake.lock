@@ -218,10 +218,10 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1757122217,
-        "narHash": "sha256-C8C+G25AbrQTTCF9Gk4+qIr0N4cxESFUI0cYzkgcG8U=",
+        "lastModified": 1758849224,
+        "narHash": "sha256-IB4pbhicuUFwVB0JTPnKMDNUrpwtei7Z7WGBxkDrhUg=",
         "ref": "refs/heads/main",
-        "rev": "8995b847a7968ef75b24a65ba4ad98df2bcdb3e3",
+        "rev": "816b66226df59422a37a8e209d062d2a9f14999f",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/VGHS-lucaruby/NixOS-Server-Secrets.git"
