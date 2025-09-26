@@ -3,8 +3,8 @@
 let
   model = pkgs.fetchurl {
     name = "DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf";
-    url = "https://huggingface.co/bartowski/DeepSeek-R1-Distill-Qwen-32B-GGUF/resolve/main/DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf?download=true";
-    sha256 = "sha256-vtmw9VH1uVv52liIpI8Ph8N61rclGcTL13X1SsC5/GI=";
+    url = "https://huggingface.co/unsloth/DeepSeek-R1-Distill-Qwen-1.5B-GGUF/resolve/main/DeepSeek-R1-Distill-Qwen-1.5B-UD-Q4_K_XL.gguf?download=true";
+    sha256 = "sha256-iOYqgFzw6Jzd0sn+Gqk6TO9pzEo7L/G7RNw8FyQPXVc=";
   };
 
 in {
@@ -13,6 +13,6 @@ in {
     host = "0.0.0.0";
     openFirewall = true;
     model = model;
-    # extraFlags = [];
+    # extraFlags = [ "--jinja "];
   };
 }
