@@ -9,7 +9,7 @@
         enabledCollectors = [ "systemd" ];
         openFirewall = true;
       };
-      restic = {
+      restic = lib.mkIf config.modRestic.enable {
         enable = true;
         openFirewall = true;
         refreshInterval = 21600;
