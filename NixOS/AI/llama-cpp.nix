@@ -16,4 +16,9 @@ in {
     model = model;
     # extraFlags = [ "--jinja "];
   };
+
+  systemd.services.llama-cpp = {
+    environment.XDG_CACHE_HOME = "/var/cache/llama.cpp";
+    serviceConfig.CacheDirectory = "llama.cpp";
+  };
 }
