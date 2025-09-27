@@ -11,4 +11,6 @@
       efiInstallAsRemovable = true;
     };
   };
+
+  hardware.enableRedistributableFirmware = true;
 }
