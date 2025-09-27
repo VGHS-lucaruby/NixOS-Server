@@ -15,5 +15,6 @@
   imports = [ ../NixOS/AI ];
 
   # Configure Modules
+  modGraphics.enable = true;
   modRestic.enable = false;
 }
