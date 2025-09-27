@@ -6,7 +6,7 @@
     exporters = {
       node = {
         enable = true;
-        enabledCollectors = [ "systemd" ];
+        enabledCollectors = [ "systemd" "processes" ];
         openFirewall = true;
       };
       restic = lib.mkIf config.modRestic.enable {
