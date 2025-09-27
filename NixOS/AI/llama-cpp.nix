@@ -14,7 +14,7 @@ in {
     host = "0.0.0.0";
     openFirewall = true;
     model = model;
-    extraFlags = [ "-ngl" "100"];
+    extraFlags = [ "-ngl" "100" "--jinja" ];
   };
 
   systemd.services.llama-cpp = {
