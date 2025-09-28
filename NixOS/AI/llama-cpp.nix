@@ -19,7 +19,11 @@ in {
     host = "0.0.0.0";
     openFirewall = true;
     model = model;
-    extraFlags = [ "-ngl" "100" "--jinja" "--chat-template-file" "${modelTemplate}" ];
+    extraFlags = [ 
+      "-ngl" "99"
+      "--jinja"
+      "--chat-template-file" "${modelTemplate}"
+    ];
   };
 
   systemd.services.llama-cpp = {
