@@ -28,6 +28,10 @@
         LicenseKey = "/run/credentials/geoipupdate.service/maxmindLicence";
       };
     };
+
+    elasticsearch = {
+      listenAddress = "0.0.0.0";
+    };
   };
   systemd.services.parsedmarc.serviceConfig.LoadCredential = "dmarcPassword:${config.sops.secrets."Mail/dmarc-reports".path}";
   systemd.services.geoipupdate.serviceConfig.LoadCredential = "maxmindLicence:${config.sops.secrets."Mail/maxmindLicence".path}";
