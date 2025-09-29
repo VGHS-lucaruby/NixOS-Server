@@ -6,7 +6,6 @@
     ./Firewall.nix
     ./Mail.nix
     ./ParseDMARC.nix
-    # ./Prometheus.nix
     ./Restic.nix
   ];
 }
