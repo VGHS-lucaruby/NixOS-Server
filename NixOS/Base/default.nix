@@ -19,7 +19,7 @@
     ./LDAP.nix
     ./Locale.nix
     ./Networking.nix
-    ./NixGC.nix
+    ./Nix.nix
     ./Packages.nix
     ./Prometheus.nix
     ./Qemu.nix
