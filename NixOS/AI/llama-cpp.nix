@@ -2,15 +2,9 @@
 
 let
   model = pkgs.fetchurl {
-    name = "DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf";
-    url = "https://huggingface.co/bartowski/DeepSeek-R1-Distill-Qwen-7B-GGUF/resolve/main/DeepSeek-R1-Distill-Qwen-7B-Q6_K_L.gguf?download=true";
-    sha256 = "sha256-QCaa0ffmWy7bY1gKkADhYchn4dTP6npTqoCoPEv0n/w=";
-  };
-
-  modelTemplate = pkgs.fetchurl {
-    name = "llama-cpp-deepseek-r1.jinja";
-    url = "https://raw.githubusercontent.com/ggml-org/llama.cpp/0124ac989f7e7bf08803788f66dbe4106bdcdd58/models/templates/llama-cpp-deepseek-r1.jinja";
-    sha256 = "sha256-BVSdrSi4WqG+NtnGJb4nN3tBAcEVaGgw95qZSttoeCI=";
+    name = "gpt-oss-20b-mxfp4.gguf";
+    url = "https://huggingface.co/ggml-org/gpt-oss-20b-GGUF/resolve/main/gpt-oss-20b-mxfp4.gguf?download=true";
+    sha256 = "sha256-vjemNqyg/BquDTIyX4L2tNIUlfBoI7X7wYmK4DA+mTU=";
   };
 in {
   services.llama-cpp = {
@@ -20,9 +14,8 @@ in {
     openFirewall = true;
     model = model;
     extraFlags = [ 
-      "-ngl" "99"
+      "-ngl 99"
       "--jinja"
-      "--chat-template-file" "${modelTemplate}"
     ];
   };
 
