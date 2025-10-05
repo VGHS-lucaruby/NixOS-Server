@@ -2,9 +2,9 @@
 
 let
   model = pkgs.fetchurl {
-    name = "gpt-oss-20b-mxfp4.gguf";
-    url = "https://huggingface.co/ggml-org/gpt-oss-20b-GGUF/resolve/main/gpt-oss-20b-mxfp4.gguf?download=true";
-    sha256 = "sha256-vjemNqyg/BquDTIyX4L2tNIUlfBoI7X7wYmK4DA+mTU=";
+    name = "llama-3.1-8b-instruct-q4_k_m.gguf";
+    url = "https://huggingface.co/modularai/Llama-3.1-8B-Instruct-GGUF/resolve/main/llama-3.1-8b-instruct-q4_k_m.gguf?download=true";
+    sha256 = "sha256-ewZPWEK/lTLJFFbe2iiKG2cjl6VPpymqZllShjAzVXw=";
   };
 in {
   services.llama-cpp = {
@@ -23,4 +23,10 @@ in {
     environment.XDG_CACHE_HOME = "/var/cache/llama.cpp";
     serviceConfig.CacheDirectory = "llama.cpp";
   };
+
+  # Set VRAM to 20GB
+  boot.kernelParams = [ 
+    "amdttm.pages_limit=5120000" 
+    "amdttm.pagpage_pool_size=5120000"
+  ];
 }
