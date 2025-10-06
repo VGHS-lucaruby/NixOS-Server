@@ -36,12 +36,12 @@
     #     "ok_nabu"
     #   ];
     # };
-    #   faster-whisper.servers."WhisperMain" = {
-    #     enable = true;
-    #     language = "auto";
-    #     model = "small-int8";
-    #     uri = "tcp://0.0.0.0:10300";
-    #   };
+      faster-whisper.servers."WhisperMain" = {
+        enable = true;
+        language = "auto";
+        model = "medium";
+        uri = "tcp://0.0.0.0:10300";
+      };
     };
   };
 }
