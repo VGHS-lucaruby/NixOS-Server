@@ -7,6 +7,7 @@
       acceleration = "rocm";
       rocmOverrideGfx = "11.5.1";
       host = "0.0.0.0";
+      openFirewall = true;
       package = pkgs-unstable.ollama;
       # environmentVariables = {
       #   OLLAMA_DEBUG = "1";
@@ -16,7 +17,11 @@
       ];
     };
     
-    open-webui.enable = true;
+    open-webui = {
+      enable = true;
+      host = "0.0.0.0";
+      openFirewall = true;
+    };      
 
     wyoming = {
       piper.servers."PiperMain" = {
