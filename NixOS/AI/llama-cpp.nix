@@ -14,7 +14,7 @@ in {
     openFirewall = true;
     model = model;
     extraFlags = [ 
-      "-ngl" "99"
+      "-ngl" "100"
       "-c" "0"
       "-t" "1"
       "-ub""2048" 
