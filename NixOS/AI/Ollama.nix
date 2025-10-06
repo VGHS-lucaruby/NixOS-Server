@@ -8,7 +8,7 @@
       rocmOverrideGfx = "11.5.1";
       host = "0.0.0.0";
       openFirewall = true;
-      package = pkgs-unstable.ollama;
+      # package = pkgs-unstable.ollama;
       # environmentVariables = {
       #   OLLAMA_DEBUG = "1";
       # };
@@ -39,7 +39,7 @@
       faster-whisper.servers."WhisperMain" = {
         enable = true;
         language = "auto";
-        model = "medium";
+        model = "medium-int8";
         uri = "tcp://0.0.0.0:10300";
       };
     };
