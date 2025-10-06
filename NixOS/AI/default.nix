@@ -2,7 +2,8 @@
 
 {
   imports = [
-    # ./llama-cpp.nix
-    ./ollama.nix
+    ./Firewall.nix
+    # ./Llama-cpp.nix
+    ./Ollama.nix
   ];
 }
