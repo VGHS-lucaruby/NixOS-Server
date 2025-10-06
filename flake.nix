@@ -3,6 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,8 +32,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
   let
+      aarch = "x86_64-linux";
+
       nodes = [
       # List hostnames here for configuration
         "DATHOAI01"
@@ -51,7 +56,7 @@
         # docs: https://github.com/nix-community/nixos-generators/blob/master/README.md
         nodename:
           nixos-generators.nixosGenerate {
-            system = "x86_64-linux";
+            system = aarch;
             customFormats = { "proxmox-custom" = ./Formats/Proxmox-Custom.nix; };
             format = "proxmox-custom";
             modules = [
@@ -63,6 +68,7 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
+              pkgs-unstable = nixpkgs-unstable.legacyPackages.${aarch};
               allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
@@ -75,7 +81,7 @@
         # Used for bundling a nixos configuration for the node to be used for autoUpgrades after deployment.
         nodename:
           nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
+            system = aarch;
             modules = [
               ./NixOS
               ./Nodes/${nodename}.nix
@@ -85,6 +91,7 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
+              pkgs-unstable = nixpkgs-unstable.legacyPackages.${aarch};
               allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
