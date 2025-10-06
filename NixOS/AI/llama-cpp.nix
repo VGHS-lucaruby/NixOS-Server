@@ -15,6 +15,11 @@ in {
     model = model;
     extraFlags = [ 
       "-ngl" "99"
+      "-c" "0"
+      "-t" "1"
+      "-ub""2048" 
+      "-b" "2048"
+      "-fa" "1"
       "--jinja"
     ];
   };
