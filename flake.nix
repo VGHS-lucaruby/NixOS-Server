@@ -34,7 +34,7 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
   let
-      aarch = "x86_64-linux";
+      arch = "x86_64-linux";
 
       nodes = [
       # List hostnames here for configuration
@@ -56,7 +56,7 @@
         # docs: https://github.com/nix-community/nixos-generators/blob/master/README.md
         nodename:
           nixos-generators.nixosGenerate {
-            system = aarch;
+            system = arch;
             customFormats = { "proxmox-custom" = ./Formats/Proxmox-Custom.nix; };
             format = "proxmox-custom";
             modules = [
@@ -68,7 +68,7 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
-              pkgs-unstable = nixpkgs-unstable.legacyPackages.${aarch};
+              pkgs-unstable = nixpkgs-unstable.legacyPackages.${arch};
               allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
@@ -81,7 +81,7 @@
         # Used for bundling a nixos configuration for the node to be used for autoUpgrades after deployment.
         nodename:
           nixpkgs.lib.nixosSystem {
-            system = aarch;
+            system = arch;
             modules = [
               ./NixOS
               ./Nodes/${nodename}.nix
@@ -91,7 +91,7 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
-              pkgs-unstable = nixpkgs-unstable.legacyPackages.${aarch};
+              pkgs-unstable = nixpkgs-unstable.legacyPackages.${arch};
               allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
