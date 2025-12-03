@@ -73,7 +73,7 @@ in {
     jvmOpts = jvmArgs;
     serverProperties = {
       difficulty = 3;
-      allow-flight = 1;
+      allow-flight = true;
       motd = "Stitches Pack";
       white-list = true;
       level-seed = -2674564933958639869;
