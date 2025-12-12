@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 let
   model = pkgs.fetchurl {
@@ -9,7 +9,7 @@ let
 in {
   services.llama-cpp = {
     enable = true;
-    package = pkgs-unstable.llama-cpp.override { vulkanSupport = true; };
+    package = pkgs.llama-cpp.override { vulkanSupport = true; };
     host = "0.0.0.0";
     openFirewall = true;
     model = model;

@@ -2,10 +2,8 @@
   description = "Nixos Server config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,12 +25,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     simple-nixos-mailserver= {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.05";
+      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
+  outputs = { self, nixpkgs, nixos-generators, nixos-hardware, sops-nix, mysecrets, ... } @inputs:
   let
       arch = "x86_64-linux";
 
@@ -68,7 +66,6 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
-              pkgs-unstable = nixpkgs-unstable.legacyPackages.${arch};
               allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";
@@ -91,7 +88,6 @@
               # additional arguments to pass to modules
               inherit inputs;
               self = self;
-              pkgs-unstable = nixpkgs-unstable.legacyPackages.${arch};
               allNodes = nodes;
               nodeHostName = nodename;
               nodeSecrets = "${mysecrets}/Nodes";

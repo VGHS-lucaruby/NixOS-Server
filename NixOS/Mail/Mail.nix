@@ -13,6 +13,7 @@
 
     fqdn = "mail.${primaryDomain}";
     domains = [ "${primaryDomain}" ];
+    systemDomain = primaryDomain;
     
     useUTF8FolderNames = true;
     useFsLayout = true;
