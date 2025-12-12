@@ -26,11 +26,7 @@
     hierarchySeparator = "/";
     messageSizeLimit = 37750000;
     
-    dmarcReporting = {
-      enable = true;
-      domain = "${primaryDomain}";
-      organizationName = "Datumine";
-    };
+    dmarcReporting.enable = true;
 
     ldap = {
       enable = true;
