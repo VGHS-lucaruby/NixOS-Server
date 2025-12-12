@@ -10,6 +10,7 @@
     enableImap = false;
     enableManageSieve = true;
     enableSubmission = false;
+    stateVersion = 3;
 
     fqdn = "mail.${primaryDomain}";
     domains = [ "${primaryDomain}" ];
@@ -28,8 +29,6 @@
     dmarcReporting = {
       enable = true;
       domain = "${primaryDomain}";
-      localpart = "dmarc-reports";
-      fromName = "${primaryDomain}";
       organizationName = "Datumine";
     };
 
