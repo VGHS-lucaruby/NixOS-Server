@@ -44,6 +44,9 @@
       };
       
       dovecot = {
+        userAttrs = ''
+          =home=${config.mailserver.mailDirectory}/ldap/%{user}
+        '';
         userFilter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(mail=%u))";
         passFilter = "(&(objectClass=user)(memberOf=cn=mail,ou=groups,dc=ldap,dc=datumine,dc=co.uk)(mail=%u))";
       };
