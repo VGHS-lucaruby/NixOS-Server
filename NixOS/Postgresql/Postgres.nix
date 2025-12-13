@@ -49,6 +49,26 @@
           ensureDBOwnership = true;
         }
       ];
+      initialScript = pkgs.writeText "init-sql-script" ''
+        DO $$
+        DECLARE pwdAdmin TEXT;
+        DECLARE pwdAuthentik TEXT;
+        DECLARE pwdTandoor TEXT;
+        DECLARE pwdGrafana TEXT;
+        DECLARE pwdFireFly TEXT;
+        BEGIN
+          pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
+          pwdAuthentik := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/authentik".path}'), E'\n', '''));
+          pwdTandoor := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/tandoor".path}'), E'\n', '''));
+          pwdGrafana := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/grafana".path}'), E'\n', '''));
+          pwdFireFly := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/firefly".path}'), E'\n', '''));
+          EXECUTE format('ALTER USER admin PASSWORD '''%s''';', pwdAdmin);
+          EXECUTE format('ALTER USER authentik PASSWORD '''%s''';', pwdAuthentik);
+          EXECUTE format('ALTER USER tandoor PASSWORD '''%s''';', pwdTandoor);
+          EXECUTE format('ALTER USER grafana PASSWORD '''%s''';', pwdGrafana);
+          EXECUTE format('ALTER USER firefly PASSWORD '''%s''';', pwdFireFly);
+        END $$;
+      '';
     };
 
     postgresqlBackup ={
