@@ -4,7 +4,9 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "open-webui"
   ];
-
+ 
+  environment.systemPackages = [ pkgs.ollama-rocm ];
+  
   services = {
     ollama = {
       enable = true;
