@@ -19,9 +19,12 @@
   modRestic.enable = false;
 
   # Set VRAM to 20GB
-  boot.kernelParams = [ 
-    "amdgpu.gttsize=20480"
-    "amdttm.pages_limit=5242880" 
-    "amdttm.pagpage_pool_size=5242880"
-  ];
+  boot = {
+    initrd.kernelModules = [ "amdgpu" ];
+    kernelParams = [ 
+      "amdgpu.gttsize=20480"
+      "amdttm.pages_limit=5242880" 
+      "amdttm.pagpage_pool_size=5242880"
+    ];
+  };
 }

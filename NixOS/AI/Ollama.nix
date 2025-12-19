@@ -5,14 +5,16 @@
     "open-webui"
   ];
 
+  environment.systemPackages = [ pkgs-unstable.ollama-rocm ];
+
   services = {
     ollama = {
       enable = true;
-      acceleration = "vulkan";
+      acceleration = "rocm";
       # rocmOverrideGfx = "11.5.1";
       host = "0.0.0.0";
       openFirewall = true;
-      package = pkgs-unstable.ollama-vulkan;
+      package = pkgs-unstable.ollama;
       environmentVariables = {
         OLLAMA_DEBUG = "2";
       };
