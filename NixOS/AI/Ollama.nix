@@ -12,7 +12,7 @@
       rocmOverrideGfx = "11.5.1";
       host = "0.0.0.0";
       openFirewall = true;
-      package = pkgs-unstable.ollama;
+      package = pkgs-unstable.ollama-rocm;
       environmentVariables = {
         OLLAMA_DEBUG = "2";
       };
