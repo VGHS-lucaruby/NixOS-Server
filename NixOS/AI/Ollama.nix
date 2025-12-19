@@ -4,9 +4,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "open-webui"
   ];
- 
-  environment.systemPackages = [ pkgs.ollama-rocm ];
-  
+
   services = {
     ollama = {
       enable = true;
@@ -15,9 +13,9 @@
       host = "0.0.0.0";
       openFirewall = true;
       # package = pkgs-unstable.ollama;
-      # environmentVariables = {
-      #   OLLAMA_DEBUG = "1";
-      # };
+      environmentVariables = {
+        OLLAMA_DEBUG = "1";
+      };
       loadModels = [ 
         "gpt-oss"
       ];
