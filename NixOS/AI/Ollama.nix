@@ -5,7 +5,7 @@
     "open-webui"
   ];
 
-  environment.systemPackages = [ pkgs-unstable.ollama-rocm ];
+  environment.systemPackages = [ pkgs.ollama-rocm ];
 
   services = {
     ollama = {
@@ -14,9 +14,9 @@
       # rocmOverrideGfx = "11.5.1";
       host = "0.0.0.0";
       openFirewall = true;
-      package = pkgs-unstable.ollama;
+      package = pkgs.ollama;
       environmentVariables = {
-        OLLAMA_DEBUG = "2";
+        OLLAMA_DEBUG = "1";
       };
       loadModels = [ 
         "gpt-oss"
