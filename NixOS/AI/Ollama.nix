@@ -9,7 +9,7 @@
     ollama = {
       enable = true;
       acceleration = "rocm";
-      rocmOverrideGfx = "11.5.1";
+      # rocmOverrideGfx = "11.5.1";
       host = "0.0.0.0";
       openFirewall = true;
       package = pkgs-unstable.ollama-rocm;
