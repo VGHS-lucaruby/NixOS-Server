@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -12,7 +12,7 @@
       rocmOverrideGfx = "11.5.1";
       host = "0.0.0.0";
       openFirewall = true;
-      # package = pkgs-unstable.ollama;
+      package = pkgs-unstable.ollama;
       environmentVariables = {
         OLLAMA_DEBUG = "1";
       };
