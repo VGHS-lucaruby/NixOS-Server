@@ -19,12 +19,10 @@
       #   OLLAMA_DEBUG = "2";
       # };
       loadModels = [ 
-        "llama3.2"
-        "granite3.1-moe"
-        "granite3.2-vision"
+        "qwen3-vl"
+        "qwen3:30b"
         "granite3.3"
         "granite4"
-        "qwen3-vl"
       ];
     };
     
