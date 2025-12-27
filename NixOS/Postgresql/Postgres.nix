@@ -41,13 +41,12 @@
       
       # Set Passwords
       # Replace once PR#326306 is upstreamed
-      # Todo make use config.services.postgresql.ensureDatabases
       initialScript = pkgs.writeText "init-sql-script" ''
         DO $$
         ${toString (map ( dataBase: "DECLARE pwd${dataBase} TEXT;\n") config.services.postgresql.ensureDatabases)}
         BEGIN
           pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
-          ${toString (map ( dataBase: "pwd${dataBase} := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/${dataBase}".path}'), E'\n', ''));\n") config.services.postgresql.ensureDatabases)}
+          ${toString (map ( dataBase: "pwd${dataBase} := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/${dataBase}".path}'), E'\\n', ''));\n") config.services.postgresql.ensureDatabases)}
 
           EXECUTE format('ALTER USER admin PASSWORD '''%s''';', pwdAdmin);
           ${toString (map ( dataBase: "EXECUTE format('ALTER USER ${dataBase} PASSWORD ''%s'';', pwd${dataBase});\n") config.services.postgresql.ensureDatabases)}
