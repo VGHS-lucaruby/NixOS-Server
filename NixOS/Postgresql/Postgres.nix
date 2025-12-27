@@ -43,12 +43,13 @@
       # Replace once PR#326306 is upstreamed
       initialScript = pkgs.writeText "init-sql-script" ''
         DO $$
+        DECLARE pwdadmin TEXT;
         ${toString (map ( dataBase: "DECLARE pwd${dataBase} TEXT;\n") config.services.postgresql.ensureDatabases)}
         BEGIN
-          pwdAdmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
+          pwdadmin := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/admin".path}'), E'\n', '''));
           ${toString (map ( dataBase: "pwd${dataBase} := trim(both from replace(pg_read_file('${config.sops.secrets."Postgres/${dataBase}".path}'), E'\\n', ''));\n") config.services.postgresql.ensureDatabases)}
 
-          EXECUTE format('ALTER USER admin PASSWORD '''%s''';', pwdAdmin);
+          EXECUTE format('ALTER USER admin PASSWORD '''%s''';', pwdadmin);
           ${toString (map ( dataBase: "EXECUTE format('ALTER USER ${dataBase} PASSWORD ''%s'';', pwd${dataBase});\n") config.services.postgresql.ensureDatabases)}
         END $$;
       '';
