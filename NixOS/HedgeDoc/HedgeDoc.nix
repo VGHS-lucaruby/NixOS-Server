@@ -2,7 +2,7 @@
 
 {
   sops.secrets = {
-    "HedgeDoc/env" = {};
+    "HedgeDoc/env" = { owner = "hedgedoc"; };
   };
 
   services.hedgedoc = {
