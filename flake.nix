@@ -40,6 +40,7 @@
       # List hostnames here for configuration
         "DATHOAI01"
         "DATHOAUTHENTIK01"
+        "DATHODOC01"
         "DATHOGRAFANA01"
         "DATHOJELLY01"
         "DATHOMAIL01"
