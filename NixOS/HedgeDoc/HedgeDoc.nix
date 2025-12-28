@@ -12,7 +12,7 @@
       host = "0.0.0.0";
       domain = "docs.${primaryDomain}";
       protocolUseSSL = true;
-      port = 80;
+      port = 8080;
       db = {
         host = "10.0.20.50";
         dialect = "postgresql";
