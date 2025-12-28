@@ -11,7 +11,7 @@
     settings = {
       host = "0.0.0.0";
       domain = "docs.${primaryDomain}";
-      # protocolUseSSL = true;
+      protocolUseSSL = true;
       port = 8080;
       db = {
         host = "10.0.20.50";
