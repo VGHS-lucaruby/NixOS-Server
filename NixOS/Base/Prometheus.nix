@@ -12,7 +12,7 @@
       restic = lib.mkIf config.modRestic.enable {
         enable = true;
         openFirewall = true;
-        refreshInterval = 21600;
+        refreshInterval = 21600; # Todo: Ivestigate having run a specific time rather than interval
         environmentFile = config.sops.secrets."Restic/env".path;
         repositoryFile = config.sops.secrets."Restic/repo".path;
         passwordFile = config.sops.secrets."Restic/password".path;
