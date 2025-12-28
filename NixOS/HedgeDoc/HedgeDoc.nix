@@ -14,7 +14,7 @@
       protocolUseSSL = true;
       port = 80;
       db = {
-        host = "10.0.20.50:5432";
+        host = "10.0.20.50";
         dialect = "postgresql";
         username = "hedgedoc";
         database = "hedgedoc";
