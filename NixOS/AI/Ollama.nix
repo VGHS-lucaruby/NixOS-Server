@@ -20,8 +20,6 @@
       # };
       loadModels = [ 
         "qwen3-vl"
-        "qwen3:30b"
-        "granite3.3"
         "granite4"
       ];
     };
