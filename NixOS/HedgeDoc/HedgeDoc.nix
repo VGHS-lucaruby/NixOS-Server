@@ -14,6 +14,8 @@
       port = 8080;
       protocolUseSSL = true;
       allowAnonymous = false;
+      allowAnonymousEdits = true;
+      defaultPermission = "limited";
       # Using OAuth for login, settings reside in ENV file
       email = false;
       allowEmailRegister = false;
