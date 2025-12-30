@@ -9,10 +9,14 @@
     enable = true;
     environmentFile = config.sops.secrets."HedgeDoc/env".path;
     settings = {
-      host = "0.0.0.0";
       domain = "docs.${primaryDomain}";
-      protocolUseSSL = true;
+      host = "0.0.0.0";
       port = 8080;
+      protocolUseSSL = true;
+      allowAnonymous = false;
+      # Using OAuth for login, settings reside in ENV file
+      email = false;
+      allowEmailRegister = false;
       db = {
         host = "10.0.20.50";
         dialect = "postgresql";
