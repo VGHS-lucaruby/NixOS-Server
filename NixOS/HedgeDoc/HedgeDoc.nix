@@ -9,7 +9,7 @@
     enable = true;
     environmentFile = config.sops.secrets."HedgeDoc/env".path;
     settings = {
-      domain = "docs.${primaryDomain}";
+      domain = "notes.${primaryDomain}";
       host = "0.0.0.0";
       port = 8080;
       protocolUseSSL = true;
