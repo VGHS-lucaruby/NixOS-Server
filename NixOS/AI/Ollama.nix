@@ -19,7 +19,7 @@
       #   OLLAMA_DEBUG = "2";
       # };
       loadModels = [ 
-        "qwen3-vl"
+        "qwen3-vl:2b"
         "granite4"
       ];
     };
