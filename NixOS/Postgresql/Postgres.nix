@@ -10,13 +10,14 @@
     "Postgres/grafana" = { owner = "postgres"; };
     "Postgres/firefly" = { owner = "postgres"; };
     "Postgres/hedgedoc" = { owner = "postgres"; };
+    "Postgres/outline" = { owner = "postgres"; };
   };
 
   # Use lower case names for DB and users lol
   services = {
     postgresql = {
       enable = true;
-      ensureDatabases = [ "authentik" "tandoor" "grafana" "firefly" "hedgedoc" ];
+      ensureDatabases = [ "authentik" "tandoor" "grafana" "firefly" "hedgedoc" "outline" ];
       enableTCPIP = true;
       package = pkgs.postgresql_15;
       dataDir = "/var/lib/postgresql/data";
