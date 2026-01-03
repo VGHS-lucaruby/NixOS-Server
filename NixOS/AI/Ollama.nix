@@ -46,7 +46,7 @@
       faster-whisper.servers."WhisperMain" = {
         enable = true;
         language = "auto";
-        model = "medium-int8";
+        model = "distil-medium.en";
         uri = "tcp://0.0.0.0:10300";
       };
     };
